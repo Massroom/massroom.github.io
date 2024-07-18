@@ -14,3 +14,15 @@ const { off } = chatClient.connection.status.onStatusChange((change) => console.
 
 // terminate all connections chatClient.connection.status.offAll();
 
+// get main room
+const room = chatClient.rooms.get('main');
+
+// attatch this user
+await room.attach();
+
+// subscribe to main room messages
+
+const {unsubscribe} = room.messages.subscribe(message) => {
+  console.log(message);
+}
+
