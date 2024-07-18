@@ -47,18 +47,18 @@ function displayMessage(message) {
   messageList.innerHTML = ''; // Clear the list
 
 
-  function generateRandomUsername() {
-    const adjectives = ['Awesome', 'Bold', 'Crazy', 'Daring', 'Energetic'];
-    const nouns = ['Lion', 'Tiger', 'Bear', 'Wolf', 'Dragon'];
-    const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-    const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
-    return `${randomAdjective}${randomNoun}`;
-  }
-  
+  // Generate a random username
+function generateRandomUsername() {
+  const adjectives = ['Awesome', 'Bold', 'Crazy', 'Daring', 'Energetic'];
+  const nouns = ['Lion', 'Tiger', 'Bear', 'Wolf', 'Dragon'];
+  const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+  const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+  return `${randomAdjective}${randomNoun}`;
+}
+
+// Display message
+function displayMessage(message) {
   const username = generateRandomUsername();
-  console.log(username); // Output: e.g. "BoldDragon"
-  
-  function displayMessage(message) {
   const messageHTML = `
     <span style="font-size: 12px; color: #999;">${username}</span>
     <p>${message}</p>
