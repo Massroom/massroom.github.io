@@ -26,3 +26,9 @@ const {unsubscribe} = room.messages.subscribe(message) => {
   console.log(message);
 }
 
+const messageList = document.getElementById('chat-log');
+
+room.messages.subscribe((message) => {
+  const messageHTML = `<p>${message.data}</p>`;
+  messageList.insertAdjacentHTML('beforeend', messageHTML);
+});
