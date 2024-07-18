@@ -53,7 +53,7 @@ function displayMessage(message) {
   console.log('Displaying message:', message);
   const maxMessages = 100; // Limit the number of messages displayed
   const messagesToDisplay = messageHistory.slice(-maxMessages);
-  //messageList.innerHTML = ''; // Clear the list
+  messageList.innerHTML = ''; // Clear the list
 
   messagesToDisplay.forEach((message) => {
     const messageHTML = `
