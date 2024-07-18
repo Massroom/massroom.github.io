@@ -3,9 +3,9 @@ const xanoClient = new XanoClient({
   realtimeConnectionHash: "9Xy9Tb4aWRCeJNyVSeK8QFBGn60",
 });
 
-const mainChannel = this.xanoClient.channel("main");
+const mainChannel = xanoClient.channel("main");
 
-marvelChannel.on((message) => {
+mainChannel.on((message) => {
   switch (message.action) {
     case 'message':
       messageReceived(message.payload);
@@ -13,11 +13,8 @@ marvelChannel.on((message) => {
     default:
       console.info(message);
   }
-  mainChannel.on((message) => {
-    // ... your existing code ...
-  }, (error) => {
-    console.error("Error receiving message:", error);
-  });
+}, (error) => {
+  console.error("Error receiving message:", error);
 });
 
 const messageInput = document.getElementById('message-input');
