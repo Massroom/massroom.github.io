@@ -3,6 +3,17 @@ const xanoClient = new XanoClient({
   realtimeConnectionHash: "9Xy9Tb4aWRCeJNyVSeK8QFBGn60",
 });
 
+
+function generateRandomUsername() {
+  const adjectives = ['Awesome', 'Bold', 'Crazy', 'Daring', 'Energetic'];
+  const nouns = ['Lion', 'Tiger', 'Bear', 'Wolf', 'Dragon'];
+  const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+  const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+  return `${randomAdjective}${randomNoun}`;
+}
+
+const username = generateRandomUsername()
+
 const mainChannel = xanoClient.channel("main");
 const messageHistory = [];
 
@@ -40,12 +51,15 @@ function messageReceived(message) {
 
 function displayMessage(message) {
   console.log('Displaying message:', message);
-  const maxMessages = 10000; // Limit the number of messages displayed
+  const maxMessages = 100; // Limit the number of messages displayed
   const messagesToDisplay = messageHistory.slice(-maxMessages);
   //messageList.innerHTML = ''; // Clear the list
 
   messagesToDisplay.forEach((message) => {
-    const messageHTML = `<p>${message}</p>`;
+    const messageHTML = `
+    <p style="font-size: small; color: #e6e6e6;">${username}</p>
+    <p>${message}</p>
+    `;
     messageList.insertAdjacentHTML('beforeend', messageHTML);
   });
 
