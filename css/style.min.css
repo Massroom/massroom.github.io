@@ -7,7 +7,7 @@ body {
 }
 
 #messageList {
-  background-color: #343a40; /* Dark gray background */
+  background-color: #8a8a8a; /* Dark gray background */
   padding: 20px;
   border-radius: 10px;
   max-width: 500px;
@@ -20,12 +20,12 @@ body {
 }
 
 #message-input {
-  background-color: #343a40; /* Dark gray background */
+  background-color: #8a8a8a; /* Dark gray background */
   border: none;
   padding: 10px;
   border-radius: 10px;
   width: 75%;
-  color: #fff; /* White text color */
+  color: #00c939; /* White text color */
 }
 
 #send-button {
