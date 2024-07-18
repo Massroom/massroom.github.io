@@ -1,6 +1,7 @@
 body {
   background-color: #212529; /* Dark background */
   font-family: Arial, sans-serif;
+  color: #00c939;
 }
 
 #messageList {
@@ -9,7 +10,7 @@ body {
   border-radius: 10px;
   max-width: 500px;
   margin: 40px auto;
-  color: #fff; /* White text color */
+  color: #00c939; /* White text color */
 }
 
 #messageList p {
@@ -26,7 +27,7 @@ body {
 }
 
 #send-button {
-  background-color: #007bff; /* Blue button */
+  background-color: #00b533; /* Blue button */
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
@@ -35,5 +36,5 @@ body {
 }
 
 #send-button:hover {
-  background-color: #0069d9; /* Darker blue on hover */
+  background-color: #007d23; /* Darker blue on hover */
 }
