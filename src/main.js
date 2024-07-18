@@ -53,8 +53,9 @@ function displayMessage(message) {
   console.log('Displaying message:', message);
   const maxMessages = 100; // Limit the number of messages displayed
   const messagesToDisplay = messageHistory.slice(-maxMessages);
-  //messageList.innerHTML = ''; // Clear the list
-
+  while (messageList.firstChild) {
+    messageList.removeChild(messageList.firstChild);
+  }
   messagesToDisplay.forEach((message) => {
     const messageHTML = `
     <p style="font-size: small; color: #e6e6e6;">${username}</p>
