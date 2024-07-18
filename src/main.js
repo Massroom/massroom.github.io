@@ -8,6 +8,7 @@ const messageHistory = [];
 
 // Receive message
 mainChannel.on((message) => {
+  console.log('Received message:', message);
   switch (message.action) {
     case 'message':
       messageReceived(message.payload);
@@ -38,6 +39,7 @@ function messageReceived(message) {
 }
 
 function displayMessage(message) {
+  console.log('Displaying message:', message);
   const maxMessages = 10; // Limit the number of messages displayed
   const messagesToDisplay = messageHistory.slice(-maxMessages);
   messageList.innerHTML = ''; // Clear the list
