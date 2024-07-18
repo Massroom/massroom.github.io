@@ -23,7 +23,7 @@ const messageList = document.getElementById('messageList');
 
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
-  mainChannel.sendMessage({ action: 'message', payload: message });
+  mainChannel.sendMessage(message);
   messageInput.value = ''; // Clear input field
 });
 
