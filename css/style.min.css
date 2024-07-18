@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');=
+
 body {
   background-color: #212529; /* Dark background */
-  font-family: Arial, sans-serif;
+  font-family: "Honk";
   color: #00c939;
   margin-left: 5%;
   margin-right: 5%;
@@ -17,6 +20,7 @@ body {
 
 #messageList p {
   margin-bottom: 10px;
+  font-family: "VT323";
 }
 
 #message-input {
@@ -25,6 +29,7 @@ body {
   padding: 10px;
   border-radius: 10px;
   width: 75%;
+  font-family: "VT323";
   color: #00c939; /* White text color */
 }
 
@@ -33,6 +38,7 @@ body {
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
+  font-family: "VT323";
   color: #fff; /* White text color */
   cursor: pointer;
 }
