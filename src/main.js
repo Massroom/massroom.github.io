@@ -19,3 +19,28 @@ marvelChannel.on((message) => {
     console.error("Error receiving message:", error);
   });
 });
+
+const messageInput = document.getElementById('message-input');
+const sendButton = document.getElementById('send-button');
+const messageList = document.getElementById('messageList');
+
+sendButton.addEventListener('click', () => {
+  const message = messageInput.value;
+  mainChannel.sendMessage({ action: 'message', payload: message });
+  messageInput.value = ''; // Clear input field
+});
+
+mainChannel.on((message) => {
+  switch (message.action) {
+    case 'message':
+      displayMessage(message.payload);
+      break;
+    default:
+      console.info(message);
+  }
+});
+
+function displayMessage(message) {
+  const messageHTML = `<p>${message}</p>`;
+  messageList.insertAdjacentHTML('beforeend', messageHTML);
+}
