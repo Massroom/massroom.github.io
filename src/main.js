@@ -5,6 +5,8 @@ const xanoClient = new XanoClient({
 
 const mainChannel = xanoClient.channel("main");
 const messageHistory = [];
+
+// recieve message
 mainChannel.on((message) => {
   switch (message.action) {
     case 'message':
@@ -13,7 +15,7 @@ mainChannel.on((message) => {
       displayMessage(message.payload);
       break;
     default:
-      console.info(message);
+      console.log(log: message);
   }
 }, (error) => {
   console.error("Error receiving message:", error);
@@ -22,6 +24,8 @@ mainChannel.on((message) => {
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
 const messageList = document.getElementById('messageList');
+
+// send message
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
   mainChannel.message(message);
