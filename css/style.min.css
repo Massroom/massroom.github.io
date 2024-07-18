@@ -1,0 +1,39 @@
+body {
+  background-color: #212529; /* Dark background */
+  font-family: Arial, sans-serif;
+}
+
+#messageList {
+  background-color: #343a40; /* Dark gray background */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 40px auto;
+  color: #fff; /* White text color */
+}
+
+#messageList p {
+  margin-bottom: 10px;
+}
+
+#message-input {
+  background-color: #343a40; /* Dark gray background */
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  width: 75%;
+  color: #fff; /* White text color */
+}
+
+#send-button {
+  background-color: #007bff; /* Blue button */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff; /* White text color */
+  cursor: pointer;
+}
+
+#send-button:hover {
+  background-color: #0069d9; /* Darker blue on hover */
+}
