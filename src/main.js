@@ -6,6 +6,8 @@ const xanoClient = new XanoClient({
 const mainChannel = xanoClient.channel("main");
 const messageHistory = [];
 
+
+
 // Receive message
 mainChannel.on((message) => {
   console.log('Received message:', message);
@@ -44,11 +46,25 @@ function displayMessage(message) {
   const messagesToDisplay = messageHistory.slice(-maxMessages);
   messageList.innerHTML = ''; // Clear the list
 
-  messagesToDisplay.forEach((message) => {
-    const messageHTML = `<p>${message}</p>`;
-    messageList.insertAdjacentHTML('beforeend', messageHTML);
-  });
 
+  function generateRandomUsername() {
+    const adjectives = ['Awesome', 'Bold', 'Crazy', 'Daring', 'Energetic'];
+    const nouns = ['Lion', 'Tiger', 'Bear', 'Wolf', 'Dragon'];
+    const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+    const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+    return `${randomAdjective}${randomNoun}`;
+  }
+  
+  const username = generateRandomUsername();
+  console.log(username); // Output: e.g. "BoldDragon"
+  
+  function displayMessage(message) {
+  const messageHTML = `
+    <span style="font-size: 12px; color: #999;">${username}</span>
+    <p>${message}</p>
+  `;
+  messageList.insertAdjacentHTML('beforeend', messageHTML);
+}
   // Check if the user is scrolled to the bottom
   const isScrolledToBottom = messageList.scrollTop + messageList.offsetHeight >= messageList.scrollHeight;
 
