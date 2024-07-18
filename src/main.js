@@ -35,7 +35,7 @@ realtime.auth.authenticate((tokenParams) => {
 
     room.messages.subscribe((message) => {
       console.log('Received message:', message);
-      const messageHTML = `<p>${message.data}</p>`;
+      const messageHTML = `<p>${message.text}</p>`;
       messageList.insertAdjacentHTML('beforeend', messageHTML);
     });
   });
