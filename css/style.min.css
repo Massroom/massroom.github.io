@@ -3,10 +3,14 @@
 
 body {
   background-color: #212529; /* Dark background */
-  font-family: "Honk";
+  font-family: "VT323";
   color: #00c939;
   margin-left: 5%;
   margin-right: 5%;
+}
+
+.title {
+  font-family: "Jersey 20";
 }
 
 #messageList {
