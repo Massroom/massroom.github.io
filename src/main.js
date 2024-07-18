@@ -40,9 +40,7 @@ function displayMessage(message) {
     const messagesToDisplay = messageHistory.slice(-maxMessages);
     messageList.innerHTML = ''; // clear the list
     messagesToDisplay.forEach((message) => {
-        const messageHTML = < p > $ {
-            message
-        } < /p>;
+        const messageHTML = `<p> ${message} </p>;`
         messageList.insertAdjacentHTML('beforeend', messageHTML);
     });
     messageList.scrollTop = messageList.scrollHeight; // scroll to bottom
