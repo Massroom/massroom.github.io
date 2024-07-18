@@ -23,7 +23,7 @@ mainChannel.on((message) => {
   console.log('Received message:', message);
   switch (message.action) {
     case 'message':
-      displayMessage(message.payload);
+      displayMessage(username + ': ' + message.payload);
       break;
     default:
       console.log('log:' + message);
@@ -41,7 +41,7 @@ sendButton.addEventListener('click', () => {
 function displayMessage(message) {
   console.log('Displaying message:', message);
   const messageHTML = `
-    <p style="font-size: small; color: #e6e6e6;">${username}</p>
+    <!--<p style="font-size: small; color: #e6e6e6;">${username}</p>-->
     <p>${message}</p>
   `;
   messageList.insertAdjacentHTML('beforeend', messageHTML);
