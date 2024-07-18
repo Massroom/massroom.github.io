@@ -15,7 +15,7 @@ mainChannel.on((message) => {
       displayMessage(message.payload);
       break;
     default:
-      console.log(log: message);
+      console.log('log:' + message);
   }
 }, (error) => {
   console.error("Error receiving message:", error);
