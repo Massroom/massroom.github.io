@@ -23,7 +23,7 @@ mainChannel.on((message) => {
   console.log('Received message:', message);
   switch (message.action) {
     case 'message':
-      displayMessage(username + ': ' + message.payload);
+      displayMessage(message.payload);
       break;
     default:
       console.log('log:' + message);
@@ -34,7 +34,7 @@ mainChannel.on((message) => {
 
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
-  mainChannel.message(message);
+  mainChannel.message(username + ': ' + message);
   messageInput.value = ''; // Clear input field
 });
 
