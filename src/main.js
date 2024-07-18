@@ -6,12 +6,12 @@ const xanoClient = new XanoClient({
 const mainChannel = xanoClient.channel("main");
 const messageHistory = [];
 
-// recieve message
+// Receive message
 mainChannel.on((message) => {
   switch (message.action) {
     case 'message':
       messageReceived(message.payload);
-      messageHistory.push(message.payload); // add message to history
+      messageHistory.push(message.payload); // Add message to history
       displayMessage(message.payload);
       break;
     default:
@@ -25,20 +25,33 @@ const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
 const messageList = document.getElementById('messageList');
 
-// send message
+// Send message
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
   mainChannel.message(message);
   messageInput.value = ''; // Clear input field
 });
 
+function messageReceived(message) {
+  // You might have some other logic here, but make sure to call displayMessage!
+  displayMessage(message);
+}
+
 function displayMessage(message) {
-  const maxMessages = 10; // limit the number of messages displayed
+  const maxMessages = 10; // Limit the number of messages displayed
   const messagesToDisplay = messageHistory.slice(-maxMessages);
-  messageList.innerHTML = ''; // clear the list
+  messageList.innerHTML = ''; // Clear the list
+
   messagesToDisplay.forEach((message) => {
     const messageHTML = `<p>${message}</p>`;
     messageList.insertAdjacentHTML('beforeend', messageHTML);
   });
-  messageList.scrollTop = messageList.scrollHeight; // scroll to bottom
+
+  // Check if the user is scrolled to the bottom
+  const isScrolledToBottom = messageList.scrollTop + messageList.offsetHeight >= messageList.scrollHeight;
+
+  // Scroll to the bottom if the user was scrolled to the bottom before
+  if (isScrolledToBottom) {
+    messageList.scrollTop = messageList.scrollHeight;
+  }
 }
