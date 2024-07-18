@@ -2,6 +2,8 @@ body {
   background-color: #212529; /* Dark background */
   font-family: Arial, sans-serif;
   color: #00c939;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 #messageList {
