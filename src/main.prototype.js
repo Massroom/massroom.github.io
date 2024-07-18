@@ -4,10 +4,15 @@ const xanoClient = new XanoClient({
 });
 
 function generateRandomUsername() {
-  // ... (same as before)
+  const adjectives = ['Awesome', 'Bold', 'Crazy', 'Daring', 'Energetic', 'Stealthy', 'Quick', 'Fierce'];
+  const nouns = ['Lion', 'Tiger', 'Bear', 'Wolf', 'Dragon', 'Fox', 'Serpent', 'Elephant'];
+  const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+  const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+  return `${randomAdjective}${randomNoun}`;
 }
 
 const username = generateRandomUsername();
+
 const mainChannel = xanoClient.channel("main");
 
 const messageInput = document.getElementById('message-input');
