@@ -3,6 +3,15 @@ const xanoClient = new XanoClient({
   realtimeConnectionHash: "9Xy9Tb4aWRCeJNyVSeK8QFBGn60",
 });
 
+function generateRandomUsername() {
+  const adjectives = ['Awesome', 'Bold', 'Crazy', 'Daring', 'Energetic', 'Stealthy', 'Quick', 'Fierce'];
+  const nouns = ['Lion', 'Tiger', 'Bear', 'Wolf', 'Dragon', 'Fox', 'Serpent', 'Elephant'];
+  const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+  const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+  return `${randomAdjective}${randomNoun}`;
+}
+
+const username = generateRandomUsername()
 
 function generateRandomUsername() {
   const adjectives = ['Awesome', 'Bold', 'Crazy', 'Daring', 'Energetic'];
