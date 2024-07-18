@@ -1,6 +1,12 @@
 //init ably
+const realtime = new Ably.Realtime({
+  key: 'x44j9Q.0J9W1Q:fF7ThTZMPZrHy88z2RUe0TCAc3Qr94Ccn5Bs8GPfl64'
+});
 
-const ably = new Ably.Realtime({ key: 'x44j9Q.0J9W1Q:fF7ThTZMPZrHy88z2RUe0TCAc3Qr94Ccn5Bs8GPfl64', clientId: '<clientId>'});
+console.log(realtime.clientId); // Output: A unique client ID assigned by Ably
+const clientId = realtime.clientId
+
+const ably = new Ably.Realtime({ key: 'x44j9Q.0J9W1Q:fF7ThTZMPZrHy88z2RUe0TCAc3Qr94Ccn5Bs8GPfl64', clientId: clientId});
 const chatClient = new ChatClient(ably, {logHandler: logWriteFunc, logLevel: 'debug' });
 
 
