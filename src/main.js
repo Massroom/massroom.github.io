@@ -22,6 +22,17 @@ realtime.auth.authenticate((tokenParams) => {
   const room = chatClient.rooms.get('main');
   room.attach().then(() => {
     console.log('Attached to room');
+
+    // Send message functionality
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+
+    sendButton.addEventListener('click', () => {
+      const message = messageInput.value;
+      room.messages.publish({ data: message });
+      messageInput.value = ''; // Clear input field
+    });
+
     room.messages.subscribe((message) => {
       console.log('Received message:', message);
       const messageHTML = `<p>${message.data}</p>`;
