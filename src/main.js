@@ -40,9 +40,9 @@ function messageReceived(message) {
 
 function displayMessage(message) {
   console.log('Displaying message:', message);
-  const maxMessages = 10; // Limit the number of messages displayed
+  const maxMessages = 10000; // Limit the number of messages displayed
   const messagesToDisplay = messageHistory.slice(-maxMessages);
-  messageList.innerHTML = ''; // Clear the list
+  //messageList.innerHTML = ''; // Clear the list
 
   messagesToDisplay.forEach((message) => {
     const messageHTML = `<p>${message}</p>`;
