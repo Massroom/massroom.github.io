@@ -1,0 +1,27 @@
+{
+  "background_color": "#363636",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Massroom",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Massroom",
+  "start_url": "/",
+  "theme_color": "#363636",
+  "icons": [
+    {
+      "src": "https://massroom.github.io/favicon.png",
+      "type": "image/png",
+      "sizes": "692x692"
+    }
+  ],
+  "id": "1DSTMR",
+  "description": "Mass gathering of random users, on a random chatroom.",
+  "display_override": [
+    "fullscreen",
+    "standalone",
+    "minimal-ui",
+    "window-controls-overlay",
+    "browser"
+  ]
+}
