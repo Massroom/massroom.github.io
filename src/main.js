@@ -44,4 +44,4 @@ function displayMessage(message) {
         messageList.insertAdjacentHTML('beforeend', messageHTML);
     });
     messageList.scrollTop = messageList.scrollHeight; // scroll to bottom
-});
+};
