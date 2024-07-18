@@ -3,18 +3,16 @@ layout: default
 title: Chatroom
 ---
 
-<h1>Chatroom</h1>
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path d="M20 2H2v20h2V4h16v12H6v2H4v2h2v-2h16V2h-2z" fill="currentColor"/> </svg> <h1>Chatroom</h1>
 
 <div style="width: 90%; background-color: #363636; border-radius: 2px; padding: 20px; display: block; margin: 0 auto;">
   <div id="messageList"></div>
   <input id="message-input" type="text" placeholder="Type a message...">
-  <div style="display: flex;">
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <input id="message-input" type="text" placeholder="Type a message...">
     <button id="send-button">Send</button>
     <a href="#" onclick="pasteText()">
       <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path d="M3 2h18v14h-2v2h-2v-2h-2v2h2v2h-2v2H3V2zm2 2v16h8v-6h6V4H5z" fill="currentColor"/> </svg>
-    </a>
-    <a>
-      <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path d="M4 2h11v2H6v13H4V2zm4 4h12v16H8V6zm2 2v12h8V8h-8z" fill="currentColor"/> </svg>
     </a>
   </div>
 </div>
@@ -22,6 +20,6 @@ title: Chatroom
 <script>
   async function pasteText() {
     const text = await navigator.clipboard.readText();
-    document.getElementById('myInput').value = text;
+    document.getElementById('message-input').value = text;
   }
 </script>
