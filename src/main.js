@@ -56,7 +56,7 @@ function displayMessage(message) {
   while (messageList.firstChild) {
     messageList.removeChild(messageList.firstChild);
   }
-  messagesToDisplay.forEach((message) => {
+  messageHistory.forEach((message) => {
     const messageHTML = `
     <p style="font-size: small; color: #e6e6e6;">${username}</p>
     <p>${message}</p>
