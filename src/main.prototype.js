@@ -47,6 +47,9 @@ const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
 const messageList = document.getElementById('messageList');
 
+// on join channel
+mainChannel.message(username + 'has joined the chatroom!');
+
 mainChannel.on((message) => {
   switch (message.action) {
     case 'message':
