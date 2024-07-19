@@ -53,16 +53,14 @@ mainChannel.on((message) => {
       displayMessage(message.payload);
       break;
     case 'join':
-      displayJoinMessage(message.payload);
+      displayJoinMessage(username);
       break;
     case 'leave':
-      displayLeaveMessage(message.payload);
+      displayLeaveMessage(username);
       break;
     default:
       console.info(message);
   }
-}, (error) => {
-  console.error("Error receiving message:", error);
 });
 
 function displayJoinMessage(username) {
