@@ -92,6 +92,9 @@ function updateAuthStatus() {
   }
 }
 
+// Call updateAuthStatus() when the page loads
+updateAuthStatus();
+
 // Call updateAuthStatus() every time the user signs in or out
 xanoClient.on("auth:login", updateAuthStatus);
 xanoClient.on("auth:logout", updateAuthStatus);
