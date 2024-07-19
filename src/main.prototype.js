@@ -67,14 +67,14 @@ mainChannel.on((message) => {
 
 function displayJoinMessage() {
   console.log(Displaying Join);
-  const messageHTML = `<p>${username} joined the chatroom</p>`;
+  const messageHTML = `<p>Someone joined the chatroom</p>`;
   messageList.insertAdjacentHTML('beforeend', messageHTML);
   messageList.scrollTop = messageList.scrollHeight;
 }
 
 function displayLeaveMessage() {
   console.log(Displaying Leave);
-  const messageHTML = `<p>${username} left the chatroom</p>`;
+  const messageHTML = `<p>Someone left the chatroom</p>`;
   messageList.insertAdjacentHTML('beforeend', messageHTML);
   messageList.scrollTop = messageList.scrollHeight;
 }
