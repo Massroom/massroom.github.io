@@ -53,10 +53,10 @@ mainChannel.on((message) => {
       displayMessage(message.payload);
       break;
     case 'join':
-      displayJoinMessage(username);
+      displayJoinMessage();
       break;
     case 'leave':
-      displayLeaveMessage(username);
+      displayLeaveMessage();
       break;
     default:
       console.info(message);
