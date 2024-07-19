@@ -52,8 +52,15 @@ title: Chatroom
 
 <br>
 
-<p>Sign In to create private rooms and have a non-random username.</p>
-<a class="button" href="/authuser/">Sign In</a>
+<div id="auth0">
+  <p>Sign In to create private rooms and have a non-random username.</p>
+  <a class="button" href="/authuser/">Sign In</a>
+</div>
+
+<div id="auth1" style="display: none;">
+  <p>You are signed in! You can now create new private chatrooms.</p>
+  <button class="button" id="createprivroom">Create New Chatroom</button>
+</div>
 
 <script>
   async function pasteText() {
