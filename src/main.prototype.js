@@ -53,12 +53,30 @@ mainChannel.on((message) => {
     case 'message':
       displayMessage(message.payload);
       break;
+    case 'join':
+      displayJoinMessage(message.payload);
+      break;
+    case 'leave':
+      displayLeaveMessage(message.payload);
+      break;
     default:
       console.log('log:' + message);
   }
 }, (error) => {
   console.error("Error receiving message:", error);
 });
+
+function displayJoinMessage(username) {
+  const messageHTML = `<p>${username} joined the chatroom</p>`;
+  messageList.insertAdjacentHTML('beforeend', messageHTML);
+  messageList.scrollTop = messageList.scrollHeight;
+}
+
+function displayLeaveMessage(username) {
+  const messageHTML = `<p>${username} left the chatroom</p>`;
+  messageList.insertAdjacentHTML('beforeend', messageHTML);
+  messageList.scrollTop = messageList.scrollHeight;
+}
 
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
