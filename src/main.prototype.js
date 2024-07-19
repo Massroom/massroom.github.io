@@ -63,23 +63,17 @@ mainChannel.on((message) => {
   }
 });
 
-function displayJoinMessage(username) {
+function displayJoinMessage() {
   const messageHTML = `<p>${username} joined the chatroom</p>`;
   messageList.insertAdjacentHTML('beforeend', messageHTML);
   messageList.scrollTop = messageList.scrollHeight;
 }
 
-function displayLeaveMessage(username) {
+function displayLeaveMessage() {
   const messageHTML = `<p>${username} left the chatroom</p>`;
   messageList.insertAdjacentHTML('beforeend', messageHTML);
   messageList.scrollTop = messageList.scrollHeight;
 }
-
-sendButton.addEventListener('click', () => {
-  const message = messageInput.value;
-  mainChannel.message(username + ': ' + message);
-  messageInput.value = ''; // Clear input field
-});
 
 function displayMessage(message) {
   console.log('Displaying message:', message);
@@ -91,6 +85,12 @@ function displayMessage(message) {
   // Scroll to the bottom
   messageList.scrollTop = messageList.scrollHeight;
 }
+
+sendButton.addEventListener('click', () => {
+  const message = messageInput.value;
+  mainChannel.message(username + ': ' + message);
+  messageInput.value = ''; // Clear input field
+});
 
 
 // Check if signed in via Xano
