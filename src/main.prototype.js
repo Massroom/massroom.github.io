@@ -1,3 +1,7 @@
+let auth = localStorage.getItem("auth");
+
+
+
 const xanoClient = new XanoClient({
   instanceBaseUrl: "https://x8ki-letl-twmt.n7.xano.io/",
   realtimeConnectionHash: "9Xy9Tb4aWRCeJNyVSeK8QFBGn60",
@@ -11,7 +15,31 @@ function generateRandomUsername() {
   return `${randomAdjective}${randomNoun}`;
 }
 
-const username = generateRandomUsername();
+var username
+
+if (auth == 1) {
+  fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('authToken') // Use the stored JWT
+      }
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      username = data.name
+      // Set the innerHTML of the created HTML elements
+      //document.getElementById('username-display').innerHTML = data.name;
+      //document.getElementById('password-display').innerHTML = data.email;
+      //document.getElementById('timestamp').innerHTML = data.created_at; //'Account created at: ' + data.created_at;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+else {
+  username = generateRandomUsername();
+}
 
 const mainChannel = xanoClient.channel("main");
 
@@ -51,7 +79,6 @@ function displayMessage(message) {
 
 
 // Check if signed in via Xano
-let auth = localStorage.getItem("auth");
 
 // Function to update auth status
 function updateAuthStatus() {
