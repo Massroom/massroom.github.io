@@ -48,7 +48,6 @@ const sendButton = document.getElementById('send-button');
 const messageList = document.getElementById('messageList');
 
 mainChannel.on((message) => {
-  console.log('Received message:', message);
   switch (message.action) {
     case 'message':
       displayMessage(message.payload);
@@ -60,7 +59,7 @@ mainChannel.on((message) => {
       displayLeaveMessage(message.payload);
       break;
     default:
-      console.log('log:' + message);
+      console.info(message);
   }
 }, (error) => {
   console.error("Error receiving message:", error);
