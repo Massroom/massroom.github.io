@@ -52,11 +52,15 @@ mainChannel.on((message) => {
     case 'message':
       displayMessage(message.payload);
       break;
-    case 'join':
-      displayJoinMessage();
-      break;
-    case 'leave':
-      displayLeaveMessage();
+    case 'event':
+      const eventType = message.payload.event;
+      if (eventType === 'join') {
+        const username = message.payload.data.username;
+        displayJoinMessage(username);
+      } else if (eventType === 'leave') {
+        const username = message.payload.data.username;
+        displayLeaveMessage(username);
+      }
       break;
     default:
       console.info(message);
