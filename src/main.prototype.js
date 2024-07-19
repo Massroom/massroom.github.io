@@ -80,10 +80,9 @@ function displayMessage(message) {
 
 // Check if signed in via Xano
 
-// Function to update auth status
 function updateAuthStatus() {
   auth = localStorage.getItem("auth");
-  if (auth == 1) {
+  if (auth === '1') {
     document.getElementById("auth0").style.display = "none";
     document.getElementById("auth1").style.display = "block";
   } else {
@@ -96,5 +95,19 @@ function updateAuthStatus() {
 updateAuthStatus();
 
 // Call updateAuthStatus() every time the user signs in or out
-xanoClient.on("auth:login", updateAuthStatus);
-xanoClient.on("auth:logout", updateAuthStatus);
+fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + localStorage.getItem('authToken')
+  }
+})
+.then((response) => response.json())
+.then((data) => {
+  localStorage.setItem("auth", '1');
+  updateAuthStatus();
+})
+.catch((error) => {
+  localStorage.setItem("auth", '0');
+  updateAuthStatus();
+});
