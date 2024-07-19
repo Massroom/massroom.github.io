@@ -55,11 +55,9 @@ mainChannel.on((message) => {
     case 'event':
       const eventType = message.payload.event;
       if (eventType === 'join') {
-        const username = message.payload.data.username;
-        displayJoinMessage(username);
+        displayJoinMessage();
       } else if (eventType === 'leave') {
-        const username = message.payload.data.username;
-        displayLeaveMessage(username);
+        displayLeaveMessage();
       }
       break;
     default:
@@ -68,12 +66,14 @@ mainChannel.on((message) => {
 });
 
 function displayJoinMessage() {
+  console.log(Displaying Join);
   const messageHTML = `<p>${username} joined the chatroom</p>`;
   messageList.insertAdjacentHTML('beforeend', messageHTML);
   messageList.scrollTop = messageList.scrollHeight;
 }
 
 function displayLeaveMessage() {
+  console.log(Displaying Leave);
   const messageHTML = `<p>${username} left the chatroom</p>`;
   messageList.insertAdjacentHTML('beforeend', messageHTML);
   messageList.scrollTop = messageList.scrollHeight;
