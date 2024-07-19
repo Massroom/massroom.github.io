@@ -50,16 +50,21 @@ function displayMessage(message) {
 }
 
 
-
-
 // Check if signed in via Xano
-let auth = localStorage.get("auth");
+let auth = localStorage.getItem("auth");
 
-if (auth == 1) {
-  document.getElementById("auth0").style.display = "none";
-  document.getElementById("auth1").style.display = "block";
-} 
-else if (auth != 1) {
-  document.getElementById("auth0").style.display = "block";
-  document.getElementById("auth1").style.display = "none";
+// Function to update auth status
+function updateAuthStatus() {
+  auth = localStorage.getItem("auth");
+  if (auth == 1) {
+    document.getElementById("auth0").style.display = "none";
+    document.getElementById("auth1").style.display = "block";
+  } else {
+    document.getElementById("auth0").style.display = "block";
+    document.getElementById("auth1").style.display = "none";
+  }
 }
+
+// Call updateAuthStatus() every time the user signs in or out
+xanoClient.on("auth:login", updateAuthStatus);
+xanoClient.on("auth:logout", updateAuthStatus);
