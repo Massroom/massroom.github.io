@@ -48,3 +48,18 @@ function displayMessage(message) {
   // Scroll to the bottom
   messageList.scrollTop = messageList.scrollHeight;
 }
+
+
+
+
+// Check if signed in via Xano
+let auth = localStorage.get("auth");
+
+if (auth == 1) {
+  document.getElementById("auth0").style.display = "none";
+  document.getElementById("auth1").style.display = "block";
+} 
+else if (auth != 1) {
+  document.getElementById("auth0").style.display = "block";
+  document.getElementById("auth1").style.display = "none";
+}
