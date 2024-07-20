@@ -27,8 +27,7 @@ const chatIdInput = document.getElementById('chat-id-input');
 document.getElementById('chat-id').innerHTML = 'Chat id: ' + privateChatId;
 
 
-const privateChannel = createPrivateChatChannel(privateChatId);
-
+const privateChannel = this.xanoClient.channel(`private/${privateChatId}`);
 
 function createPrivateChatChannel() {
   const privateChannel = this.xanoClient.channel(`private/${privateChatId}`);
