@@ -94,7 +94,7 @@ function displayMessage(message) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 
-const userList = channel.getPresence();
+const userList = mainChannel.getPresence();
 const userCount = userList.length;
 document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 
