@@ -1,4 +1,4 @@
-class Auth {
+class checkAuth {
      // setup the class and hide the body by default
     constructor() {
         document.querySelector("body").style.display = "none";
@@ -15,7 +15,7 @@ class Auth {
     }
 }
 
-const auth = new Auth();
+const auth = new checkAuth();
 
 
 
