@@ -22,6 +22,10 @@ function generatePrivateChatId() {
 const privateChatId = generatePrivateChatId();
 const privateChannel = createPrivateChatChannel(privateChatId);
 
+function createPrivateChatChannel() {
+  return privateChannel;
+}
+
 // Display the chat ID on the page
 document.getElementById('chat-id').innerHTML = privateChatId;
 
