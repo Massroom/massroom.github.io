@@ -48,13 +48,6 @@ const chatIdInput = document.getElementById('chat-id-input');
 // Add a button to join the chat
 const joinButton = document.getElementById('join-button');
 
-// Add the input field and button to the modal
-joinModal.innerHTML = `
-  <p>Enter chat ID:</p>
-  <input type="text" id="chat-id-input" placeholder="Enter chat ID">
-  <button id="join-button">Join Chat</button>
-`;
-
 // Handle the join button click event
 joinButton.addEventListener('click', () => {
   const inputChatId = chatIdInput.value;
