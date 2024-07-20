@@ -141,3 +141,19 @@ function createPrivateChatChannel() {
   const privateChannel = xanoClient.channel(`private/${privateChatId}`);
   return privateChannel;
 }
+
+const privateChatButton = document.getElementById('private-send-button');
+
+privateChatButton.addEventListener('click', () => {
+  const message = messageInput.value;
+  const privateChatId = uuid.v4();
+  const privateChannel = createPrivateChatChannel();
+  privateChannel.message(username + ': ' + message);
+  messageInput.value = '';
+  joinPrivateChat(privateChatId);
+});
+
+privateChannel.on('message', (message) => {
+  displayMessage(message);
+});
+
