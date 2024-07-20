@@ -40,7 +40,7 @@ title: Massroom
 <div style="width: 90%; background-color: #363636; border-radius: 2px; padding: 20px; display: block; margin: 0 auto;">
   <p>Live Chat, use the input box to join in!</p>
   <br>
-  <div id="messageList"></div>
+  <div id="private-messageList"></div>
   <div style="display: flex; align-items: center; gap: 10px;">
     <input id="message-input" type="text" placeholder="Type a message...">
     <button id="private-send-button">Send</button>
@@ -66,6 +66,8 @@ title: Massroom
 </div>
 
 <script>
+  const privateMessageList = document.getElementById('private-messageList');
+
   async function pasteText() {
     const text = await navigator.clipboard.readText();
     document.getElementById('message-input').value = text;
