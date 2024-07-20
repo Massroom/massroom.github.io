@@ -23,6 +23,7 @@ const privateChatId = generatePrivateChatId();
 const privateChannel = createPrivateChatChannel(privateChatId);
 
 function createPrivateChatChannel() {
+  const privateChannel = createPrivateChatChannel(privateChatId);
   return privateChannel;
 }
 
