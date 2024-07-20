@@ -20,6 +20,12 @@ function generatePrivateChatId() {
 }
 
 
+const xanoClient = new XanoClient({
+  instanceBaseUrl: "https://x8ki-letl-twmt.n7.xano.io/",
+  realtimeConnectionHash: "yHjeFpItI_ivBM9KL-tjZSYQAwM",
+});
+
+
 const privateChatId = generatePrivateChatId();
 // Add an input field for the chat ID
 const chatIdInput = document.getElementById('chat-id-input');
