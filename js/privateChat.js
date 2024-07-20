@@ -1,4 +1,4 @@
-var auth = localStorage.getItem("auth");
+auth = localStorage.getItem("auth");
 
 if (auth != 1) {
       window.location.replace("/authuser");
