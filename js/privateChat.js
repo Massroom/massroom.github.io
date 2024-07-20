@@ -33,12 +33,7 @@ const chatIdInput = document.getElementById('chat-id-input');
 document.getElementById('chat-id').innerHTML = 'Chat id: ' + privateChatId;
 
 
-const privateChannel = this.xanoClient.channel(`private/${privateChatId}`);
-
-function createPrivateChatChannel() {
-  const privateChannel = this.xanoClient.channel(`private/${privateChatId}`);
-  return privateChannel;
-}
+const privateChannel = xanoClient.channel('private/' + privateChatId);
 
 
 const joinModal = document.getElementById('join-modal');
