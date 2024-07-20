@@ -1,11 +1,14 @@
 let auth = localStorage.getItem("auth");
 
-
-
 const xanoClient = new XanoClient({
   instanceBaseUrl: "https://x8ki-letl-twmt.n7.xano.io/",
   realtimeConnectionHash: "9Xy9Tb4aWRCeJNyVSeK8QFBGn60",
 });
+
+if (auth === 1) {
+  const setAuth = localStorage.getItem("authToken");
+  xano.setRealtimeAuthToken(authToken);
+}
 
 function generateRandomUsername() {
   const adjectives = ['Awesome', 'Bold', 'Crazy', 'Daring', 'Energetic', 'Stealthy', 'Quick', 'Fierce'];
