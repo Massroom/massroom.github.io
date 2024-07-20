@@ -23,7 +23,7 @@ const privateChatId = generatePrivateChatId();
 const privateChannel = createPrivateChatChannel(privateChatId);
 
 function createPrivateChatChannel() {
-  const privateChannel = createPrivateChatChannel(privateChatId);
+  const privateChannel = xanoClient.channel(`private/${privateChatId}`);
   return privateChannel;
 }
 
