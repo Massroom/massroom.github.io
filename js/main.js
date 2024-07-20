@@ -101,6 +101,15 @@ sendButton.addEventListener('click', () => {
 });
 
 
+// presence
+const presence = xanoClient.presence();
+
+presence.on('sync', (users) => {
+  const userCount = users.length;
+  document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+});
+
+
 // Check if signed in via Xano
 
 function updateAuthStatus() {
