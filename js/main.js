@@ -116,11 +116,12 @@ function displayMessage(message) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 
-const userList = mainChannel.getPresence();
-const userCount = userList.length;//.length;
-console.log(userList);
-document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
-
+mainChannel.getPresence().then((presence) => {
+  const userList = presence.users;
+  const userCount = userList.length;
+  console.log(userList);
+  document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+});
 
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
