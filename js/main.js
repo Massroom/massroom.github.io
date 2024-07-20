@@ -124,15 +124,15 @@ updateAuthStatus();
 // private chat
 
 function generatePrivateChatId() {
-  n1 = getRandomInt(10);
-  n2 = getRandomInt(10);
-  n3 = getRandomInt(10);
-  n4 = getRandomInt(10);
-  n5 = getRandomInt(10);
-  n6 = getRandomInt(10);
-  n7 = getRandomInt(10);
-  n8 = getRandomInt(10);
-  n9 = getRandomInt(10);
+  n1 = Math.floor((Math.random() * 9) + 1);
+  n2 = Math.floor((Math.random() * 9) + 1);
+  n3 = Math.floor((Math.random() * 9) + 1);
+  n4 = Math.floor((Math.random() * 9) + 1);
+  n5 = Math.floor((Math.random() * 9) + 1);
+  n6 = Math.floor((Math.random() * 9) + 1);
+  n7 = Math.floor((Math.random() * 9) + 1);
+  n8 = Math.floor((Math.random() * 9) + 1);
+  n9 = Math.floor((Math.random() * 9) + 1);
   return `${n1}${n2}${n3}${n4}${n5}${n6}${n7}${n8}${n9}`
 }
 
