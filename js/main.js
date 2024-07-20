@@ -125,7 +125,15 @@ updateAuthStatus();
 
 function generatePrivateChatId() {
   n1 = math.random(1,9);
-  
+  n2 = math.random(1,9);
+  n3 = math.random(1,9);
+  n4 = math.random(1,9);
+  n5 = math.random(1,9);
+  n6 = math.random(1,9);
+  n7 = math.random(1,9);
+  n8 = math.random(1,9);
+  n9 = math.random(1,9);
+  return `${n1}${n2}${n3}${n4}${n5}${n6}${n7}${n8}${n9}`
 }
 
 function createPrivateChatChannel() {
