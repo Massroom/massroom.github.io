@@ -116,16 +116,10 @@ function displayMessage(message) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 
-mainChannel.getPresence()
-  .then((presence) => {
-    const userList = presence.users;
-    const userCount = userList.length;
-    console.log(userList);
-    document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+const users = mainChannel.getPresence();
+const userCount = users.length;
+console.log(users);
+document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
