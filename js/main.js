@@ -64,6 +64,10 @@ mainChannel.on((message) => {
     case 'leave':
       displayLeaveMessage();
       break;
+    case 'presence_update':
+      const userCount = users.length;
+      document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+      break;
     default:
       console.info(message);
   }
@@ -98,15 +102,6 @@ sendButton.addEventListener('click', () => {
   const message = messageInput.value;
   mainChannel.message(username + ': ' + message);
   messageInput.value = ''; // Clear input field
-});
-
-
-// presence
-
-const presence = xanoClient.presence('main'); // Pass the channel name
-presence.on('sync', (users) => {
-  const userCount = users.length;
-  document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 });
 
 
