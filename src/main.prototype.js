@@ -117,7 +117,7 @@ function updateAuthStatus() {
 updateAuthStatus();
 
 // Call updateAuthStatus() every time the user signs in or out
-fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
+/*fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
@@ -132,4 +132,4 @@ fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
 .catch((error) => {
   localStorage.setItem("auth", '0');
   updateAuthStatus();
-});
+});*/
