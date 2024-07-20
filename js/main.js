@@ -44,7 +44,9 @@ else {
   username = generateRandomUsername();
 }
 
-const mainChannel = xanoClient.channel("main");
+const mainChannel = xanoClient.channel("main", {
+	presence:  true,
+});
 
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
@@ -115,7 +117,7 @@ function displayMessage(message) {
 }
 
 const userList = mainChannel.getPresence();
-const userCount = userList;//.length;
+const userCount = userList.length;//.length;
 console.log(userList);
 document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 
