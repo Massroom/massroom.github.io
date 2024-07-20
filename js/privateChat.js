@@ -22,13 +22,15 @@ function generatePrivateChatId() {
 const privateChatId = generatePrivateChatId();
 const privateChannel = createPrivateChatChannel(privateChatId);
 
+// Display the chat ID on the page
+document.getElementById('chat-id').innerHTML = privateChatId;
+
+
 function createPrivateChatChannel() {
   const privateChannel = xanoClient.channel(`private/${privateChatId}`);
   return privateChannel;
 }
 
-// Display the chat ID on the page
-document.getElementById('chat-id').innerHTML = privateChatId;
 
 const joinModal = document.getElementById('join-modal');
 
