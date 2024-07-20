@@ -19,11 +19,15 @@ function generatePrivateChatId() {
   return `${n1}${n2}${n3}${n4}${n5}${n6}${n7}${n8}${n9}`
 }
 
+// Add an input field for the chat ID
+const chatIdInput = document.getElementById('chat-id-input');
+// Display the chat ID on the page
+document.getElementById('chat-id').innerHTML = privateChatId;
+
 const privateChatId = generatePrivateChatId();
 const privateChannel = createPrivateChatChannel(privateChatId);
 
-// Display the chat ID on the page
-document.getElementById('chat-id').innerHTML = privateChatId;
+
 
 
 function createPrivateChatChannel() {
@@ -34,8 +38,7 @@ function createPrivateChatChannel() {
 
 const joinModal = document.getElementById('join-modal');
 
-// Add an input field for the chat ID
-const chatIdInput = document.getElementById('chat-id-input');
+
 
 // Add a button to join the chat
 const joinButton = document.getElementById('join-button');
