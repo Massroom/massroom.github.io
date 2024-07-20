@@ -2,7 +2,7 @@ let auth = localStorage.getItem("auth");
 
 const xanoClient = new XanoClient({
   instanceBaseUrl: "https://x8ki-letl-twmt.n7.xano.io/",
-  realtimeConnectionHash: "9Xy9Tb4aWRCeJNyVSeK8QFBGn60",
+  realtimeConnectionHash: "yHjeFpItI_ivBM9KL-tjZSYQAwM",
 });
 
 if (auth === 1) {
