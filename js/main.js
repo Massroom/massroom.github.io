@@ -102,8 +102,8 @@ sendButton.addEventListener('click', () => {
 
 
 // presence
-const presence = xanoClient.presence();
 
+const presence = xanoClient.presence('main'); // Pass the channel name
 presence.on('sync', (users) => {
   const userCount = users.length;
   document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
