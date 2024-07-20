@@ -69,6 +69,26 @@ mainChannel.on((message) => {
   }
 });
 
+mainChannel.on((join) => {
+  switch (join.action) {
+    case 'join':
+      displayJoinMessage();
+      break;
+    default:
+      console.info(message);
+  }
+});
+
+mainChannel.on((leave) => {
+  switch (join.action) {
+    case 'leave':
+      displayLeaveMessage();
+      break;
+    default:
+      console.info(message);
+  }
+});
+
 function displayJoinMessage() {
   console.log('Displaying Join');
   const messageHTML = `<p>Someone joined the chatroom</p>`;
