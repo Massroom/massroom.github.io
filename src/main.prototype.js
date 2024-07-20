@@ -48,20 +48,18 @@ const sendButton = document.getElementById('send-button');
 const messageList = document.getElementById('messageList');
 
 // on join channel
-mainChannel.message(username + 'has joined the chatroom!');
+//mainChannel.message(username + 'has joined the chatroom!');
 
 mainChannel.on((message) => {
   switch (message.action) {
     case 'message':
       displayMessage(message.payload);
       break;
-    case 'event':
-      const eventType = message.payload.event;
-      if (eventType === 'join') {
-        displayJoinMessage();
-      } else if (eventType === 'leave') {
-        displayLeaveMessage();
-      }
+    case 'join':
+      displayJoinMessage();
+      break;
+    case 'leave':
+      displayLeaveMessage();
       break;
     default:
       console.info(message);
