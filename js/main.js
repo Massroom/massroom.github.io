@@ -137,23 +137,48 @@ function generatePrivateChatId() {
 }
 
 const privateChatId = generatePrivateChatId();
+const privateChannel = createPrivateChatChannel(privateChatId);
 
-function createPrivateChatChannel() {
-  const privateChannel = xanoClient.channel(`private/${privateChatId}`);
-  return privateChannel;
-}
+// Display the chat ID on the page
+document.getElementById('chat-id').innerHTML = privateChatId;
+
+// Create a modal for joining a private chat
+const joinModal = $.modal({
+  escapeClose: false,
+  clickClose: false,
+  showClose: false
+});
+
+// Add an input field for the chat ID
+const chatIdInput = $('<input type="text" id="chat-id-input" placeholder="Enter chat ID">');
+
+// Add a button to join the chat
+const joinButton = $('<button id="join-button">Join Chat</button>');
+
+// Add the input field and button to the modal
+joinModal.find('.modal-body').append(chatIdInput, joinButton);
+
+// Handle the join button click event
+joinButton.on('click', () => {
+  const inputChatId = chatIdInput.val();
+  if (inputChatId === privateChatId) {
+    joinPrivateChat(privateChatId);
+    joinModal.modal('hide');
+  } else {
+    alert('Invalid chat ID');
+  }
+});
+
+// priv chat msg
 
 const privateChatButton = document.getElementById('private-send-button');
+  privateChatButton.addEventListener('click', () => {
+    const message = messageInput.value;
+    privateChannel.message(username + ': ' + message);
+    messageInput.value = '';
+    joinPrivateChat(privateChatId);
+  });
 
-privateChatButton.addEventListener('click', () => {
-  const message = messageInput.value;
-  //const privateChannel = createPrivateChatChannel();
-  privateChannel.message(username + ': ' + message);
-  messageInput.value = '';
-  joinPrivateChat(privateChatId);
-});
-
-privateChannel.on('message', (message) => {
-  displayMessage(message);
-});
-
+  privateChannel.on('message', (message) => {
+    displayMessage(message);
+  });
