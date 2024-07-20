@@ -75,7 +75,7 @@ mainChannel.on((join) => {
       displayJoinMessage();
       break;
     default:
-      console.info(message);
+      console.info(join);
   }
 });
 
@@ -85,7 +85,7 @@ mainChannel.on((leave) => {
       displayLeaveMessage();
       break;
     default:
-      console.info(message);
+      console.info(leave);
   }
 });
 
