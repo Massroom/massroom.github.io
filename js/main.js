@@ -65,8 +65,6 @@ mainChannel.on((message) => {
       displayLeaveMessage();
       break;
     case 'presence_update':
-      const userCount = users.length;
-      document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
       break;
     default:
       console.info(message);
@@ -97,6 +95,11 @@ function displayMessage(message) {
   // Scroll to the bottom
   messageList.scrollTop = messageList.scrollHeight;
 }
+
+const userList = channel.getPresence()
+const userCount = userList.length;
+document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+
 
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
