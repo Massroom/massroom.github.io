@@ -24,7 +24,7 @@ const privateChatId = generatePrivateChatId();
 // Add an input field for the chat ID
 const chatIdInput = document.getElementById('chat-id-input');
 // Display the chat ID on the page
-document.getElementById('chat-id').innerHTML = privateChatId;
+document.getElementById('chat-id').innerHTML = 'Chat id: ' + privateChatId;
 
 
 const privateChannel = createPrivateChatChannel(privateChatId);
