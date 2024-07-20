@@ -82,7 +82,7 @@ mainChannel.on((join) => {
 });
 
 mainChannel.on((leave) => {
-  switch (join.action) {
+  switch (leave.action) {
     case 'leave':
       displayLeaveMessage();
       break;
