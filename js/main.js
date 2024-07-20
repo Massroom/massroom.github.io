@@ -96,6 +96,7 @@ function displayMessage(message) {
 
 const userList = mainChannel.getPresence();
 const userCount = userList.length;
+console.log(userList);
 document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 
 
