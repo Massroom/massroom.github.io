@@ -1,0 +1,71 @@
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footerwrapper {
+  display: flex;
+  display-content: flex-end;
+  align-items: flex-end;
+  min-height: 100vh;
+  background: #333;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  background: #3586ff;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .social_icon, footer .menu {
+  position: relative;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  margin: 10px 0;
+}
+
+footer .social_icon li, footer .menu li {
+  list-style: none;
+}
+
+footer .menu li a {
+  font-size: 1.2em;
+  color: #ccc;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+}
+footer .menu li a:hover {
+  opacity: 1;
+  color: #fff;
+}
+p {
+  color : #eee;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+</style>
+
+<div class="footerwrapper">
+<footer>  
+  <ul class="menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://1dst.rweb.site/about">About</a></li>
+    <li><a href="https://1dst.rweb.site/contact">Contact</a></li>
+  </ul>
+  <p>&copy2024 1DST Dev | All Rights Reserved</p>
+</footer>
+</div>
