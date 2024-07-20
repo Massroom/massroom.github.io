@@ -142,28 +142,31 @@ const privateChannel = createPrivateChatChannel(privateChatId);
 // Display the chat ID on the page
 document.getElementById('chat-id').innerHTML = privateChatId;
 
-// Create a modal for joining a private chat
-const joinModal = $.modal({
-  escapeClose: false,
-  clickClose: false,
-  showClose: false
-});
+const joinModal = document.getElementById('join-modal');
 
 // Add an input field for the chat ID
-const chatIdInput = $('<input type="text" id="chat-id-input" placeholder="Enter chat ID">');
+const chatIdInput = document.getElementById('chat-id-input');
 
 // Add a button to join the chat
-const joinButton = $('<button id="join-button">Join Chat</button>');
+const joinButton = document.getElementById('join-button');
 
 // Add the input field and button to the modal
-joinModal.find('.modal-body').append(chatIdInput, joinButton);
+joinModal.innerHTML = `
+  <p>Enter chat ID:</p>
+  <input type="text" id="chat-id-input" placeholder="Enter chat ID">
+  <button id="join-button">Join Chat</button>
+`;
 
 // Handle the join button click event
-joinButton.on('click', () => {
-  const inputChatId = chatIdInput.val();
+joinButton.addEventListener('click', () => {
+  const inputChatId = chatIdInput.value;
   if (inputChatId === privateChatId) {
     joinPrivateChat(privateChatId);
-    joinModal.modal('hide');
+    // Close the modal
+    const closeLink = document.createElement('a');
+    closeLink.href = '#join-modal';
+    closeLink.rel = 'modal:close';
+    closeLink.click();
   } else {
     alert('Invalid chat ID');
   }
