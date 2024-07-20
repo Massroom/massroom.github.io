@@ -118,3 +118,28 @@ body {
 #send-button:hover {
   background-color: #007d23; /* Darker blue on hover */
 }
+
+#private-send-button {
+  background-color: #00b533; /* Blue button */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: "VT323";
+  color: #fff; /* White text color */
+  cursor: pointer;
+}
+
+#private-messageList p {
+  margin-bottom: 10px;
+  font-family: "VT323";
+}
+
+#private-messageList {
+  background-color: #8a8a8a; /* Dark gray background */
+  padding: 20px;
+  border: 1px solid #00c939;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 40px auto;
+  color: #00c939; /* White text color */
+}
