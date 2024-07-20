@@ -61,7 +61,17 @@ title: Chatroom
 
 <div id="auth1" style="display: none;">
   <p>You are signed in! You can now create new private chatrooms.</p>
-  <button class="button" id="createprivroom">Create New Chatroom</button>
+  <div style="max-height: 40px; display: flex; align-items: center; gap: 10px; width: 30%;">
+    <button class="button" id="createprivroom">Create New Chatroom</button>
+    <br>
+    <br>
+    <!-- Modal HTML embedded directly into document -->
+    <div id="join-modal" class="modal">
+      <!-- Content will be generated dynamically in main.js -->
+    </div>
+    <!-- Link to open the modal -->
+    <a class="button" href="#join-modal" rel="modal:open">Join Private Chat</a>
+  </div>
   <br>
   <br>
   <div style="max-height: 40px; display: flex; align-items: center; gap: 10px; width: 30%;">
