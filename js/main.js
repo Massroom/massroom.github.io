@@ -64,8 +64,6 @@ mainChannel.on((message) => {
     case 'leave':
       displayLeaveMessage();
       break;
-    case 'presence_update':
-      break;
     default:
       console.info(message);
   }
@@ -96,7 +94,7 @@ function displayMessage(message) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 
-const userList = channel.getPresence()
+const userList = channel.getPresence();
 const userCount = userList.length;
 document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 
