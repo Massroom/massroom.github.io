@@ -117,20 +117,19 @@ function updateAuthStatus() {
 // Call updateAuthStatus() when the page loads
 updateAuthStatus();
 
-// Call updateAuthStatus() every time the user signs in or out
-/*fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + localStorage.getItem('authToken')
-  }
-})
-.then((response) => response.json())
-.then((data) => {
-  localStorage.setItem("auth", '1');
-  updateAuthStatus();
-})
-.catch((error) => {
-  localStorage.setItem("auth", '0');
-  updateAuthStatus();
-});*/
+
+
+
+
+// private chat
+
+function generatePrivateChatId() {
+  n1 = math.random(1,9);
+  
+}
+
+function createPrivateChatChannel() {
+  const privateChatId = generatePrivateChatId();
+  const privateChannel = xanoClient.channel(`private/${privateChatId}`);
+  return privateChannel;
+}
