@@ -65,19 +65,23 @@ mainChannel.on((message) => {
   }
 });
 
-var userCount = 0
+var userCount = null; // Initialize to null
 
 mainChannel.on((presence_full) => {
   const payload = presence_full.payload;
   const presenceArray = payload.presence;
   const currentUserCount = presenceArray.length;
-  userCount = currentUserCount
+  userCount = currentUserCount; // Initialize userCount only here
   console.log(userCount);
   document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 });
 
-mainChannel.on((pressence_update) => {
-  userCount += 1;
+mainChannel.on((presence_update) => {
+  if (userCount !== null) { // Check if userCount is already initialized
+    userCount += 1;
+  } else {
+    userCount = 1; // If not, set to 1
+  }
   console.log(userCount);
   document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 });
