@@ -66,7 +66,6 @@ mainChannel.on((message) => {
 });
 
 var userCount = null;
-var increment = 0;
 
 mainChannel.on((presence_full) => {
   const payload = presence_full.payload;
@@ -78,8 +77,7 @@ mainChannel.on((presence_full) => {
 });
 
 mainChannel.on((presence_update) => {
-  increment += 1;
-  userCount = (userCount === null) ? increment : userCount + increment;
+  userCount = (userCount === null) ? 1 : userCount + 1;
   console.log(userCount);
   document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 });
