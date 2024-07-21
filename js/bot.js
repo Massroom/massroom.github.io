@@ -2,7 +2,8 @@
 sendButton.addEventListener('click', () => {
   console.log('bot ready');
   const message = messageInput.value;
-  if (message === '/help') {
+  console.log('bot read: ' + message);
+  if (message == '/help') {
     console.log('bot detected help');
     displayMessage(`
     <p style="color: #af9cff;">System Bot: Hi there! How may I help you?</p>
