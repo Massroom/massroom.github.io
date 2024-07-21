@@ -1,5 +1,6 @@
 // for enforcer moderator
 sendButton.addEventListener('click', () => {
+  console.log('enforcer ready');
   const message = messageInput.value;
   if (message.includes('fuck' || 'nigger' || 'shit')) {
     console.log('enforcer activated');
