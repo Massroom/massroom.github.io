@@ -133,13 +133,13 @@ function displayMessage(message) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 
-const users = mainChannel.getPresence();
+/*const users = mainChannel.getPresence();
 setTimeout(() => {
   const userList = users.payload;
   const userCount = users.length;
   console.log(userCount);
   document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
-}, 100); // adjust the timeout value as needed 
+}, 100); // adjust the timeout value as needed */
 
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
