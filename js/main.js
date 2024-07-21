@@ -132,9 +132,11 @@ function displayMessage(message) {
 
 
 sendButton.addEventListener('click', () => {
-  const message = messageInput.value;
-  mainChannel.message(username + ': ' + message);
-  messageInput.value = ''; // Clear input field
+	setTimeout(function(){
+		const message = messageInput.value;
+		mainChannel.message(username + ': ' + message);
+		messageInput.value = ''; // Clear input field
+	}, 100);
 });
 
 
