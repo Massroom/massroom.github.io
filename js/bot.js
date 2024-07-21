@@ -15,5 +15,12 @@ sendButton.addEventListener('click', () => {
     </ul>
     `);
   };
+  if (message == '/help') {
+    console.log('bot detected help');
+    displayMessage(`
+    <p style="color: #af9cff;">System Bot: Massroom is a chatroom app made for large groups of people on a public chat! Its conpletely free to use (and we built it 100% free too), its also open source and on GitHub!</p>
+    <a href="https://github.com/massroom/">View it here!</a>
+    `);
+  };
   //mainChannel.message();
 });
