@@ -105,7 +105,7 @@ const privateChatButton = document.getElementById('private-send-button');
     const message = messageInput.value;
     privateChannel.message(username + ': ' + message);
     messageInput.value = '';
-    joinPrivateChat(privateChatId);
+    //joinPrivateChat(privateChatId);
   });
 
   privateChannel.on('message', (message) => {
