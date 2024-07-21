@@ -51,6 +51,15 @@ const mainChannel = xanoClient.channel("main", {
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
 const messageList = document.getElementById('messageList');
+const messageListEmpty = document.getElementById('messageListEmpty);
+
+function isEmpty(element) { 
+  return element.innerHTML.trim() === '' 
+} 
+
+if (isEmpty(messageListEmpty)) {
+	messageListEmpty.insertAdjacentHTML('beforeend', '<p>There are no messages to display.</p>');
+}
 
 // on join channel
 //mainChannel.message(username + 'has joined the chatroom!');
