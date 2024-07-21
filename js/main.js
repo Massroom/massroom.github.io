@@ -89,7 +89,7 @@ mainChannel.on((join) => {
 mainChannel.on((pressence_full) => {
   switch (pressence_full.action) {
     case 'pressence_full':
-      const users = message.payload
+      const users = pressence_full.payload
       const userCount = users.pressence.length
       document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
       break;
