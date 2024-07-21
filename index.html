@@ -52,8 +52,8 @@ title: Chatroom
   </div>
   <div style="display: flex; align-items: center; gap: 10px;">
     <input id="message-input" type="text" placeholder="Type a message...">
-    <button id="send-button">Send</button>
-    <a href="#" onclick="pasteText()">
+    <button id="send-button" aria-label="Send Message" data-balloon-pos="down">Send</button>
+    <a href="#" onclick="pasteText()" aria-label="Paste Text" data-balloon-pos="down">
       <svg width="24" height="24" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M3 2h18v14h-2v2h-2v-2h-2v2h2v2h-2v2H3V2zm2 2v16h8v-6h6V4H5z" />
       </svg>
@@ -63,7 +63,7 @@ title: Chatroom
 
 <div id="auth0">
   <p>Sign In to create private rooms and have a non-random username.</p>
-  <a class="button" href="/authuser/">Sign In</a>
+  <a class="button" href="/authuser/" aria-label="Or sign-up!" data-balloon-pos="down">Sign In</a>
 </div>
 
 <div id="auth1" style="display: none;">
@@ -73,7 +73,7 @@ title: Chatroom
       <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM14 7h-4v4h4V7zm1 6H9v2H7v2h2v-2h6v2h2v-2h-2v-2z" />
     </svg>
     <a class="button" href="/authuser/dashboard">To User Dashboard</a>
-    <a href="/privatechat" class="button" id="createprivroom">Create/Join Chatroom</a>
+    <a href="/privatechat" class="button" id="createprivroom" aria-label="Work in Progress. Expect Bugs." data-balloon-pos="down">Create/Join Chatroom</a>
   </div>
 </div>
 
