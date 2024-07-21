@@ -76,7 +76,7 @@ mainChannel.on((presence_full) => {
 });
 
 mainChannel.on((pressence_update) => {
-  userCount + 1;
+  userCount += 1;
   console.log(userCount);
   document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 });
