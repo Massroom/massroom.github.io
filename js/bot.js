@@ -6,12 +6,18 @@ sendButton.addEventListener('click', () => {
   if (message === '/help') {
     console.log('bot detected help');
     displayMessage(`
-    <p style="color: #af9cff;">System Bot: Hi there! How may I help you?</p>
+    <p style="color: #af9cff;">System Bot: Hi there! Here are all the chat commands!</p>
     <ul style="color: #af9cff; font-family: "VT323";">
+    <p style="color: #af9cff;">Help Utility Commands:</p>
     <li>/help about ---> What is Massroom?</li>
     <li>/help text ---> How to send SVGs, clickable links, and even styled text!</li>
     <li>/help account ---> Info about your account (WILL NOT BE SHOWN PUBLICLY)</li>
     <li>/help faq ---> Common questions about Massroom</li>
+    </ul>
+    <p style="color: #af9cff;">AI Chat Commands:</p>
+    <ul style="color: #af9cff; font-family: "VT323";">
+    <li>/ai ask *question* ---> Ask the AI a question</li>
+    <li>/ai story *story topic* ---> Request a story from the AI</l
     </ul>
     `);
   } else if (message === '/help about') {
@@ -75,9 +81,9 @@ sendButton.addEventListener('click', () => {
     const topic = message.slice('/ai story'.length).trim();
     var response;
     (async () => {
-      let response = await gpt.ask(`Write a short story about ${topic}`);
+      let response = await gpt.ask(`Write a short story about ${topic}, , try to keep your answer short and sweet (less than 100 words?), no need for markdown formatting.`);
       console.log('GPT Reply: ' + response); // you got it!
       displayMessage(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     })();
-};
+  };
 });
