@@ -5,7 +5,6 @@
 body {
   background-color: #212529; /* Dark background */
   font-family: "VT323";
-  font-size: 1.2em;
   color: #00c939;
   margin-left: 5%;
   margin-right: 5%;
@@ -13,6 +12,7 @@ body {
 
 code {
   font-family: "Kode Mono";
+  font-size: 1.2em;
   color: #67a87a;
   background-color: #1f1f1f;
   border: 0.5px solid #000000;
