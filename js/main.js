@@ -65,12 +65,13 @@ mainChannel.on((message) => {
   }
 });
 
-var userCount
+var userCount = 0
 
 mainChannel.on((presence_full) => {
   const payload = presence_full.payload;
   const presenceArray = payload.presence;
-  const userCount = presenceArray.length;
+  const currentUserCount = presenceArray.length;
+  userCount += currentUserCount
   console.log(userCount);
   document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 });
