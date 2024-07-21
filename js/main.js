@@ -135,7 +135,8 @@ function displayMessage(message) {
 
 const users = mainChannel.getPresence();
 setTimeout(() => {
-  const userCount = users.payload.length;
+  const userList = users.payload;
+  const userCount = users.length;
   console.log(userCount);
   document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 }, 100); // adjust the timeout value as needed 
