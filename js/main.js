@@ -51,7 +51,7 @@ const mainChannel = xanoClient.channel("main", {
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
 const messageList = document.getElementById('messageList');
-const messageListEmpty = document.getElementById('messageListEmpty);
+const messageListEmpty = document.getElementById('messageListEmpty');
 
 function isEmpty(element) { 
   return element.innerHTML.trim() === '' 
