@@ -83,6 +83,42 @@ const messageInput = document.getElementById('message-input');
 // Add a button to join the chat
 const joinButton = document.getElementById('join-button');
 
+mainChannel.on((message) => {
+  switch (message.action) {
+    case 'message':
+      displayMessage(message.payload);
+      break;
+    case 'join':
+      displayJoinMessage();
+      break;
+    case 'leave':
+      displayLeaveMessage();
+      break;
+    default:
+      console.info(message);
+  }
+});
+
+mainChannel.on((join) => {
+  switch (join.action) {
+    case 'join':
+      displayJoinMessage();
+      break;
+    default:
+      console.info(join);
+  }
+});
+
+mainChannel.on((leave) => {
+  switch (leave.action) {
+    case 'leave':
+      displayLeaveMessage();
+      break;
+    default:
+      console.info(leave);
+  }
+});
+
 // Handle the join button click event
 joinButton.addEventListener('click', () => {
   const inputChatId = chatIdInput.value;
@@ -111,3 +147,92 @@ const privateChatButton = document.getElementById('private-send-button');
   privateChannel.on('message', (message) => {
     displayMessage(message);
   });
+
+privateChannel.on((message) => {
+  switch (message.action) {
+    case 'message':
+      displayMessage(message.payload);
+      break;
+    case 'join':
+      displayJoinMessage();
+      break;
+    case 'leave':
+      displayLeaveMessage();
+      break;
+    default:
+      console.info(message);
+  }
+});
+
+privateChannel.on((join) => {
+  switch (join.action) {
+    case 'join':
+      displayJoinMessage();
+      break;
+    default:
+      console.info(join);
+  }
+});
+
+privateChannel.on((leave) => {
+  switch (leave.action) {
+    case 'leave':
+      displayLeaveMessage();
+      break;
+    default:
+      console.info(leave);
+  }
+});
+
+function displayJoinMessage() {
+  console.log('Displaying Join');
+  const messageHTML = `<p>Someone joined the chatroom</p>`;
+  messageList.insertAdjacentHTML('beforeend', messageHTML);
+  messageList.scrollTop = messageList.scrollHeight;
+}
+
+function displayLeaveMessage() {
+  console.log('Displaying Leave');
+  const messageHTML = `<p>Someone left the chatroom</p>`;
+  messageList.insertAdjacentHTML('beforeend', messageHTML);
+  messageList.scrollTop = messageList.scrollHeight;
+}
+
+function displayMessage(message) {
+  console.log('Displaying message:', message);
+  const messageHTML = `
+    <!--<p style="font-size: small; color: #e6e6e6;">${username}</p>-->
+    <p>${message}</p>
+  `;
+  messageList.insertAdjacentHTML('beforeend', messageHTML);
+  // Scroll to the bottom
+  messageList.scrollTop = messageList.scrollHeight;
+}
+
+const users = privateChannel.getPresence();
+const userCount = users.length;
+console.log(users);
+document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+
+sendButton.addEventListener('click', () => {
+  const message = messageInput.value;
+  privateChannel.message(username + ': ' + message);
+  messageInput.value = ''; // Clear input field
+});
+
+
+// Check if signed in via Xano
+
+function updateAuthStatus() {
+  auth = localStorage.getItem("auth");
+  if (auth === '1') {
+    document.getElementById("auth0").style.display = "none";
+    document.getElementById("auth1").style.display = "block";
+  } else {
+    document.getElementById("auth0").style.display = "block";
+    document.getElementById("auth1").style.display = "none";
+  }
+}
+
+// Call updateAuthStatus() when the page loads
+updateAuthStatus();
