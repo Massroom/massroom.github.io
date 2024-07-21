@@ -23,7 +23,7 @@ sendButton.addEventListener('click', () => {
   } else if (message === '/help text') {
     console.log('bot detected help');
     displayMessage(`
-    <p>You can display HTML messages by sending HTML code over the input bar. Below are some examples:</p>
+    <p style="color: #af9cff; font-family: "VT323";">You can display HTML messages by sending HTML code over the input bar. Below are some examples:</p>
     <ul style="color: #af9cff; font-family: "VT323";">
     <li>
     <p>Clickable Links:</p>
@@ -38,7 +38,31 @@ sendButton.addEventListener('click', () => {
     </ul>
     `);
   } else if (message === '/help account') {
-    
+    if (auth == 1) {
+      fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('authToken') // Use the stored JWT
+        }
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          displayMessage(`
+          <p style="color: #af9cff;">This is not shown publicly!</p>
+          <p style="color: #af9cff;">User: ${data.name}</p>
+          <p style="color: #af9cff;">Email: ${data.email}</p>
+            `
+          );
+            })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else if (auth != 1) {
+      displayMessage(`
+      <p style="color: #af9cff;>You are not signed in. We are unable to get your account details.</p>
+      `);
+    }
   }
   //mainChannel.message();
 });
