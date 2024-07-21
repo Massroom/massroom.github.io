@@ -66,6 +66,11 @@ mainChannel.on((message) => {
     case 'leave':
       displayLeaveMessage();
       break;
+    case 'pressence_full':
+      const users = message.payload
+      const userCount = users.pressence.length
+      document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+      break;
     default:
       console.info(message);
   }
@@ -116,16 +121,18 @@ function displayMessage(message) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 
-const users = mainChannel.getPresence();
-const userCount = users.length;
-console.log(users);
-document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+/*const users = mainChannel.getPresence();
+setTimeout(() => {
+  const userCount = users.length;
+  console.log(userCount);
+  document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+}, 100); // adjust the timeout value as needed
 
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
   mainChannel.message(username + ': ' + message);
   messageInput.value = ''; // Clear input field
-});
+});*/
 
 
 // Check if signed in via Xano
