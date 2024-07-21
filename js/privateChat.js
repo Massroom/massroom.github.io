@@ -79,6 +79,7 @@ const joinModal = document.getElementById('join-modal');
 
 const messageInput = document.getElementById('message-input');
 
+const sendButton = document.getElementById('private-send-button');
 
 // Add a button to join the chat
 const joinButton = document.getElementById('join-button');
