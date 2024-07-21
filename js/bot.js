@@ -69,15 +69,15 @@ sendButton.addEventListener('click', () => {
     (async () => {
       let response = await gpt.ask(question);
       console.log('GPT Reply: ' + response); // you got it!
+      displayMessage(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     })();
-    displayMessage(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
   } else if (message.startsWith('/ai story')) {
     const topic = message.slice('/ai story'.length).trim();
     var response;
     (async () => {
       let response = await gpt.ask(`Write a short story about ${topic}`);
       console.log('GPT Reply: ' + response); // you got it!
+      displayMessage(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     })();
-    displayMessage(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
 };
 });
