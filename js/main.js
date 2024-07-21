@@ -126,13 +126,13 @@ setTimeout(() => {
   const userCount = users.length;
   console.log(userCount);
   document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
-}, 100); // adjust the timeout value as needed
+}, 100); // adjust the timeout value as needed */
 
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
   mainChannel.message(username + ': ' + message);
   messageInput.value = ''; // Clear input field
-});*/
+});
 
 
 // Check if signed in via Xano
