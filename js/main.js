@@ -76,13 +76,17 @@ mainChannel.on((presence_full) => {
 });
 
 mainChannel.on((join) => {
-	console.log('event join');
-	displayJoinMessage();
+  if (join.payload.user.username !== username) {
+    console.log('event join');
+    displayJoinMessage();
+  }
 });
 
 mainChannel.on((leave) => {
-	console.log('event leave');
-	displayLeaveMessage();
+  if (leave.payload.user.username !== username) {
+    console.log('event leave');
+    displayLeaveMessage();
+  }
 });
 
 function displayJoinMessage() {
