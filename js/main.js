@@ -71,7 +71,7 @@ mainChannel.on((presence_full) => {
   const payload = presence_full.payload;
   const presenceArray = payload.presence;
   const currentUserCount = presenceArray.length;
-  userCount += currentUserCount
+  userCount = currentUserCount
   console.log(userCount);
   document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 });
