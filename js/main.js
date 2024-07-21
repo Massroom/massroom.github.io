@@ -79,7 +79,7 @@ mainChannel.on((join) => {
 
 mainChannel.on((pressence_full) => {
 	console.log('event pressencefull');
-	const userList = users.payload;
+	const userList = pressence_full.payload;
 	const userCount = users.length;
 	console.log(userCount);
 	document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
