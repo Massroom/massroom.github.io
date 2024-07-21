@@ -60,17 +60,6 @@ mainChannel.on((message) => {
     case 'message':
       displayMessage(message.payload);
       break;
-    case 'join':
-      displayJoinMessage();
-      break;
-    case 'leave':
-      displayLeaveMessage();
-      break;
-    case 'pressence_full':
-      const users = message.payload
-      const userCount = users.pressence.length
-      document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
-      break;
     default:
       console.info(message);
   }
