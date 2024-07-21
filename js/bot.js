@@ -63,6 +63,13 @@ sendButton.addEventListener('click', () => {
       <p style="color: #af9cff;>You are not signed in. We are unable to get your account details.</p>
       `);
     }
-  }
-  //mainChannel.message();
+  } else if (message.startsWith('/ai ask')) {
+  const question = message.slice('/ai ask'.length).trim();
+  const response = await gpt.ask(question);
+  displayMessage(`AI: ${response}`);
+} else if (message.startsWith('/ai story')) {
+  const topic = message.slice('/ai story'.length).trim();
+  const response = await gpt.ask(`Write a story about ${topic}`);
+  displayMessage(`AI: ${response}`);
+};
 });
