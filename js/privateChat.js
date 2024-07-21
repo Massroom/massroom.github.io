@@ -226,13 +226,6 @@ sendButton.addEventListener('click', () => {
 
 function updateAuthStatus() {
   auth = localStorage.getItem("auth");
-  if (auth === '1') {
-    document.getElementById("auth0").style.display = "none";
-    document.getElementById("auth1").style.display = "block";
-  } else {
-    document.getElementById("auth0").style.display = "block";
-    document.getElementById("auth1").style.display = "none";
-  }
 }
 
 // Call updateAuthStatus() when the page loads
