@@ -60,16 +60,24 @@ sendButton.addEventListener('click', () => {
         });
     } else if (auth != 1) {
       displayMessage(`
-      <p style="color: #af9cff;>You are not signed in. We are unable to get your account details.</p>
+      <p style="color: #af9cff;">You are not signed in. We are unable to get your account details.</p>
       `);
     }
   } else if (message.startsWith('/ai ask')) {
-  const question = message.slice('/ai ask'.length).trim();
-  const response = await gpt.ask(question);
-  displayMessage(`AI: ${response}`);
-} else if (message.startsWith('/ai story')) {
-  const topic = message.slice('/ai story'.length).trim();
-  const response = await gpt.ask(`Write a story about ${topic}`);
-  displayMessage(`AI: ${response}`);
+    const question = message.slice('/ai ask'.length).trim();
+    var response;
+    (async () => {
+      let response = await gpt.ask(question);
+      console.log('GPT Reply: ' + response); // you got it!
+    })();
+    displayMessage(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
+  } else if (message.startsWith('/ai story')) {
+    const topic = message.slice('/ai story'.length).trim();
+    var response;
+    (async () => {
+      let response = await gpt.ask(`Write a short story about ${topic}`);
+      console.log('GPT Reply: ' + response); // you got it!
+    })();
+    displayMessage(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
 };
 });
