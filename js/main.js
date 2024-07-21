@@ -77,6 +77,7 @@ mainChannel.on((message) => {
 });
 
 mainChannel.on((join) => {
+	console.log(event join);
   switch (join.action) {
     case 'join':
       displayJoinMessage();
@@ -87,6 +88,7 @@ mainChannel.on((join) => {
 });
 
 mainChannel.on((pressence_full) => {
+	console.log(event pressencefull);
   switch (pressence_full.action) {
     case 'pressence_full':
       const users = pressence_full.payload
@@ -99,6 +101,7 @@ mainChannel.on((pressence_full) => {
 });
 
 mainChannel.on((leave) => {
+	console.log(event leave);
   switch (leave.action) {
     case 'leave':
       displayLeaveMessage();
