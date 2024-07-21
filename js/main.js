@@ -72,7 +72,7 @@ mainChannel.on((join) => {
 
 mainChannel.on((pressence_full) => {
 	console.log('event pressencefull');
-	const userList = pressence_full.payload.pressence;
+	const userList = payload.pressence;
 	const userCount = userList.length;
 	console.log(userCount);
 	document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
@@ -108,10 +108,6 @@ function displayMessage(message) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 
-/*const users = mainChannel.getPresence();
-setTimeout(() => {
-  
-}, 100); // adjust the timeout value as needed */
 
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
