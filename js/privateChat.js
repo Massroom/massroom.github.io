@@ -99,7 +99,7 @@ privateChannel.on((message) => {
   }
 });
 
-mainChannel.on((join) => {
+privateChannel.on((join) => {
   switch (join.action) {
     case 'join':
       displayJoinMessage();
@@ -109,7 +109,7 @@ mainChannel.on((join) => {
   }
 });
 
-mainChannel.on((leave) => {
+privateChannel.on((leave) => {
   switch (leave.action) {
     case 'leave':
       displayLeaveMessage();
