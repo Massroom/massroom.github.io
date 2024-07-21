@@ -67,7 +67,7 @@ sendButton.addEventListener('click', () => {
     const question = message.slice('/ai ask'.length).trim();
     var response;
     (async () => {
-      let response = await gpt.ask(question);
+      let response = await gpt.ask(question + ', try to keep your answer short and sweet, no need for markdown formatting.');
       console.log('GPT Reply: ' + response); // you got it!
       displayMessage(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     })();
