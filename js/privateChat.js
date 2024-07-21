@@ -87,7 +87,7 @@ const joinButton = document.getElementById('join-button');
 joinButton.addEventListener('click', () => {
   const inputChatId = chatIdInput.value;
   if (inputChatId === privateChatId) {
-    joinPrivateChat(privateChatId);
+    //joinPrivateChat(privateChatId);
     // Close the modal
     const closeLink = document.createElement('a');
     closeLink.href = '#join-modal';
