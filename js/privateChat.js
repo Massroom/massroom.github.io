@@ -212,7 +212,7 @@ function displayMessage(message) {
 const users = privateChannel.getPresence();
 const userCount = users.length;
 console.log(users);
-document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+//document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
