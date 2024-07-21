@@ -1,14 +1,14 @@
 // for enforcer moderator
 sendButton.addEventListener('click', () => {
   console.log('enforcer ready');
-  const message = messageInput.value;
-  if (message.includes('fuck' || 'nigger' || 'shit')) {
+  const swearWords = ['fuck', 'kys', 'shit', 'nigger', 'suicide', 'kys', 'kill yourself','slit your throat'];
+  const message = messageInput.value.toLowerCase(); // Convert to lowercase
+
+  for (const word of swearWords) {
+    if (message.includes(word.toLowerCase())) { // Convert swear word to lowercase
     console.log('enforcer activated');
-    displayMessage(`<h4 style="color: #fff000;">Warning: @${username}We do not encourage swearing in Massroom. Please stop that.</h4>`);
-  };
-  else if (message.includes('suicide' || 'kys' || 'kill yourself')) {
-    console.log('enforcer activated');
-    displayMessage(`<h2 style="color: #af9cff;">Warning: @${username}We do not encourage sensitive topics in Massroom. Please stop that.</h2>`);
-  };
-  //mainChannel.message();
+    displayMessage(`<p style="color: #ff0000;">Warning: Please refrain from using inappropriate language.</p>`);
+    break;
+    }
+  }
 });
