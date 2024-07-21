@@ -90,9 +90,10 @@ mainChannel.on((join) => {
 
 mainChannel.on((pressence_full) => {
 	console.log('event pressencefull');
-	const users = pressence_full.payload
-      const userCount = users.pressence.length
-      document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+	const userList = users.payload;
+	const userCount = users.length;
+	console.log(userCount);
+	document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
   switch (pressence_full.action) {
     case 'pressence_full':
       const users = pressence_full.payload
@@ -118,14 +119,14 @@ mainChannel.on((leave) => {
 
 function displayJoinMessage() {
   console.log('Displaying Join');
-  const messageHTML = `<p>Someone joined the chatroom</p>`;
+  const messageHTML = `<p>${username} joined the chatroom</p>`;
   messageList.insertAdjacentHTML('beforeend', messageHTML);
   messageList.scrollTop = messageList.scrollHeight;
 }
 
 function displayLeaveMessage() {
   console.log('Displaying Leave');
-  const messageHTML = `<p>Someone left the chatroom</p>`;
+  const messageHTML = `<p>${username} left the chatroom</p>`;
   messageList.insertAdjacentHTML('beforeend', messageHTML);
   messageList.scrollTop = messageList.scrollHeight;
 }
@@ -143,10 +144,7 @@ function displayMessage(message) {
 
 /*const users = mainChannel.getPresence();
 setTimeout(() => {
-  const userList = users.payload;
-  const userCount = users.length;
-  console.log(userCount);
-  document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+  
 }, 100); // adjust the timeout value as needed */
 
 sendButton.addEventListener('click', () => {
