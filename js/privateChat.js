@@ -38,6 +38,7 @@ const privateChannel = xanoClient.channel('private/' + privateChatId);
 
 const joinModal = document.getElementById('join-modal');
 
+const messageInput = document.getElementById('message-input');
 
 
 // Add a button to join the chat
