@@ -86,6 +86,18 @@ mainChannel.on((join) => {
   }
 });
 
+mainChannel.on((pressence_full) => {
+  switch (pressence_full.action) {
+    case 'pressence_full':
+      const users = message.payload
+      const userCount = users.pressence.length
+      document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+      break;
+    default:
+      console.info(join);
+  }
+});
+
 mainChannel.on((leave) => {
   switch (leave.action) {
     case 'leave':
