@@ -81,7 +81,7 @@ body {
 }
 
 #messageList {
-  background-color: #8a8a8a; /* Dark gray background */
+  background-color: #4f4f4f; /* Dark gray background */
   padding: 20px;
   border: 1px solid #00c939;
   border-radius: 10px;
@@ -135,7 +135,7 @@ body {
 }
 
 #private-messageList {
-  background-color: #8a8a8a; /* Dark gray background */
+  background-color: #4f4f4f; /* Dark gray background */
   padding: 20px;
   border: 1px solid #00c939;
   border-radius: 10px;
