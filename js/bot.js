@@ -3,7 +3,7 @@ sendButton.addEventListener('click', () => {
   console.log('bot ready');
   const message = messageInput.value;
   console.log('bot read: ' + message);
-  if (message == '/help') {
+  if (message === '/help') {
     console.log('bot detected help');
     displayMessage(`
     <p style="color: #af9cff;">System Bot: Hi there! How may I help you?</p>
@@ -15,7 +15,7 @@ sendButton.addEventListener('click', () => {
     </ul>
     `);
   };
-  if (message == '/help about') {
+  if (message === '/help about') {
     console.log('bot detected help');
     displayMessage(`
     <p style="color: #af9cff;">System Bot: Massroom is a chatroom app made for large groups of people on a public chat! Its conpletely free to use (and we built it 100% free too), its also open source and on GitHub!</p>
