@@ -94,7 +94,7 @@ mainChannel.on((pressence_full) => {
       document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
       break;
     default:
-      console.info(join);
+      console.info(pressence_full);
   }
 });
 
