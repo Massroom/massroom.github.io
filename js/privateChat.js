@@ -83,7 +83,7 @@ const messageInput = document.getElementById('message-input');
 // Add a button to join the chat
 const joinButton = document.getElementById('join-button');
 
-mainChannel.on((message) => {
+privateChannel.on((message) => {
   switch (message.action) {
     case 'message':
       displayMessage(message.payload);
