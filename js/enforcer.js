@@ -1,13 +1,13 @@
 // for enforcer moderator
 sendButton.addEventListener('click', () => {
   console.log('enforcer ready');
-  const swearWords = ['fuck', 'kys', 'shit', 'nigger', 'suicide', 'kys', 'kill yourself','slit your throat'];
+  const swearWords = ['fuck', 'kys', 'shit', 'cunt', 'nigger', 'suicide', 'kys', 'kill yourself','slit your throat'];
   const message = messageInput.value.toLowerCase(); // Convert to lowercase
 
   for (const word of swearWords) {
     if (message.includes(word.toLowerCase())) { // Convert swear word to lowercase
     console.log('enforcer activated');
-    displayMessage(`<p style="color: #ff0000;">Warning: Please refrain from using inappropriate language.</p>`);
+    displayMessage(`<p style="color: #ff0000;">Warning: @${username} please refrain from using inappropriate language.</p>`);
     break;
     }
   }
@@ -32,6 +32,6 @@ function checkForSpam() {
 
   if (messageCount > 5) { // Adjust this threshold as needed
     console.log('Enforcer Spam detected!');
-    displayMessage(`<p style="color: #ff0000;">Warning: Spam detected!</p>`);
+    displayMessage(`<p style="color: #ff0000;">Warning: @${username} please stop spamming.</p>`);
   }
 }
