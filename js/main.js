@@ -58,7 +58,7 @@ function isEmpty(element) {
 } 
 
 if (isEmpty(messageListEmpty)) {
-	messageListEmpty.insertAdjacentHTML('beforeend', '<p>There are no messages to display.</p>');
+	messageListEmpty.insertAdjacentHTML('beforeend', '<p style="color: #af9cff;">Info: Start of chat. It may appear empty for you but not for others.</p>');
 }
 
 // on join channel
