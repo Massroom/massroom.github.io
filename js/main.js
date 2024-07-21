@@ -65,17 +65,19 @@ mainChannel.on((message) => {
   }
 });
 
+
+
+mainChannel.on((presence_full) => {
+  const payload = presence_full.payload;
+  const presenceArray = payload.presence;
+  const userCount = presenceArray.length;
+  console.log(userCount);
+  document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
+});
+
 mainChannel.on((join) => {
 	console.log('event join');
 	displayJoinMessage();
-});
-
-mainChannel.on((pressence_full) => {
-	console.log('event pressencefull');
-	const userList = payload.pressence;
-	const userCount = userList.length;
-	console.log(userCount);
-	document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 });
 
 mainChannel.on((leave) => {
