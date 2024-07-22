@@ -132,6 +132,7 @@ function displayMessage(message) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 
+var messageInput;
 
 sendButton.addEventListener('click', () => {
 	setTimeout(function(){
