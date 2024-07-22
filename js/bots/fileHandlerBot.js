@@ -15,6 +15,6 @@ sendButton.addEventListener('click', () => {
     </button>
     </a>
     `;
-    displayMessage(fileHTML);
+    mainChannel.message(fileHTML);
   };
 });
