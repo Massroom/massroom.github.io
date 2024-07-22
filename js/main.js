@@ -132,11 +132,9 @@ function displayMessage(message) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 
-var message;
-
 sendButton.addEventListener('click', () => {
 	setTimeout(function(){
-		message = messageInput.value;
+		const message = messageInput.value;
 		checkForSpam(message); // Execute spam detection
 		mainChannel.message(username + ': ' + message);
 		messageInput.value = ''; // Clear input field
