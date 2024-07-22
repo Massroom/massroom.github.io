@@ -136,7 +136,7 @@ var messageInput;
 
 sendButton.addEventListener('click', () => {
 	setTimeout(function(){
-		const message = messageInput.value;
+		let message = messageInput.value;
 		checkForSpam(message); // Execute spam detection
 		mainChannel.message(username + ': ' + message);
 		messageInput.value = ''; // Clear input field
