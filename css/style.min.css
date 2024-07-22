@@ -27,6 +27,23 @@ a {
   color: #7c78ff;
 }
 
+.download-btn {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background-color: #3e8e41;
+}
+
+.download-btn i {
+  margin-left: 5px;
+}
+
 .toc {
   background-color: #1a1a1a;
   color: #ffffff;
