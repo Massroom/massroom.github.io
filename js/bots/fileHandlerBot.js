@@ -2,7 +2,6 @@
 
 sendButton.addEventListener('click', () => {
   console.log('bot ready');
-  const message = messageInput.value;
   console.log('bot read: ' + message);
   if (message.startsWith('/file send')) {
     const fileUrl = message.slice('/file send'.length).trim();;
