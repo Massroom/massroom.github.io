@@ -27,21 +27,29 @@ a {
   color: #7c78ff;
 }
 
-.download-btn {
-  background-color: #4CAF50;
-  color: #fff;
-  padding: 10px 20px;
+.btn-dark {
+  font-family: 'VT323', monospace; /* font family */
+  font-size: 14px; /* font size */
+  background-color: #1a1a1a; /* dark background color */
+  color: #ffffff; /* white text color */
   border: none;
   border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
 }
 
-.download-btn:hover {
-  background-color: #3e8e41;
+.file-info {
+  font-size: 12px; /* smaller font size for file info */
+  color: #cccccc; /* light gray color for file info */
+  margin-right: 5px;
 }
 
-.download-btn i {
-  margin-left: 5px;
+.file-size {
+  margin-right: 2px;
+}
+
+.file-ext {
+  font-style: italic;
 }
 
 .toc {
