@@ -98,6 +98,13 @@ a {
   box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
 }
 
+/* Mobile styles (screen width < 600px) */
+@media (max-width: 599px) {
+  .navbar {
+    transform: scale(0.8);
+  }
+}
+
 #messageList {
   background-color: #4f4f4f; /* Dark gray background */
   padding: 20px;
