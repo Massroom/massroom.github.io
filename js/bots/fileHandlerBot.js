@@ -16,6 +16,5 @@ sendButton.addEventListener('click', () => {
     </a>
     `;
     displayMessage(fileHTML);
-  });
-  }
+  };
 });
