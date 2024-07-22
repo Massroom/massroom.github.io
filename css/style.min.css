@@ -19,6 +19,14 @@ code {
   border-radius: 2px;
 }
 
+hr {
+  color: #45ab3c;
+}
+
+a {
+  color: #7c78ff;
+}
+
 .title {
   font-family: "Honk";
 }
