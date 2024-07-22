@@ -101,7 +101,7 @@ a {
 /* Mobile styles (screen width < 600px) */
 @media (max-width: 599px) {
   .navbar {
-    transform: scale(0.45);
+    transform: scale(0.5);
   }
 }
 
