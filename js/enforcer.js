@@ -7,7 +7,7 @@ sendButton.addEventListener('click', () => {
   for (const word of swearWords) {
     if (message.includes(word.toLowerCase())) { // Convert swear word to lowercase
     console.log('enforcer activated');
-    displayMessage(`<p style="color: #ff0000;">Warning: @${username} please refrain from using inappropriate language.</p>`);
+    mainChannel.message(`<p style="color: #ff0000;">Warning: @${username} please refrain from using inappropriate language.</p>`);
     break;
     }
   }
