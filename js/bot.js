@@ -3,9 +3,7 @@ sendButton.addEventListener('click', () => {
   console.log('bot ready');
   const message = messageInput.value;
   console.log('bot read: ' + message);
-  if (message.includes('/run')) {
-    displayMessage(`<p style="color: #fff000; font-family: "VT323";">/run is not allowed on public chatrooms, use the playground instead</p>`);
-  } else if (message === '/help') {
+  if (message === '/help') {
     console.log('bot detected help');
     displayMessage(`
     <p style="color: #af9cff;">System Bot: Hi there! Here are all the chat commands!</p>
