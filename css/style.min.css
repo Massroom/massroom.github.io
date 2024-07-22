@@ -27,6 +27,40 @@ a {
   color: #7c78ff;
 }
 
+.toc {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 10px;
+  width: 250px;
+}
+
+.toc tr {
+  border-bottom: 1px solid #333333;
+}
+
+.toc tr:last-child {
+  border-bottom: none;
+}
+
+.toc th {
+  text-align: left;
+  padding: 10px;
+}
+
+.toc td {
+  padding: 10px;
+}
+
+.toc a {
+  color: #10bf00;
+  text-decoration: none;
+}
+
+.toc a:hover {
+  color: #ffffff;
+}
+
 .title {
   font-family: "Honk";
 }
