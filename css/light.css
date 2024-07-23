@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
 
 
-.light-theme body {
+.light-mode body {
   background-color: #f9f9f9; /* Light gray background */
   font-family: "VT323";
   color: #333; /* Dark gray text color */
@@ -11,7 +11,7 @@
   margin-right: 5%;
 }
 
-.light-theme code {
+.light-mode code {
   font-family: "Kode Mono";
   font-size: 0.6em;
   color: #337ab7; /* Blue color */
@@ -20,15 +20,15 @@
   border-radius: 2px;
 }
 
-.light-theme hr {
+.light-mode hr {
   color: #45ab3c; /* Green color */
 }
 
-.light-theme a {
+.light-mode a {
   color: #337ab7; /* Blue color */
 }
 
-.light-theme .light-theme-btn-light {
+.light-mode .btn-dark {
   font-family: 'VT323', monospace;
   font-size: 14px;
   background-color: #f7f7f7; /* Light gray background */
@@ -39,21 +39,21 @@
   cursor: pointer;
 }
 
-.light-theme .light-theme-file-info {
+.light-mode .file-info {
   font-size: 12px;
   color: #666; /* Dark gray color */
   margin-right: 5px;
 }
 
-.light-theme .light-theme-file-size {
+.light-mode .file-size {
   margin-right: 2px;
 }
 
-.light-theme .light-theme-file-ext {
+.light-mode .file-ext {
   font-style: italic;
 }
 
-.light-theme .light-theme-toc {
+.light-mode .toc {
   background-color: #f7f7f7; /* Light gray background */
   color: #333; /* Dark gray text color */
   border-radius: 5px;
@@ -61,32 +61,32 @@
   width: 250px;
 }
 
-.light-theme .light-theme-toc tr {
+.light-mode .toc tr {
   border-bottom: 1px solid #cccccc; /* Light gray border */
 }
 
-.light-theme .light-theme-toc tr:last-child {
+.light-mode .toc tr:last-child {
   border-bottom: none;
 }
 
-.light-theme .light-theme-toc th {
+.light-mode .toc th {
   text-align: left;
   padding: 10px;
 }
 
-.light-theme .light-theme-toc td {
+.light-mode .toc td {
   padding: 10px;
 }
 
-.light-theme .light-theme-toc a {
+.light-mode .toc a {
   color: #337ab7; /* Blue color */
   text-decoration: none;
 }
 
-.light-theme .light-theme-toc a:hover {
+.light-mode .toc a:hover {
   color: #333; /* Dark gray text color */
 }
 
-.light-theme .light-theme-title {
+.light-theme .title {
   font-family: "Honk";
 }
