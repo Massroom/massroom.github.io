@@ -40,7 +40,8 @@ function checkIfSignedIn() {
           "username": data.name,
           "email": data.email,
           "created_at": data.created_at,
-          "points": data.massroom_points
+          "points": data.massroom_points,
+          "role": data.massroom_role
         }
       })
       .catch((error) => {
