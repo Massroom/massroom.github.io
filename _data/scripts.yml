@@ -2,4 +2,5 @@
   path: js/bots/systemBot.js
 - name: File Handler
   path: js/bots/fileHandlerBot.js
-
+- name: Fun Bot
+  path: js/bots/funBot.js
