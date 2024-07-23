@@ -6,8 +6,8 @@ function systemBot() {
     console.log('bot detected help');
     displayMessage(`
     <p style="color: #af9cff;">System Bot: Hi there! Here are all the chat commands!</p>
-    <ul style="color: #af9cff; font-family: "VT323";">
     <p style="color: #af9cff;">Help Utility Commands:</p>
+    <ul style="color: #af9cff; font-family: "VT323";">
     <li>/help about ---> What is Massroom?</li>
     <li>/help text ---> How to send SVGs, clickable links, and even styled text!</li>
     <li>/help account ---> Info about your account (WILL NOT BE SHOWN PUBLICLY)</li>
