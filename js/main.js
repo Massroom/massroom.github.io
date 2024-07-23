@@ -18,8 +18,10 @@ function generateRandomUsername() {
 var username
 var messagesSent = 0;
 if (localStorage.getItem("points" !== 'undefined')) {
+  console.log('user points found');
   localStorage.getItem("points");
 } else {
+  console.log('user points not found');
   localStorage.setItem("points", 0);
 }
 
@@ -145,9 +147,10 @@ sendButton.addEventListener('click', () => {
     mainChannel.message(username + ': ' + message);
     messageInput.value = ''; // Clear input field
     messagesSent += 1;
-    if (messagesSent > 50) {
+    if (messagesSent > 25) {
       const user = checkIfSignedIn();
       if (user !== 'false') {
+        console.log('changing user points');
         localStorage.setItem("points", localStorage.getItem("points") + 1);
         messagesSent = 0;
       };
