@@ -4,9 +4,9 @@
 
 
 .light-mode body {
-  background-color: #f9f9f9; /* Light gray background */
+  background-color: #f9f9f9 !important; /* Light gray background */
   font-family: "VT323";
-  color: #333; /* Dark gray text color */
+  color: #333 !important; /* Dark gray text color */
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -21,18 +21,18 @@
 }
 
 .light-mode hr {
-  color: #45ab3c; /* Green color */
+  color: #45ab3c !important; /* Green color */
 }
 
 .light-mode a {
-  color: #337ab7; /* Blue color */
+  color: #337ab7 !important; /* Blue color */
 }
 
 .light-mode .btn-dark {
   font-family: 'VT323', monospace;
   font-size: 14px;
-  background-color: #f7f7f7; /* Light gray background */
-  color: #333; /* Dark gray text color */
+  background-color: #f7f7f7 !important; /* Light gray background */
+  color: #333 !important; /* Dark gray text color */
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
