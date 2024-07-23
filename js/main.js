@@ -185,7 +185,7 @@ sendButton.addEventListener('click', () => {
     console.log(icon);
     console.log(size);
     mainChannel.message(`
-    <div style="display: flex; align-items: center; gap: 6px;">
+    <div style="display: flex; align-items: start; gap: 3px;">
       <svg width="${size}" height="${size}" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="${icon}" />
       </svg>
