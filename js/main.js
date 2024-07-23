@@ -153,6 +153,7 @@ function getUserRole() {
       .then((response) => response.json())
       .then((data) => {
         role = data.massroom_role
+        return role;
       })
       .catch((error) => {
         console.error(error);
@@ -161,8 +162,6 @@ function getUserRole() {
     console.log('user is not signed in');
     return null;
   }
-};
-  return role;
 };
 sendButton.addEventListener('click', () => {
   setTimeout(function() {
