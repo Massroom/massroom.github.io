@@ -145,7 +145,7 @@ sendButton.addEventListener('click', () => {
     mainChannel.message(username + ': ' + message);
     messageInput.value = ''; // Clear input field
     messagesSent += 1;
-    if (messagesSent > 100) {
+    if (messagesSent > 50) {
       const user = checkIfSignedIn();
       if (user !== 'false') {
         localStorage.setItem("points", localStorage.getItem("points") + 1);
