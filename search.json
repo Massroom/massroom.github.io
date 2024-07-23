@@ -1,0 +1,26 @@
+[
+  {
+    "name": "System Bot {Pre-Installed}",
+    "description": "Basic Massroom Utilities, you cannot uninstall this item.",
+    "init": "/help",
+    "author": "Massroom Team"
+  },
+  {
+    "name": "File Handler {Recommended} {Pre-Installed}",
+    "description": "Allows you to send files as a distinct 'Download' Button",
+    "init": "/file send *link to file*",
+    "author": "Massroom Team"
+  },
+  {
+    "name": "Fun Chat Bot {Recommended} {Pre-Installed}",
+    "description": "Tries it's very best to liven up the place... Emojis anyone?",
+    "init": "/emoji random *number of emoji output*",
+    "author": "Massroom Team"
+  },
+  {
+    "name": "1DST Text Bot",
+    "description": "Sends a message saying '1D10T1C STUD10S IS COOL!'. Not try =ing to advertise in any possible...",
+    "init": "/1dst",
+    "author": "1DST Dev Studios"
+  }
+]
