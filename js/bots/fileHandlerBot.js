@@ -1,9 +1,4 @@
-// init bot
-
-sendButton.addEventListener('click', () => {
-  console.log('bot ready');
-  const message = messageInput.value;
-  console.log('bot read: ' + message);
+fileHandlerBot() {
   if (message.startsWith('/file send')) {
     const fileUrl = message.slice('/file send'.length).trim();;
     const fileName = fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
@@ -17,4 +12,4 @@ sendButton.addEventListener('click', () => {
     `;
     mainChannel.message(fileHTML);
   };
-});
+};
