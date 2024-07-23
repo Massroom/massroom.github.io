@@ -227,3 +227,19 @@ a {
   margin: 40px auto;
   color: #00c939; /* White text color */
 }
+
+.scroll-bar::-webkit-scrollbar {
+    width: 7px;
+  }
+
+.scroll-bar::-webkit-scrollbar-track {
+    background: #313131;
+    border-radius: 25px;
+  }
+  
+.scroll-bar::-webkit-scrollbar-thumb {
+    background: #1cd941;
+    border-radius: 25px;
+    border:0px solid #41435f;
+  }
+                
