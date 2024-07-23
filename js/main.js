@@ -141,8 +141,28 @@ function displayMessage(message) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 function getUserRole() {
-  const user = checkIfSignedIn();
-  return user.role;
+  if (auth == 1) {
+    var role;
+    fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('authToken') // Use the stored JWT
+        }
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        role = data.massroom_role
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } else {
+    console.log('user is not signed in');
+    return null;
+  }
+};
+  return role;
 };
 sendButton.addEventListener('click', () => {
   setTimeout(function() {
