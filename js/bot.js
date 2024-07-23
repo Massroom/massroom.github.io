@@ -1,5 +1,3 @@
-import { systemBot } from './systemBot.js';
-
 // for chatbot(s)
 sendButton.addEventListener('click', () => {
   console.log('bot ready');
