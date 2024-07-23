@@ -151,7 +151,7 @@ sendButton.addEventListener('click', () => {
       const user = checkIfSignedIn();
       if (user !== 'false') {
         console.log('changing user points');
-        localStorage.setItem("points", localStorage.getItem("points") + 1);
+        localStorage.setItem("points", paraseInt(localStorage.getItem("points")) + 1);
         messagesSent = 0;
       };
     }
