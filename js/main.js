@@ -85,14 +85,6 @@ mainChannel.on((presence_full) => {
   document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 });
 
-mainChannel.on((presence_update) => {
-  userCount = (userCount === null) ? 1 : userCount + 1;
-  console.log(userCount);
-  document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
-});
-
-userCount -= 1
-
 mainChannel.on((join) => {
   if (join.payload.user.username !== username) {
     console.log('event join');
