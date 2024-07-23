@@ -40,7 +40,7 @@ function checkIfSignedIn() {
           "created_at": data.created_at,
           "points": data.massroom_points
         }
-      });
+      })
       .catch((error) => {
         console.error(error);
       });
