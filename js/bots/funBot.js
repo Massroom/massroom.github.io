@@ -11,7 +11,9 @@ function getRandomEmojis(count) {
 
 function funBot() {
   const message = messageInput.value;
-  if (message === '/fun emoji') {
+  if (message.startsWith('/emoji random')) {
+    const count = message.slice('/emoji random'.length).trim();
+    const randomEmojis = getRandomEmojis(count);
     const text = `
     <p style="color: #ff0073;">${randomEmojis}</p>
     `;
