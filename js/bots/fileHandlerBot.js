@@ -1,4 +1,5 @@
 function fileHandlerBot() {
+  const message = messageInput.value;
   if (message.startsWith('/file send')) {
     const fileUrl = message.slice('/file send'.length).trim();;
     const fileName = fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
