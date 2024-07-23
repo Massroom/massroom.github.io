@@ -147,7 +147,7 @@ sendButton.addEventListener('click', () => {
     mainChannel.message(username + ': ' + message);
     messageInput.value = ''; // Clear input field
     messagesSent += 1;
-    if (messagesSent > 25) {
+    if (messagesSent > 10) {
       const user = checkIfSignedIn();
       if (user !== 'false') {
         console.log('changing user points');
