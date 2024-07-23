@@ -6,7 +6,7 @@
 body.light-mode  {
   background-color: #46679c !important; /* Light gray background */
   font-family: "VT323";
-  color: #6f8577 !important; /* Dark gray text color */
+  color: #ffffff !important; /* Dark gray text color */
   margin-left: 5%;
   margin-right: 5%;
 }
