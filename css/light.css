@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
 
 
-.light-mode body {
+body.light-mode  {
   background-color: #f9f9f9 !important; /* Light gray background */
   font-family: "VT323";
   color: #333 !important; /* Dark gray text color */
