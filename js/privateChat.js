@@ -185,6 +185,7 @@ privateChannel.on((leave) => {
   }
 });
 
+const messageList = document.getElementById('private-messageList');
 function displayJoinMessage() {
   console.log('Displaying Join');
   const messageHTML = `<p>Someone joined the chatroom</p>`;
