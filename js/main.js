@@ -17,7 +17,7 @@ function generateRandomUsername() {
 }
 var username
 var messagesSent = 0;
-if (localStorage.get("points" !== 'undefined') {
+if (localStorage.get("points" !== 'undefined')) {
   localStorage.get("points");
 }; else {
   localStorage.set("points", 0);
