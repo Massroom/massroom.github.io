@@ -219,6 +219,7 @@ console.log(users);
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
   privateChannel.message(username + ': ' + message);
+  displayMessage(username + ': ' + message);
   messageInput.value = ''; // Clear input field
 });
 
