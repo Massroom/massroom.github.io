@@ -17,10 +17,10 @@ function generateRandomUsername() {
 }
 var username
 var messagesSent = 0;
-if (localStorage.get("points" !== 'undefined')) {
-  localStorage.get("points");
+if (localStorage.getItem("points" !== 'undefined')) {
+  localStorage.getItem("points");
 } else {
-  localStorage.set("points", 0);
+  localStorage.setItem("points", 0);
 }
 
 function checkIfSignedIn() {
@@ -59,11 +59,7 @@ if (auth == 1) {
     })
     .then((response) => response.json())
     .then((data) => {
-      username = data.name
-      // Set the innerHTML of the created HTML elements
-      //document.getElementById('username-display').innerHTML = data.name;
-      //document.getElementById('password-display').innerHTML = data.email;
-      //document.getElementById('timestamp').innerHTML = data.created_at; //'Account created at: ' + data.created_at;
+      username = data.name;
     })
     .catch((error) => {
       console.error(error);
@@ -152,7 +148,7 @@ sendButton.addEventListener('click', () => {
     if (messagesSent > 100) {
       const user = checkIfSignedIn();
       if (user !== 'false') {
-        localStorage.set("points", localStorage.get("points") + 1);
+        localStorage.setItem("points", localStorage.get("points") + 1);
         messagesSent = 0;
       };
     }
