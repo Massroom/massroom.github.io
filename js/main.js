@@ -1,10 +1,8 @@
 let auth = localStorage.getItem("auth");
-
 const xanoClient = new XanoClient({
   instanceBaseUrl: "https://x8ki-letl-twmt.n7.xano.io/",
   realtimeConnectionHash: "yHjeFpItI_ivBM9KL-tjZSYQAwM",
 });
-
 if (auth === 1) {
   const setAuth = localStorage.getItem("authToken");
   xano.setRealtimeAuthToken(authToken);
@@ -17,17 +15,48 @@ function generateRandomUsername() {
   const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
   return `${randomAdjective}${randomNoun}`;
 }
-
 var username
+var messagesSent = 0;
+if (localStorage.get("points" !== 'undefined') {
+  localStorage.get("points");
+}; else {
+  localStorage.set("points", 0);
+}
 
+function checkIfSignedIn() {
+  if (auth == 1) {
+    fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('authToken') // Use the stored JWT
+        }
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        return {
+          "username": data.name,
+          "email": data.email,
+          "created_at": data.created_at,
+          "points": data.massroom_points
+        }
+      }
+      .catch((error) => {
+        console.error(error);
+      });
+  } else {
+    console.log('user is not signed in');
+    return false;
+  }
+};
 if (auth == 1) {
   fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('authToken') // Use the stored JWT
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('authToken') // Use the stored JWT
       }
-  })
+    })
     .then((response) => response.json())
     .then((data) => {
       username = data.name
@@ -39,31 +68,25 @@ if (auth == 1) {
     .catch((error) => {
       console.error(error);
     });
-}
-else {
+} else {
   username = generateRandomUsername();
 }
-
 const mainChannel = xanoClient.channel("main", {
-	presence:  true,
+  presence: true,
 });
-
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
 const messageList = document.getElementById('messageList');
 const messageListEmpty = document.getElementById('messageListEmpty');
 
-function isEmpty(element) { 
-  return element.innerHTML.trim() === '' 
-} 
-
-if (isEmpty(messageListEmpty)) {
-	messageListEmpty.insertAdjacentHTML('beforeend', '<p style="color: #af9cff;">Info: Start of chat. It may appear empty for you but not for others.</p>');
+function isEmpty(element) {
+  return element.innerHTML.trim() === ''
 }
-
+if (isEmpty(messageListEmpty)) {
+  messageListEmpty.insertAdjacentHTML('beforeend', '<p style="color: #af9cff;">Info: Start of chat. It may appear empty for you but not for others.</p>');
+}
 // on join channel
 //mainChannel.message(username + 'has joined the chatroom!');
-
 mainChannel.on((message) => {
   switch (message.action) {
     case 'message':
@@ -73,9 +96,7 @@ mainChannel.on((message) => {
       console.info(message);
   }
 });
-
 var userCount = null;
-
 mainChannel.on((presence_full) => {
   const payload = presence_full.payload;
   const presenceArray = payload.presence;
@@ -84,14 +105,12 @@ mainChannel.on((presence_full) => {
   console.log(userCount);
   document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 });
-
 mainChannel.on((join) => {
   if (join.payload.user.username !== username) {
     console.log('event join');
     displayJoinMessage();
   }
 });
-
 mainChannel.on((leave) => {
   if (leave.payload.user.username !== username) {
     console.log('event leave');
@@ -123,19 +142,23 @@ function displayMessage(message) {
   // Scroll to the bottom
   messageList.scrollTop = messageList.scrollHeight;
 }
-
 sendButton.addEventListener('click', () => {
-	setTimeout(function(){
-		const message = messageInput.value;
-		checkForSpam(message); // Execute spam detection
-		mainChannel.message(username + ': ' + message);
-		messageInput.value = ''; // Clear input field
-	}, 100);
+  setTimeout(function() {
+    const message = messageInput.value;
+    checkForSpam(message); // Execute spam detection
+    mainChannel.message(username + ': ' + message);
+    messageInput.value = ''; // Clear input field
+    messagesSent += 1;
+    if (messagesSent > 100) {
+      const user = checkIfSignedIn();
+      if (user !== 'false') {
+        localStorage.set("points", localStorage.get("points") + 1);
+        messagesSent = 0;
+      };
+    }
+  }, 100);
 });
-
-
 // Check if signed in via Xano
-
 function updateAuthStatus() {
   auth = localStorage.getItem("auth");
   if (auth === '1') {
@@ -146,6 +169,5 @@ function updateAuthStatus() {
     document.getElementById("auth1").style.display = "none";
   }
 }
-
 // Call updateAuthStatus() when the page loads
 updateAuthStatus();
