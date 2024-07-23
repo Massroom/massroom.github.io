@@ -1,4 +1,5 @@
 function systemBot() {
+  const message = messageInput.value;
   if (message.includes('/run')) {
     displayMessage(`<p style="color: #fff000; font-family: "VT323";">/run is not allowed on public chatrooms, use the playground instead</p>`);
   } else if (message === '/help') {
