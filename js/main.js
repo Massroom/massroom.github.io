@@ -153,6 +153,7 @@ function getUserRole() {
       .then((response) => response.json())
       .then((data) => {
         role = data.massroom_role
+        console.log('auth/me obtained:' + role);
         return role;
       })
       .catch((error) => {
