@@ -4,3 +4,5 @@
   path: js/bots/fileHandlerBot.js
 - name: Fun Bot
   path: js/bots/funBot.js
+- name: 1DST Bot
+  path: js/bots/idst.js
