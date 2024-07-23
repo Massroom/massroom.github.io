@@ -6,4 +6,5 @@ sendButton.addEventListener('click', () => {
   systemBot();
   fileHandlerBot();
   funBot();
+  idstBot();
 });
