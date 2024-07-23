@@ -10,7 +10,7 @@
   "theme_color": "#363636",
   "icons": [
     {
-      "src": "https://massroom.github.io/favicon.png",
+      "src": "https://massroom.js.org/favicon.png",
       "type": "image/png",
       "sizes": "692x692"
     }
