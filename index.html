@@ -68,6 +68,11 @@ layout: default
         <path d="M3 2h18v14h-2v2h-2v-2h-2v2h2v2h-2v2H3V2zm2 2v16h8v-6h6V4H5z" />
       </svg>
     </a>
+    <a href="#chatbots" rel="modal:open" aria-label="Available Chatbots" data-balloon-pos="down">
+      <svg width="24" height="24" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M20 2H2v20h2V4h16v10h2V2h-2zM10 16H6v2H4v2h2v-2h4v-2zm6-4h2v4h4v2h-2v2h-2v2h-2v-4h-4v-2h2v-2h2v-2z" />
+      </svg>
+    </a>
   </div>
 </div>
 
@@ -104,3 +109,19 @@ layout: default
 {% endfor %}
 
 <script src="https://massroom.js.org/js/bot.js"></script>
+
+<div id="chatbots" class="modal">
+  <p>Check out the community chatbots here!</p>
+  <div style="background-color: #1a1a1a; width: 70%; border-radius: 5px;">
+    <h3>File Handler</h3>
+    <small><p>Author: Massroom Team</p></small>
+    <p><code>/file send *file url*</code> --> send files as a download button</p>
+  </div>
+  <div style="background-color: #1a1a1a; width: 70%; border-radius: 5px;">
+    <h3>Chat Fun!</h3>
+    <small><p>Author: Massroom Team</p></small>
+    <p><code>/emoji random *emoji amount*</code> --> send random emojis!</p>
+    <p><code>/fun ai question *fun question!*</code> --> make the ai ask an interesting question!</p>
+  </div>
+  <a href="#" rel="modal:close">Close</a>
+</div>
