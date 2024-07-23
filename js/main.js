@@ -19,7 +19,7 @@ var username
 var messagesSent = 0;
 if (localStorage.get("points" !== 'undefined')) {
   localStorage.get("points");
-}; else {
+} else {
   localStorage.set("points", 0);
 }
 
