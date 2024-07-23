@@ -134,18 +134,36 @@ function displayLeaveMessage() {
 function displayMessage(message) {
   console.log('Displaying message:', message);
   const messageHTML = `
-    <!--<p style="font-size: small; color: #e6e6e6;">${username}</p>-->
     <p>${message}</p>
   `;
   messageList.insertAdjacentHTML('beforeend', messageHTML);
   // Scroll to the bottom
   messageList.scrollTop = messageList.scrollHeight;
 }
+function getUserRole() {
+  const user = checkIfSignedIn();
+  return user.role;
+};
 sendButton.addEventListener('click', () => {
   setTimeout(function() {
     const message = messageInput.value;
     checkForSpam(message); // Execute spam detection
-    mainChannel.message(username + ': ' + message);
+    role = getUserRole();
+    if (role === null) {
+      icon = '';
+    } else if (role === 'developer') {
+      icon = 'M8 5h2v2H8V5zM6 7h2v2H6V7zM4 9h2v2H4V9zm-2 2h2v2H2v-2zm2 2h2v2H4v-2zm2 2h2v2H6v-2zm2 2h2v2H8v-2zm8-12h-2v2h2V5zm2 2h-2v2h2V7zm2 2h-2v2h2V9zm2 2h-2v2h2v-2zm-2 2h-2v2h2v-2zm-2 2h-2v2h2v-2zm-2 2h-2v2h2v-2z';   
+    } else if (role === 'moderator') {
+      icon = 'M22 2H2v12h2V4h16v10h2V2zM6 14H4v2h2v-2zm0 2h2v2h2v2H8v-2H6v-2zm4 4v2h4v-2h2v-2h-2v2h-4zm10-6h-2v2h-2v2h2v-2h2v-2z';
+    };
+    mainChannel.message(`
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <svg width="14" height="14" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="${icon}" />
+      </svg>
+      <p>username + ': ' + message</p>
+    </div>
+    `);
     messageInput.value = ''; // Clear input field
     messagesSent += 1;
     if (messagesSent > 10) {
