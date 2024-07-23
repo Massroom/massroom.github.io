@@ -148,7 +148,7 @@ sendButton.addEventListener('click', () => {
     if (messagesSent > 100) {
       const user = checkIfSignedIn();
       if (user !== 'false') {
-        localStorage.setItem("points", localStorage.get("points") + 1);
+        localStorage.setItem("points", localStorage.getItem("points") + 1);
         messagesSent = 0;
       };
     }
