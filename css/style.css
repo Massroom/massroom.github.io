@@ -163,7 +163,8 @@ a {
 /* Mobile styles (screen width < 600px) */
 @media (max-width: 599px) {
   .navbar {
-    transform: scale(0.5);
+    transform: scale(0.75);
+    left: 36% !important;
   }
 }
 
