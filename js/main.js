@@ -134,7 +134,7 @@ function displayLeaveMessage() {
 function displayMessage(message) {
   console.log('Displaying message:', message);
   const messageHTML = `
-    <p>${message}</p>
+    <div>${message}</div>
   `;
   messageList.insertAdjacentHTML('beforeend', messageHTML);
   // Scroll to the bottom
