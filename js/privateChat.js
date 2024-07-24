@@ -126,15 +126,8 @@ const joinButton = document.getElementById('join-button');
 joinButton.addEventListener('click', async () => {
   // Get the chat ID from the input field
   const chatId = chatIdInput.value;
-
-  // Use Xano's API to join the private chat channel
-  try {
-    const privateChannel = xanoClient.channel('private/' + chatId);
-    const response = await xanoClient.channel(`private/${chatId}`);
-    console.log('Joined private chat:', chatId);
-  } catch (error) {
-    console.error('Error joining private chat:', error);
-  }
+  const privateChannel = xanoClient.channel('private/' + chatId);
+  console.log('Joined private chat:', chatId);
 });
 
 // priv chat msg
