@@ -163,7 +163,7 @@ sendButton.addEventListener('click', () => {
   setTimeout(async function() {
     const message = messageInput.value;
     checkForSpam(message);
-    /*let html = null;
+    let html = null;
     const role = await getUserRole();
     console.log('message handler recieved: ' + role);
     if (role === null) {
@@ -224,8 +224,8 @@ sendButton.addEventListener('click', () => {
       </div>
       `;
     };
-    console.log(html);*/
-    const html = messageBuilder();
+    console.log(html);
+    //const html = messageBuilder();
     mainChannel.message(html);
     messageInput.value = ''; // Clear input field
     messagesSent += 1;
