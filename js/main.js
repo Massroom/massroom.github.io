@@ -143,7 +143,7 @@ function displayMessage(message) {
 async function getUserRole() {
   if (auth == 1) {
     var userRole;
-    fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
+    const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
