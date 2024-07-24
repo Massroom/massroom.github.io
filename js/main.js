@@ -164,7 +164,7 @@ function getUserRole() {
       console.log('user is not signed in, cannot get role');
       resolve(null);
     }
-  });
+  };
 }
 sendButton.addEventListener('click', () => {
   setTimeout(async function() {
