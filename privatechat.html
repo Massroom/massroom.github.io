@@ -18,6 +18,7 @@ title: Massroom
 </div>
 
 <p>You are in a private chat. Send the chat id to share it!</p>
+<p>Run <code>/help</code> to get bot command help!</p>
 <br>
 <h3 id="chat-id"></h3>
 <br>
@@ -58,6 +59,11 @@ title: Massroom
         <path d="M3 2h18v14h-2v2h-2v-2h-2v2h2v2h-2v2H3V2zm2 2v16h8v-6h6V4H5z" />
       </svg>
     </a>
+    <a href="#" onclick="clearChat()" aria-label="Clear Chat" data-balloon-pos="down">
+      <svg width="24" height="24" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 3H8v2h4v2H2v2h12V3h-2zm10 8V7h-6v2h4v2H2v2h20v-2zM2 17v-2h14v6h-6v-2h4v-2H2z" />
+      </svg>
+    </a>
   </div>
 </div>
 
@@ -86,6 +92,10 @@ title: Massroom
   async function pasteText() {
     const text = await navigator.clipboard.readText();
     document.getElementById('message-input').value = text;
+  }
+
+  async function clearChat() {
+    document.getElementById('private-messageList').innerHTML = '';
   }
 </script>
 
