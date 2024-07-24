@@ -166,7 +166,7 @@ sendButton.addEventListener('click', () => {
     let html = null;
     const role = await getUserRole();
     console.log('message handler recieved: ' + role);
-    if (role === 'undefined') {
+    if (role === null) {
       html = `<p>${username}: ${message}</p>`;
     } else if (role === 'Developer') {
       html = `
