@@ -158,7 +158,6 @@ function getUserRole() {
       })
       .catch((error) => {
         console.error(error);
-        reject(null);
       });
     } else {
       console.log('user is not signed in, cannot get role');
