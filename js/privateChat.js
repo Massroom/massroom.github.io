@@ -72,7 +72,7 @@ document.getElementById('chat-id').innerHTML = 'Chat id: ' + privateChatId;
 
 
 const privateChannel = xanoClient.channel('private/' + privateChatId);
-
+console.log('Connected to: ' privateChatId)
 
 const joinModal = document.getElementById('join-modal');
 
@@ -126,7 +126,7 @@ const joinButton = document.getElementById('join-button');
 joinButton.addEventListener('click', async () => {
   // Get the chat ID from the input field
   const chatId = chatIdInput.value;
-  const privateChannel = xanoClient.channel('private/' + chatId);
+  privateChannel = xanoClient.channel('private/' + chatId);
   console.log('Joined private chat:', chatId);
 });
 
@@ -192,7 +192,6 @@ function displayLeaveMessage() {
 function displayMessage(message) {
   console.log('Displaying message:', message);
   const messageHTML = `
-    <!--<p style="font-size: small; color: #e6e6e6;">${username}</p>-->
     <p>${message}</p>
   `;
   messageList.insertAdjacentHTML('beforeend', messageHTML);
@@ -210,7 +209,7 @@ privateChatButton.addEventListener('click', () => {
   console.log('Message input value:', message); // Log the input value
   console.log('Message:', message); // Log the message to the console
   privateChannel.message(username + ': ' + message);
-  displayMessage(username + ': ' + message);
+  //displayMessage(username + ': ' + message);
   setTimeout(() => {
     messageInput.value = ''; // Clear input field after a short delay
   }, 100); // Delay for 100 milliseconds
