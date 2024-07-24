@@ -154,14 +154,14 @@ function getUserRole() {
       .then((data) => {
         const role = data.massroom_role;
         console.log('auth/me obtained:' + role);
-        resolve(role);
+        return role;
       })
       .catch((error) => {
         console.error(error);
       });
     } else {
       console.log('user is not signed in, cannot get role');
-      resolve(null);
+      return null;
     }
   };
 sendButton.addEventListener('click', () => {
