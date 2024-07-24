@@ -245,3 +245,23 @@ a {
     border:0px solid #41435f;
   }
                 
+/* Search Bar */
+input[type="search"] {
+  width: 80%;
+  height: 50px;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Entries Container */
+.entries-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
