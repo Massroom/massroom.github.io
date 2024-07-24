@@ -220,9 +220,10 @@ sendButton.addEventListener('click', () => {
   const message = messageInput.value;
   privateChannel.message(username + ': ' + message);
   displayMessage(username + ': ' + message);
-  messageInput.value = ''; // Clear input field
+  setTimeout(() => {
+    messageInput.value = ''; // Clear input field after a short delay
+  }, 100); // Delay for 100 milliseconds
 });
-
 
 // Check if signed in via Xano
 
