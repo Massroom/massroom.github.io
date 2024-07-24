@@ -165,7 +165,6 @@ function getUserRole() {
       resolve(null);
     }
   };
-}
 sendButton.addEventListener('click', () => {
   setTimeout(async function() {
     const message = messageInput.value;
