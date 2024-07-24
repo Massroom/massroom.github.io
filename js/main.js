@@ -170,6 +170,7 @@ sendButton.addEventListener('click', () => {
     checkForSpam(message); // Execute spam detection
     let html = null;
     role = getUserRole();
+    console.log('message handler recieved: ' + role);
     if (role === null) {
       html = `<p>${username}: ${message}</p>`;
     } else if (role === 'Developer') {
