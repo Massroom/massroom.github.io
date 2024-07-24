@@ -65,7 +65,7 @@ else {
   username = generateRandomUsername();
 }
 
-const privateChatId = generatePrivateChatId();
+var privateChatId = generatePrivateChatId();
 
 // Display the chat ID on the page
 document.getElementById('chat-id').innerHTML = 'Chat id: ' + privateChatId;
