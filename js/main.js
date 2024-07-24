@@ -191,9 +191,7 @@ sendButton.addEventListener('click', () => {
       </div>
       `;
     };
-    console.log(role);
-    console.log(icon);
-    console.log(size);
+    console.log(html);
     mainChannel.message(html);
     messageInput.value = ''; // Clear input field
     messagesSent += 1;
