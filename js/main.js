@@ -168,37 +168,40 @@ sendButton.addEventListener('click', () => {
   setTimeout(function() {
     const message = messageInput.value;
     checkForSpam(message); // Execute spam detection
-    let icon = null;
-    let size = null;
+    let html = null;
     role = getUserRole();
     if (role === null) {
-      icon = null;
-      size = 0;
+      html = `<p>${username}: ${message}</p>`;
     } else if (role === 'Developer') {
-      size = 14;
-      icon = 'M8 5h2v2H8V5zM6 7h2v2H6V7zM4 9h2v2H4V9zm-2 2h2v2H2v-2zm2 2h2v2H4v-2zm2 2h2v2H6v-2zm2 2h2v2H8v-2zm8-12h-2v2h2V5zm2 2h-2v2h2V7zm2 2h-2v2h2V9zm2 2h-2v2h2v-2zm-2 2h-2v2h2v-2zm-2 2h-2v2h2v-2zm-2 2h-2v2h2v-2z';   
+      html = `
+      <div style="display: flex; align-items: center; gap: 3px;">
+        <svg width="12" height="12" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M8 5h2v2H8V5zM6 7h2v2H6V7zM4 9h2v2H4V9zm-2 2h2v2H2v-2zm2 2h2v2H4v-2zm2 2h2v2H6v-2zm2 2h2v2H8v-2zm8-12h-2v2h2V5zm2 2h-2v2h2V7zm2 2h-2v2h2V9zm2 2h-2v2h2v-2zm-2 2h-2v2h2v-2zm-2 2h-2v2h2v-2zm-2 2h-2v2h2v-2z" />
+        </svg>
+      <p>${username}: ${message}</p>
+      </div>
+      `;
     } else if (role === 'Moderator') {
-      size = 14;
-      icon = 'M22 2H2v12h2V4h16v10h2V2zM6 14H4v2h2v-2zm0 2h2v2h2v2H8v-2H6v-2zm4 4v2h4v-2h2v-2h-2v2h-4zm10-6h-2v2h-2v2h2v-2h2v-2z';
+      html = `
+      <div style="display: flex; align-items: center; gap: 3px;">
+        <svg width="12" height="12" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 2H2v12h2V4h16v10h2V2zM6 14H4v2h2v-2zm0 2h2v2h2v2H8v-2H6v-2zm4 4v2h4v-2h2v-2h-2v2h-4zm10-6h-2v2h-2v2h2v-2h2v-2z">
+        </svg>
+        <p>${username}: ${message}</p>
+      </div>
+      `;
     };
     console.log(role);
     console.log(icon);
     console.log(size);
-    mainChannel.message(`
-    <div style="display: flex; align-items: start; gap: 3px;">
-      <svg width="${size}" height="${size}" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="${icon}" />
-      </svg>
-      <p>${username}: ${message}</p>
-    </div>
-    `);
+    mainChannel.message(html);
     messageInput.value = ''; // Clear input field
     messagesSent += 1;
     if (messagesSent > 10) {
       const user = checkIfSignedIn();
       if (user !== 'false') {
         console.log('changing user points');
-        localStorage.setItem("points", paraseInt(localStorage.getItem("points")) + 1);
+        localStorage.setItem("points", paraseInt(localStorage.getItem("points")) =+ 1);
         messagesSent = 0;
       };
     }
