@@ -66,8 +66,7 @@ else {
 }
 
 const privateChatId = generatePrivateChatId();
-// Add an input field for the chat ID
-const chatIdInput = document.getElementById('chat-id-input');
+
 // Display the chat ID on the page
 document.getElementById('chat-id').innerHTML = 'Chat id: ' + privateChatId;
 
@@ -80,9 +79,6 @@ const joinModal = document.getElementById('join-modal');
 const messageInput = document.getElementById('message-input');
 
 const sendButton = document.getElementById('private-send-button');
-
-// Add a button to join the chat
-const joinButton = document.getElementById('join-button');
 
 privateChannel.on((message) => {
   switch (message.action) {
@@ -120,18 +116,23 @@ privateChannel.on((leave) => {
   }
 });
 
-// Handle the join button click event
-joinButton.addEventListener('click', () => {
-  const inputChatId = chatIdInput.value;
-  if (inputChatId === privateChatId) {
-    //joinPrivateChat(privateChatId);
-    // Close the modal
-    const closeLink = document.createElement('a');
-    closeLink.href = '#join-modal';
-    closeLink.rel = 'modal:close';
-    closeLink.click();
-  } else {
-    alert('Invalid chat ID');
+// Get the chat ID input field
+const chatIdInput = document.getElementById('chat-id-input');
+
+// Get the join button
+const joinButton = document.getElementById('join-button');
+
+// Add an event listener to the join button
+joinButton.addEventListener('click', async () => {
+  // Get the chat ID from the input field
+  const chatId = chatIdInput.value;
+
+  // Use Xano's API to join the private chat channel
+  try {
+    const response = await xanoClient.joinChannel(`private/${chatId}`);
+    console.log('Joined private chat:', chatId);
+  } catch (error) {
+    console.error('Error joining private chat:', error);
   }
 });
 
