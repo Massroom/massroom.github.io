@@ -130,7 +130,6 @@ joinButton.addEventListener('click', async () => {
   const chatId = chatIdInput.value;
   privateChannel = xanoClient.channel('private/' + chatId);
   privateChatId = chatId
-  privateChannel = xanoClient.channel('private/' + newChatId); // Update the privateChannel variable
   privateChannel.on((message) => {
         switch (message.action) {
               case 'message':
