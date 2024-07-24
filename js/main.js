@@ -142,7 +142,7 @@ function displayMessage(message) {
 }
 async function getUserRole() {
   if (auth == 1) {
-    var role;
+    var userRole;
     fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
         method: 'GET',
         headers: {
@@ -151,9 +151,9 @@ async function getUserRole() {
         }
       });
       const data = await response.json();
-      const role = data.massroom_role;
-      console.log('auth/me obtained:' + role);
-      return role;
+      userRole = data.massroom_role;
+      console.log('auth/me obtained:' + userRole);
+      return userRole;
   } else {
     console.log('user is not signed in, cannot get role');
     return null;
