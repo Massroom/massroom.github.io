@@ -12,48 +12,10 @@ layout: default
   </a>
 </div>
 
-<div class="navbar" style="display: flex; align-items: center; gap: 10px; width: 50%; color: #00f52d; position: absolute; left: 40%; top: 4%; text-decoration: none;">
-  <a style="background-color: #1a1a1a; border-radius: 5px; color: #10bf00; padding: 10px;" href="https://github.com/massroom/massroom.github.io">Source</a>
-  <a style="background-color: #1a1a1a; border-radius: 5px; color: #10bf00; padding: 10px;" href="/playground">Playground</a>
-  <a style="background-color: #1a1a1a; border-radius: 5px; color: #10bf00; padding: 10px;" href="/docs">Docs</a>
-  <a style="background-color: #1a1a1a; border-radius: 5px; color: #10bf00; padding: 10px;" href="/pricing">Pricing</a>
-  <a style="background-color: #1a1a1a; border-radius: 5px; color: #10bf00; padding: 10px;" href="/shop">
-    <svg width="24" height="24" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M4 3h16v2H4V3zm0 4h18v8h-2v6h-2v-6h-4v6H4v-6H2V7h2zm8 12v-4H6v4h6zm0-6h8V9H4v4h8z" />
-    </svg>
-  </a>
-  <a style="background-color: #1a1a1a; border-radius: 5px; color: #10bf00; padding: 10px;" href="/authuser">Login/Signup</a>
-</div>
-
 <h4>Mass gathering of random users, on a chatroom.</h4>
 <p>Built with 100% Vanilla JS, it allows you to send HTML content (includes iFrames) over the input bar! You may even send chunks of styled text.</p>
 <br>
 <p>Run <code>/help</code> to get bot command help!</p>
-
-<div class="switch" style="left: 90%; color: #00f52d; width: 3%; position: absolute; top: 4%;">
-  <input type="checkbox" id="theme-switch" style="display: none;"/>
-  <label for="theme-switch">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-      <!-- Light mode SVG -->
-      <path d="M13 0h-2v4h2V0ZM0 11v2h4v-2H0Zm24 0v2h-4v-2h4ZM13 24h-2v-4h2v4ZM8 6h8v2H8V6ZM6 8h2v8H6V8Zm2 10v-2h8v2H8Zm10-2h-2V8h2v8Zm2-14h2v2h-2V2Zm0 2v2h-2V4h2Zm2 18h-2v-2h2v2Zm-2-2h-2v-2h2v2ZM4 2H2v2h2v2h2V4H4V2ZM2 22h2v-2h2v-2H4v2H2v2Z"/>
-    </svg>
-  </label>
-</div>
-
-<script>
-  const themeSwitch = document.getElementById('theme-switch');
-  const body = document.body;
-
-  themeSwitch.addEventListener('change', () => {
-    body.classList.toggle('light-mode');
-    const svg = document.querySelector('.switch svg');
-    if (body.classList.contains('light-mode')) {
-      svg.innerHTML = `<path d="M6 2h8v2h-2v2h-2V4H6V2ZM4 6V4h2v2H4Zm0 10H2V6h2v10Zm2 2H4v-2h2v2Zm2 2H6v-2h2v2Zm10 0v2H8v-2h10Zm2-2v2h-2v-2h2Zm-2-4h2v4h2v-8h-2v2h-2v2Zm-6 0v2h6v-2h-6Zm-2-2h2v2h-2v-2Zm0 0V6H8v6h2Z"/>`;
-    } else {
-      svg.innerHTML = `<path d="M13 0h-2v4h2V0ZM0 11v2h4v-2H0Zm24 0v2h-4v-2h4ZM13 24h-2v-4h2v4ZM8 6h8v2H8V6ZM6 8h2v8H6V8Zm2 10v-2h8v2H8Zm10-2h-2V8h2v8Zm2-14h2v2h-2V2Zm0 2v2h-2V4h2Zm2 18h-2v-2h2v2Zm-2-2h-2v-2h2v2ZM4 2H2v2h2v2h2V4H4V2ZM2 22h2v-2h2v-2H4v2H2v2Z"/>`;
-    }
-  });
-</script>
 
 <div style="width: 90%; background-color: #363636; border-radius: 2px; padding: 20px; display: block; margin: 0 auto;">
   <p>Live Chat, use the input box to join in!</p>
