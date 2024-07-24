@@ -66,10 +66,12 @@ else {
 }
 
 var privateChatId = generatePrivateChatId();
+displayChatId();
 
 // Display the chat ID on the page
-document.getElementById('chat-id').innerHTML = 'Chat id: ' + privateChatId;
-
+function displayChatId() {
+  document.getElementById('chat-id').innerHTML = 'Chat id: ' + privateChatId;
+};
 
 var privateChannel = xanoClient.channel('private/' + privateChatId);
 console.log('Connected to: ' + privateChatId);
@@ -80,7 +82,7 @@ const messageInput = document.getElementById('message-input');
 
 const sendButton = document.getElementById('private-send-button');
 
-privateChannel.on((message) => {
+/*privateChannel.on((message) => {
   switch (message.action) {
     case 'message':
       displayMessage(message.payload);
@@ -94,7 +96,7 @@ privateChannel.on((message) => {
     default:
       console.info(message);
   }
-});
+});*/
 
 privateChannel.on((join) => {
   switch (join.action) {
@@ -127,6 +129,8 @@ joinButton.addEventListener('click', async () => {
   // Get the chat ID from the input field
   const chatId = chatIdInput.value;
   privateChannel = xanoClient.channel('private/' + chatId);
+  privateChatId = chatId
+  displayChatId();
   console.log('Joined private chat:', chatId);
 });
 
@@ -134,20 +138,14 @@ joinButton.addEventListener('click', async () => {
 
 const privateChatButton = document.getElementById('private-send-button');
 
-  privateChannel.on('message', (message) => {
-    displayMessage(message);
-  });
+//  privateChannel.on('message', (message) => {
+//    displayMessage(message);
+//  });
 
 privateChannel.on((message) => {
   switch (message.action) {
     case 'message':
       displayMessage(message.payload);
-      break;
-    case 'join':
-      displayJoinMessage();
-      break;
-    case 'leave':
-      displayLeaveMessage();
       break;
     default:
       console.info(message);
