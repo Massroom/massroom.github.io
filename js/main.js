@@ -152,24 +152,26 @@ function getUserRole() {
       })
       .then((response) => response.json())
       .then((data) => {
-        role = data.massroom_role
+        const role = data.massroom_role;
         console.log('auth/me obtained:' + role);
-        return role;
+        resolve(role);
       })
       .catch((error) => {
         console.error(error);
+        reject(null);
       });
-  } else {
-    console.log('user is not signed in, cannot get role');
-    return null;
-  }
-};
+    } else {
+      console.log('user is not signed in, cannot get role');
+      resolve(null);
+    }
+  });
+}
 sendButton.addEventListener('click', () => {
-  setTimeout(function() {
+  setTimeout(async function() {
     const message = messageInput.value;
-    checkForSpam(message); // Execute spam detection
+    checkForSpam(message);
     let html = null;
-    role = getUserRole();
+    const role = await getUserRole();
     console.log('message handler recieved: ' + role);
     if (role === 'undefined') {
       html = `<p>${username}: ${message}</p>`;
