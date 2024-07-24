@@ -218,6 +218,7 @@ console.log(users);
 
 sendButton.addEventListener('click', () => {
   const message = messageInput.value;
+  console.log('Message:', message); // Log the message to the console
   privateChannel.message(username + ': ' + message);
   displayMessage(username + ': ' + message);
   setTimeout(() => {
