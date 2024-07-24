@@ -211,6 +211,15 @@ privateChatButton.addEventListener('click', () => {
   setTimeout(() => {
     messageInput.value = ''; // Clear input field after a short delay
   }, 100); // Delay for 100 milliseconds
+  privateChannel.on((message) => {
+  switch (message.action) {
+    case 'message':
+      displayMessage(message.payload);
+      break;
+    default:
+      console.info(message);
+  }
+});
 });
 
 // Check if signed in via Xano
