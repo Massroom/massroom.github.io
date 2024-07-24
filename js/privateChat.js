@@ -130,6 +130,17 @@ joinButton.addEventListener('click', async () => {
   const chatId = chatIdInput.value;
   privateChannel = xanoClient.channel('private/' + chatId);
   privateChatId = chatId
+  privateChannel.off(); // Remove the old event listener
+  privateChannel = xanoClient.channel('private/' + newChatId); // Update the privateChannel variable
+  privateChannel.on((message) => {
+        switch (message.action) {
+              case 'message':
+                    displayMessage(message.payload);
+                    break;
+              default:
+                    console.info(message);
+        }
+  });
   displayChatId();
   console.log('Joined private chat:', chatId);
 });
@@ -211,15 +222,6 @@ privateChatButton.addEventListener('click', () => {
   setTimeout(() => {
     messageInput.value = ''; // Clear input field after a short delay
   }, 100); // Delay for 100 milliseconds
-  privateChannel.on((message) => {
-  switch (message.action) {
-    case 'message':
-      displayMessage(message.payload);
-      break;
-    default:
-      console.info(message);
-  }
-});
 });
 
 // Check if signed in via Xano
