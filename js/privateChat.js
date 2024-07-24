@@ -72,7 +72,7 @@ document.getElementById('chat-id').innerHTML = 'Chat id: ' + privateChatId;
 
 
 const privateChannel = xanoClient.channel('private/' + privateChatId);
-console.log('Connected to: ' privateChatId)
+console.log('Connected to: ' + privateChatId);
 
 const joinModal = document.getElementById('join-modal');
 
