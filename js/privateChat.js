@@ -138,12 +138,6 @@ joinButton.addEventListener('click', () => {
 // priv chat msg
 
 const privateChatButton = document.getElementById('private-send-button');
-  privateChatButton.addEventListener('click', () => {
-    const message = messageInput.value;
-    privateChannel.message(username + ': ' + message);
-    messageInput.value = '';
-    //joinPrivateChat(privateChatId);
-  });
 
   privateChannel.on('message', (message) => {
     displayMessage(message);
@@ -216,7 +210,7 @@ const userCount = users.length;
 console.log(users);
 //document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 
-sendButton.addEventListener('click', () => {
+privateChatButton.addEventListener('click', () => {
   const message = messageInput.value;
   console.log('Message input value:', message); // Log the input value
   console.log('Message:', message); // Log the message to the console
