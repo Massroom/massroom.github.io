@@ -195,7 +195,7 @@ sendButton.addEventListener('click', () => {
         <p>${username}: ${message}</p>
       </div>
       `;
-    } else if (role === 'BotDev') {
+    } else if (role === 'Stupid') {
       html = `
       <div style="display: flex; align-items: center; gap: 3px;">
         <svg width="12" height="12" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
