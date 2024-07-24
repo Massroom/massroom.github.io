@@ -201,6 +201,17 @@ sendButton.addEventListener('click', () => {
         <p>${username}: ${message}</p>
       </div>
       `;
+    } else if (role === 'Paid') {
+      html = `
+      <div style="display: flex; align-items: center; gap: 3px;">
+      <div aria-label="Make fun of this user NOW!" data-balloon-pos="up">
+        <svg width="16" height="16" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Premium Member" data-balloon-pos="up">
+          <path d="M9 2H5v2H3v2H1v6h2v2h2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2h2v-2h2V6h-2V4h-2V2h-4v2h-2v2h-2V4H9V2zm0 2v2h2v2h2V6h2V4h4v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3V6h2V4h4z">
+        </svg>
+      </div>
+        <p style="color: #ffb5a1;">${username}: ${message}</p>
+      </div>
+      `;
     } else if (role === 'Stupid') {
       html = `
       <div style="display: flex; align-items: center; gap: 3px;">
