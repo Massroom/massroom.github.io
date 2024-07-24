@@ -130,7 +130,7 @@ joinButton.addEventListener('click', async () => {
   // Use Xano's API to join the private chat channel
   try {
     const privateChannel = xanoClient.channel('private/' + chatId);
-    const response = await xanoClient.joinChannel(`private/${chatId}`);
+    const response = await xanoClient.channel(`private/${chatId}`);
     console.log('Joined private chat:', chatId);
   } catch (error) {
     console.error('Error joining private chat:', error);
