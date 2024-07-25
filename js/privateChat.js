@@ -133,7 +133,9 @@ sendButton.addEventListener('click', () => {
   console.log('Message input value:', message); // Log the input value
   console.log('Message:', message); // Log the message to the console
   mainChannel.message(username + ': ' + message);
-  messageInput.value = ''; // Clear input field
+  setTimeout(() => {
+    messageInput.value = ''; // Clear input field
+  }, 100);
 });
 
 // Check if signed in via Xano
