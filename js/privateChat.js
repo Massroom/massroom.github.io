@@ -39,6 +39,8 @@ async function getUserRole() {
   }
 };
 
+var role
+
 setTimeout(async function() {
   role = await getUserRole();
 }, 100);
