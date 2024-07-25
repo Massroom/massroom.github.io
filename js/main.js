@@ -204,7 +204,7 @@ sendButton.addEventListener('click', () => {
         <p>${username}: ${message}</p>
       </div>
       `;
-    } else if (role === 'Paid') {
+    } else if (role === 'Premium') {
       html = `
       <div style="display: flex; align-items: center; gap: 3px;">
       <div aria-label="Premium Member" data-balloon-pos="up">
@@ -215,7 +215,18 @@ sendButton.addEventListener('click', () => {
         <p>${username}: ${message}</p>
       </div>
       `;
-    } else if (role === 'Stupid') {
+    } else if (role === 'Advanced') {
+      html = `
+      <div style="display: flex; align-items: center; gap: 3px;">
+      <div aria-label="+Advanced Member+" data-balloon-pos="up">
+        <svg width="16" height="16" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Premium Member" data-balloon-pos="up">
+          <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zm-6-8h4v2h-4v4h-2v-4H7v-2h4V7h2v4z">
+        </svg>
+      </div>
+        <p>${username}: ${message}</p>
+      </div>
+      `;
+    }  else if (role === 'Stupid') {
       html = `
       <div style="display: flex; align-items: center; gap: 3px;">
       <div aria-label="Make fun of this user NOW!" data-balloon-pos="up">
