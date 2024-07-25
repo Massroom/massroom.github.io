@@ -102,14 +102,6 @@ joinButton.addEventListener('click', async () => {
   console.log('Joined private chat:', chatId);
 });
 
-// priv chat msg
-
-const sendButton = document.getElementById('private-send-button');
-
-//  privateChannel.on('message', (message) => {
-//    displayMessage(message);
-//  });
-
 mainChannel.on((message) => {
   switch (message.action) {
     case 'message':
