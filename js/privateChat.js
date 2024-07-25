@@ -52,9 +52,6 @@ if (auth == 1) {
     .then((response) => response.json())
     .then((data) => {
       username = data.name
-    .catch((error) => {
-      console.error(error);
-    });
     }) 
 } else {
   username = generateRandomUsername();
@@ -124,7 +121,7 @@ function displayMessage(message) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 
-const users = privateChannel.getPresence();
+const users = mainChannel.getPresence();
 const userCount = users.length;
 console.log(users);
 //document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
