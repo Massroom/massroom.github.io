@@ -52,11 +52,6 @@ if (auth == 1) {
     .then((response) => response.json())
     .then((data) => {
       username = data.name
-      // Set the innerHTML of the created HTML elements
-      //document.getElementById('username-display').innerHTML = data.name;
-      //document.getElementById('password-display').innerHTML = data.email;
-      //document.getElementById('timestamp').innerHTML = data.created_at; //'Account created at: ' + data.created_at;
-    })
     .catch((error) => {
       console.error(error);
     });
@@ -73,7 +68,7 @@ function displayChatId() {
   document.getElementById('chat-id').innerHTML = 'Chat id: ' + privateChatId;
 };
 
-var privateChannel = xanoClient.channel('private/' + privateChatId);
+var mainChannel = xanoClient.channel('private/' + privateChatId);
 console.log('Connected to: ' + privateChatId);
 
 const joinModal = document.getElementById('join-modal');
@@ -81,42 +76,6 @@ const joinModal = document.getElementById('join-modal');
 const messageInput = document.getElementById('message-input');
 
 const sendButton = document.getElementById('private-send-button');
-
-/*privateChannel.on((message) => {
-  switch (message.action) {
-    case 'message':
-      displayMessage(message.payload);
-      break;
-    case 'join':
-      displayJoinMessage();
-      break;
-    case 'leave':
-      displayLeaveMessage();
-      break;
-    default:
-      console.info(message);
-  }
-});*/
-
-privateChannel.on((join) => {
-  switch (join.action) {
-    case 'join':
-      displayJoinMessage();
-      break;
-    default:
-      console.info(join);
-  }
-});
-
-privateChannel.on((leave) => {
-  switch (leave.action) {
-    case 'leave':
-      displayLeaveMessage();
-      break;
-    default:
-      console.info(leave);
-  }
-});
 
 // Get the chat ID input field
 const chatIdInput = document.getElementById('chat-id-input');
@@ -128,9 +87,9 @@ const joinButton = document.getElementById('join-button');
 joinButton.addEventListener('click', async () => {
   // Get the chat ID from the input field
   const chatId = chatIdInput.value;
-  privateChannel = xanoClient.channel('private/' + chatId);
+  mainChannel = xanoClient.channel('private/' + chatId);
   privateChatId = chatId
-  privateChannel.on((message) => {
+  mainChannel.on((message) => {
         switch (message.action) {
               case 'message':
                     displayMessage(message.payload);
@@ -145,13 +104,13 @@ joinButton.addEventListener('click', async () => {
 
 // priv chat msg
 
-const privateChatButton = document.getElementById('private-send-button');
+const sendButton = document.getElementById('private-send-button');
 
 //  privateChannel.on('message', (message) => {
 //    displayMessage(message);
 //  });
 
-privateChannel.on((message) => {
+mainChannel.on((message) => {
   switch (message.action) {
     case 'message':
       displayMessage(message.payload);
@@ -161,40 +120,7 @@ privateChannel.on((message) => {
   }
 });
 
-privateChannel.on((join) => {
-  switch (join.action) {
-    case 'join':
-      displayJoinMessage();
-      break;
-    default:
-      console.info(join);
-  }
-});
-
-privateChannel.on((leave) => {
-  switch (leave.action) {
-    case 'leave':
-      displayLeaveMessage();
-      break;
-    default:
-      console.info(leave);
-  }
-});
-
 const messageList = document.getElementById('private-messageList');
-function displayJoinMessage() {
-  console.log('Displaying Join');
-  const messageHTML = `<p>Someone joined the chatroom</p>`;
-  messageList.insertAdjacentHTML('beforeend', messageHTML);
-  messageList.scrollTop = messageList.scrollHeight;
-}
-
-function displayLeaveMessage() {
-  console.log('Displaying Leave');
-  const messageHTML = `<p>Someone left the chatroom</p>`;
-  messageList.insertAdjacentHTML('beforeend', messageHTML);
-  messageList.scrollTop = messageList.scrollHeight;
-}
 
 function displayMessage(message) {
   console.log('Displaying message:', message);
@@ -213,11 +139,11 @@ console.log(users);
 
 
 
-privateChatButton.addEventListener('click', () => {
+sendButton.addEventListener('click', () => {
   const message = messageInput.value;
   console.log('Message input value:', message); // Log the input value
   console.log('Message:', message); // Log the message to the console
-  privateChannel.message(username + ': ' + message);
+  mainChannel.message(username + ': ' + message);
   messageInput.value = ''; // Clear input field
 });
 
@@ -231,11 +157,6 @@ function updateAuthStatus() {
     document.getElementById("auth0").style.display = "block";
     document.getElementById("auth1").style.display = "none";
   }
- 
-  //displayMessage(username + ': ' + message);
-  setTimeout(() => {
-    messageInput.value = ''; // Clear input field after a short delay
-  }, 100); // Delay for 100 milliseconds
 };
 
 // Check if signed in via Xano
