@@ -171,6 +171,8 @@ sendButton.addEventListener('click', () => {
     console.log('message handler recieved: ' + role);
     if (role === null) {
       html = `<p>${username}: ${message}</p>`;
+    } else if (role === ' ') {
+      html = `<p>${username}: ${message}</p>`;
     } else if (role === 'DevTeam') {
       html = `
       <div style="display: flex; align-items: center; gap: 3px;">
