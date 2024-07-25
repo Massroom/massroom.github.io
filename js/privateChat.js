@@ -217,17 +217,9 @@ privateChatButton.addEventListener('click', () => {
   const message = messageInput.value;
   console.log('Message input value:', message); // Log the input value
   console.log('Message:', message); // Log the message to the console
-    messageInput.value = ''; // Clear input field
-    messagesSent += 1;
-    if (messagesSent > 10) {
-      const user = checkIfSignedIn();
-      if (user !== 'false') {
-        console.log('changing user points');
-        localStorage.setItem("points", paraseInt(localStorage.getItem("points")) =+ 1);
-        messagesSent = 0;
-      };
-    }
-  }, 100);
+  messageInput.value = ''; // Clear input field
+});
+
 // Check if signed in via Xano
 function updateAuthStatus() {
   auth = localStorage.getItem("auth");
