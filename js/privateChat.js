@@ -310,7 +310,6 @@ privateChatButton.addEventListener('click', () => {
       };
     }
   }, 100);
-});
 // Check if signed in via Xano
 function updateAuthStatus() {
   auth = localStorage.getItem("auth");
