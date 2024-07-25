@@ -211,7 +211,7 @@ const userCount = users.length;
 console.log(users);
 //document.getElementById('user-count').innerHTML = `Users: ${userCount}`;
 
-async function getUserRole() {
+function getUserRole() {
   if (auth == 1) {
     var userRole;
     const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
@@ -236,7 +236,7 @@ privateChatButton.addEventListener('click', () => {
   console.log('Message input value:', message); // Log the input value
   console.log('Message:', message); // Log the message to the console
   let html = null;
-    const role = await getUserRole();
+    const role = getUserRole();
     console.log('message handler recieved: ' + role);
     if (role === null) {
       html = `<p>${username}: ${message}</p>`;
