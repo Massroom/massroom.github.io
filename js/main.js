@@ -156,7 +156,7 @@ async function getUserRole() {
       return userRole;
   } else {
     console.log('user is not signed in, cannot get role');
-    return null;
+    return 'Member';
   }
 };
 
