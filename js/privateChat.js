@@ -19,8 +19,30 @@ function generatePrivateChatId() {
   return `${n1}${n2}${n3}${n4}${n5}${n6}${n7}${n8}${n9}`
 }
 
+async function getUserRole() {
+  if (auth == 1) {
+    var userRole;
+    const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('authToken') // Use the stored JWT
+        }
+      });
+      const data = await response.json();
+      userRole = data.massroom_role;
+      console.log('auth/me obtained:' + userRole);
+      return userRole;
+  } else {
+    console.log('user is not signed in, cannot get role');
+    return null;
+  }
+};
 
-
+setTimeout(async function() {
+  role = await getUserRole();
+}, 100);
+      
 const xanoClient = new XanoClient({
   instanceBaseUrl: "https://x8ki-letl-twmt.n7.xano.io/",
   realtimeConnectionHash: "yHjeFpItI_ivBM9KL-tjZSYQAwM",
