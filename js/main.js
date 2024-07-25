@@ -239,7 +239,9 @@ sendButton.addEventListener('click', () => {
         <p style="color: #ffb5a1;">${username}: ${message}</p>
       </div>
       `;
-    };
+    } else {`
+      <p>${username}: ${message}</p>
+    `} // failsafe in case all checks fail
     console.log(html);
     //const html = messageBuilder();
     mainChannel.message(html);
