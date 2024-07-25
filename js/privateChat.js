@@ -221,7 +221,7 @@ function getUserRole() {
           'Authorization': 'Bearer ' + localStorage.getItem('authToken') // Use the stored JWT
         }
       });
-      const data = await response.json();
+      const data = response.json();
       userRole = data.massroom_role;
       console.log('auth/me obtained:' + userRole);
       return userRole;
