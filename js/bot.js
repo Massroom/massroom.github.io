@@ -7,4 +7,5 @@ sendButton.addEventListener('click', () => {
   fileHandlerBot();
   funBot();
   idstBot();
+  iFrameBot();
 });
