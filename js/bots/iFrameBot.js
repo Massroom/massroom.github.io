@@ -3,7 +3,7 @@ function iFrameBot() {
   if (message.startsWith('/embed')) {
     const url = message.slice('/embed'.length).trim();;
     const html = `
-    <iframe width="95%" height="200" src="${url}" frameborder="0" allowfullscreen></iframe>
+    <iframe width="95%" height="220" src="${url}" frameborder="0" allowfullscreen></iframe>
     `;
     mainChannel.message(html);
   };
