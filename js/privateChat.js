@@ -217,6 +217,7 @@ privateChatButton.addEventListener('click', () => {
   const message = messageInput.value;
   console.log('Message input value:', message); // Log the input value
   console.log('Message:', message); // Log the message to the console
+  privateChannel.message(username + ': ' + message);
   messageInput.value = ''; // Clear input field
 });
 
@@ -230,7 +231,7 @@ function updateAuthStatus() {
     document.getElementById("auth0").style.display = "block";
     document.getElementById("auth1").style.display = "none";
   }
-  privateChannel.message(username + ': ' + message);
+ 
   //displayMessage(username + ': ' + message);
   setTimeout(() => {
     messageInput.value = ''; // Clear input field after a short delay
