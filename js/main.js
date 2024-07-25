@@ -159,12 +159,15 @@ async function getUserRole() {
     return null;
   }
 };
+
+var role
+
 sendButton.addEventListener('click', () => {
   setTimeout(async function() {
     const message = messageInput.value;
     checkForSpam(message);
     let html = null;
-    const role = await getUserRole();
+    role = await getUserRole();
     console.log('message handler recieved: ' + role);
     if (role === null) {
       html = `<p>${username}: ${message}</p>`;
