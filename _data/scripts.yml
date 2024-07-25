@@ -2,6 +2,8 @@
   path: js/bots/systemBot.js
 - name: File Handler
   path: js/bots/fileHandlerBot.js
+- name: Embedder Bot
+  path: js/bots/iFrameBot.js
 - name: Fun Bot
   path: js/bots/funBot.js
 - name: 1DST Bot
