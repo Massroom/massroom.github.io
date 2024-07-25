@@ -55,8 +55,8 @@ if (auth == 1) {
     .catch((error) => {
       console.error(error);
     });
-});
-else {
+    }) 
+} else {
   username = generateRandomUsername();
 }
 
