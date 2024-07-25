@@ -325,7 +325,7 @@ function updateAuthStatus() {
   setTimeout(() => {
     messageInput.value = ''; // Clear input field after a short delay
   }, 100); // Delay for 100 milliseconds
-});
+};
 
 // Check if signed in via Xano
 
