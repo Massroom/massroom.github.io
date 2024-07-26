@@ -1,6 +1,6 @@
 function gameBot() {
   const message = messageInput.value;
-  if (message.startsWith('/game')) 
+  if (message.startsWith('/game')) {
     if (role == 'Member') {
       displayMessage(`<p style="color: #ff0000;">@${username} this is a paid feature. Use premium to be able to /play!</p>`);
     } else if (role != null) {
