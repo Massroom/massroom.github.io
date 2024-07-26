@@ -14,9 +14,6 @@
             height: 100vh;
             background-color: #000;
         }
-        canvas {
-            border: 1px solid #fff;
-        }
         .score {
             position: absolute;
             top: 20px;
@@ -25,104 +22,84 @@
             font-family: Arial, sans-serif;
             font-size: 24px;
         }
+        canvas {
+            border: 1px solid #fff;
+        }
     </style>
 </head>
 <body>
     <div class="score">Score: 0</div>
-    <script src="https://unpkg.com/kaboom/dist/kaboom.js"></script>
+    <script src="https://unpkg.com/@kaplay/core@latest/dist/kaplay.js"></script>
     <script>
-// Initialize Kaboom.js
-kaboom({
-    global: true,
+const { Game, Sprite, Vec2 } = Kaplay;
+
+// Create a new game
+const game = new Game({
     width: 640,
     height: 480,
-    scale: 2,
-    clearColor: [0, 0, 0, 1],
+    canvas: document.querySelector('canvas'),
+    background: '#000'
 });
 
-// Load assets
-loadSprite("pacman", "https://i.imgur.com/slo8Bde.png", {
-    sliceX: 3,
-    anims: {
-        walk: {
-            from: 0,
-            to: 2,
-        },
-    },
+// Define Pac-Man
+const pacman = new Sprite({
+    pos: new Vec2(80, 80),
+    size: new Vec2(20, 20),
+    color: 'yellow'
 });
 
-loadSprite("ghost", "https://i.imgur.com/TBLj1XK.png", {
-    sliceX: 2,
-    anims: {
-        walk: {
-            from: 0,
-            to: 1,
-        },
-    },
+// Define Ghost
+const ghost = new Sprite({
+    pos: new Vec2(160, 80),
+    size: new Vec2(20, 20),
+    color: 'red'
 });
+
+// Add sprites to the game
+game.add(pacman);
+game.add(ghost);
 
 // Initialize score
 let score = 0;
-const scoreLabel = document.querySelector(".score");
-
-// Define Pac-Man
-const pacman = add([
-    sprite("pacman"),
-    pos(80, 80),
-    body(),
-    { dir: vec2(1, 0) },
-]);
-
-pacman.play("walk");
-
-// Define Ghost
-const ghost = add([
-    sprite("ghost"),
-    pos(160, 80),
-    body(),
-]);
-
-ghost.play("walk");
+const scoreLabel = document.querySelector('.score');
 
 // Movement controls (WASD)
-keyDown("a", () => {
-    pacman.move(-120, 0);
-    pacman.dir = vec2(-1, 0);
+document.addEventListener('keydown', (e) => {
+    switch (e.key) {
+        case 'a':
+            pacman.vel = new Vec2(-120, 0);
+            break;
+        case 'd':
+            pacman.vel = new Vec2(120, 0);
+            break;
+        case 'w':
+            pacman.vel = new Vec2(0, -120);
+            break;
+        case 's':
+            pacman.vel = new Vec2(0, 120);
+            break;
+    }
 });
 
-keyDown("d", () => {
-    pacman.move(120, 0);
-    pacman.dir = vec2(1, 0);
-});
-
-keyDown("w", () => {
-    pacman.move(0, -120);
-    pacman.dir = vec2(0, -1);
-});
-
-keyDown("s", () => {
-    pacman.move(0, 120);
-    pacman.dir = vec2(0, 1);
-});
-
-// Loop animation
-action(() => {
-    pacman.move(pacman.dir.scale(60));
-});
-
-// Collision detection and game over logic
-pacman.collides("ghost", () => {
-    alert(`Game Over! Final Score: ${score}`);
-    score = 0;
+// Game loop
+game.on('update', () => {
+    // Update score
+    score++;
     scoreLabel.innerText = `Score: ${score}`;
-    pacman.pos = vec2(80, 80);
+
+    // Check for collisions
+    if (pacman.pos.dist(ghost.pos) < (pacman.size.x + ghost.size.x) / 2) {
+        alert(`Game Over! Final Score: ${score}`);
+        score = 0;
+        scoreLabel.innerText = `Score: ${score}`;
+        pacman.pos = new Vec2(80, 80);
+        pacman.vel = new Vec2(0, 0);
+    }
 });
 
-// Update score
-loop(1, () => {
-    score += 1;
-    scoreLabel.innerText = `Score: ${score}`;
-});
+game.start();
+
     </script>
 </body>
 </html>
+
