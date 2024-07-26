@@ -32,7 +32,7 @@
   {
     "name": "Game Bot {Premium Bot}",
     "description": "Runs in-built Massroom games into the chat!",
-    "init": "/game *game name: pacman, platformer",
+    "init": "/game *game name: pacman, platformer, flappybird*",
     "author": "Massroom Team"
   }
 ]
