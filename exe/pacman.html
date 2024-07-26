@@ -139,65 +139,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //move pacman
     function movePacman(e) {
-        squares[pacmanCurrentIndex].classList.remove("pac-man")
-        // switch (e.keyCode) { deprecated
-        switch (e.key) {
-            // case 37:
-            case "KeyD":
-                if (
-                    pacmanCurrentIndex % width !== 0 &&
-                    !squares[pacmanCurrentIndex - 1].classList.contains("wall") &&
-                    !squares[pacmanCurrentIndex - 1].classList.contains("ghost-lair")
-                ) {
-                    pacmanCurrentIndex -= 1
-                }
-                if ((pacmanCurrentIndex - 1) === 363) {
-                    pacmanCurrentIndex = 391
-                }
-                break
-            case "KeyW":
-                // case 38:
-                if (
-                    pacmanCurrentIndex - width >= 0 &&
-                    !squares[pacmanCurrentIndex - width].classList.contains("wall") &&
-                    !squares[pacmanCurrentIndex - width].classList.contains("ghost-lair")
-
-                ) {
-                    pacmanCurrentIndex -= width
-                }
-                break
-            case "KeyA":
-                // case 39:
-                if (
-                    pacmanCurrentIndex % width < width - 1 &&
-                    !squares[pacmanCurrentIndex + 1].classList.contains("wall") &&
-                    !squares[pacmanCurrentIndex + 1].classList.contains("ghost-lair")
-                ) {
-                    pacmanCurrentIndex += 1
-                }
-                if (
-                    (pacmanCurrentIndex + 1) === 392
-                ) {
-                    pacmanCurrentIndex = 364
-                }
-                break
-            case "KeyS":
-                // case 40:
-                if (
-                    pacmanCurrentIndex + width < width * width &&
-                    !squares[pacmanCurrentIndex + width].classList.contains("wall") &&
-                    !squares[pacmanCurrentIndex + width].classList.contains("ghost-lair")
-                ) {
-                    pacmanCurrentIndex += width
-                }
-                break
-        }
-        squares[pacmanCurrentIndex].classList.add("pac-man")
+    squares[pacmanCurrentIndex].classList.remove("pac-man")
+    switch (e.key) {
+        case "KeyD":
+            if (
+                pacmanCurrentIndex % width !== 0 &&
+                !squares[pacmanCurrentIndex - 1].classList.contains("wall") &&
+                !squares[pacmanCurrentIndex - 1].classList.contains("ghost-lair")
+            ) {
+                pacmanCurrentIndex -= 1
+            }
+            if (pacmanCurrentIndex === 391) {
+                pacmanCurrentIndex = 363
+            }
+            break
+        case "KeyW":
+            if (
+                pacmanCurrentIndex - width >= 0 &&
+                !squares[pacmanCurrentIndex - width].classList.contains("wall") &&
+                !squares[pacmanCurrentIndex - width].classList.contains("ghost-lair")
+            ) {
+                pacmanCurrentIndex -= width
+            }
+            break
+        case "KeyA":
+            if (
+                pacmanCurrentIndex % width < width - 1 &&
+                !squares[pacmanCurrentIndex + 1].classList.contains("wall") &&
+                !squares[pacmanCurrentIndex + 1].classList.contains("ghost-lair")
+            ) {
+                pacmanCurrentIndex += 1
+            }
+            if (pacmanCurrentIndex === 364) {
+                pacmanCurrentIndex = 392
+            }
+            break
+        case "KeyS":
+            if (
+                pacmanCurrentIndex + width < width * width &&
+                !squares[pacmanCurrentIndex + width].classList.contains("wall") &&
+                !squares[pacmanCurrentIndex + width].classList.contains("ghost-lair")
+            ) {
+                pacmanCurrentIndex += width
+            }
+            break
+    }
+    squares[pacmanCurrentIndex].classList.add("pac-man")
         pacDotEaten()
         powerPelletEaten()
         checkForGameOver()
         checkForWin()
-    }
+}
 
     document.addEventListener("keyup", movePacman)
 
