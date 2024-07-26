@@ -3,12 +3,14 @@ function iFrameBot() {
   if (message.startsWith('/embed')) {
     if (role == 'Member') {
       displayMessage(`<p style="color: #ff0000;">@${username} this is a paid feature. Use premium to be able to /embed!</p>`);
-    } else {
+    } else if (role != 'Member') {
       const url = message.slice('/embed'.length).trim();;
       const html = `
       <iframe width="99%" height="240" src="${url}" frameborder="0" allowfullscreen style="padding-top: 10px; border-radius: 12px;"></iframe>
       `;
       mainChannel.message(html);
+    } else {
+      displayMessage(`<p style="color: #ff0000;">@${username} error fetching your role. Try the command again.</p>`);
     };
   };
 };
