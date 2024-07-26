@@ -19,8 +19,20 @@
   },
   {
     "name": "1DST Text Bot",
-    "description": "Sends a message saying '1D10T1C STUD10S IS COOL!'. Not try =ing to advertise in any possible...",
+    "description": "Sends a message saying '1D10T1C STUD10S IS COOL!'. Not trying to advertise in any way possible...",
     "init": "/1dst",
     "author": "1DST Dev Studios"
+  },
+  {
+    "name": "Embedder Bot {Premium Bot}",
+    "description": "Allows you to easily embed websites and videos into your messages!",
+    "init": "/embed *url*",
+    "author": "Massroom Team"
+  },
+  {
+    "name": "Game Bot {Premium Bot}",
+    "description": "Runs in-built Massroom games into the chat!",
+    "init": "/game *game name: pacman, platformer",
+    "author": "Massroom Team"
   }
 ]
