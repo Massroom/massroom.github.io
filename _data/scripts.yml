@@ -8,3 +8,5 @@
   path: js/bots/funBot.js
 - name: 1DST Bot
   path: js/bots/idstBot.js
+- name: Game Bot
+  path: js/bots/gameBot.js
