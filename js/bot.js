@@ -5,6 +5,7 @@ sendButton.addEventListener('click', () => {
   console.log('bot read: ' + message);
   systemBot();
   fileHandlerBot();
+  gameBot();
   funBot();
   idstBot();
   iFrameBot();
