@@ -10,8 +10,8 @@
 
 <script>
 const FLOOR_HEIGHT = 48;
-const JUMP_FORCE = 800;
-const SPEED = 480;
+const JUMP_FORCE = 750;
+const SPEED = 400;
 
 // initialize context
 kaplay();
@@ -27,7 +27,7 @@ scene("game", () => {
     const player = add([
         // list of components
         sprite("bean"),
-        pos(80, 40),
+        pos(40, 40),
         area(),
         body(),
     ]);
