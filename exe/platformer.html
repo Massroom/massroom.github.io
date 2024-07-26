@@ -26,10 +26,12 @@ scene("game", () => {
     // add a game object to screen
     const player = add([
         // list of components
-        sprite("bean"),
+        rect(48, rand(32, 96)),
+        outline(4), 
+        color(255, 180, 255),
         pos(80, 40),
         area(),
-        body(),
+        body()
     ]);
 
     // floor
