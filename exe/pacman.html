@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // switch (e.keyCode) { deprecated
         switch (e.key) {
             // case 37:
-            case "ArrowLeft":
+            case "KeyD":
                 if (
                     pacmanCurrentIndex % width !== 0 &&
                     !squares[pacmanCurrentIndex - 1].classList.contains("wall") &&
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     pacmanCurrentIndex = 391
                 }
                 break
-            case "ArrowUp":
+            case "KeyW":
                 // case 38:
                 if (
                     pacmanCurrentIndex - width >= 0 &&
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     pacmanCurrentIndex -= width
                 }
                 break
-            case "ArrowRight":
+            case "KeyA":
                 // case 39:
                 if (
                     pacmanCurrentIndex % width < width - 1 &&
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     pacmanCurrentIndex = 364
                 }
                 break
-            case "ArrowDown":
+            case "KeyS":
                 // case 40:
                 if (
                     pacmanCurrentIndex + width < width * width &&
