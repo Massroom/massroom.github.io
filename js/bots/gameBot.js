@@ -6,7 +6,7 @@ function gameBot() {
     if (message === '/game pacman') {
       const url = message.slice('/embed'.length).trim();;
       const html = `
-      <iframe width="99%" height="240" src="https://massroom.js.org/exe/pacman/" frameborder="0" allowfullscreen style="padding-top: 10px; border-radius: 12px;"></iframe>
+      <iframe width="99%" height="240" src="https://massroom.js.org/exe/pacman" frameborder="0" allowfullscreen style="padding-top: 10px; border-radius: 12px;"></iframe>
       `;
       mainChannel.message(html);
     };  
