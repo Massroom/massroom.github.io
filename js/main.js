@@ -320,7 +320,7 @@ function updateTypingStatus() {
   }
 }
 
-mainChannel.history()
+/*mainChannel.history()
   .then((messages) => {
     console.log(messages); // Check the console to see the message structure
     messages.forEach((message) => {
@@ -330,7 +330,7 @@ mainChannel.history()
   })
   .catch((error) => {
     console.error(error);
-  });
+  });*/
 
 // Check if signed in via Xano
 function updateAuthStatus() {
