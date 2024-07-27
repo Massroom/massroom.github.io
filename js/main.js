@@ -94,14 +94,14 @@ mainChannel.on((message) => {
   switch (message.action) {
     case 'message':
       if (message.payload.startsWith('$Event:')) {
-        const event = message.payload
+        const event = message.payload;
         if (event.startsWith('$Event: Typing$') {
           const userTyping = event.slice('$Event: Typing$'.length).trim();
           displayEvent(`${userTyping} is typing...`);
         } else if (event.startsWith('$Event: Typing Stop$') {
           const userTyping = event.slice('$Event: Typing Stop$'.length).trim();
           displayEvent(`${userTyping} has stopped typing...`);
-        } 
+        };
       } else {
         displayMessage(message.payload);
       }
