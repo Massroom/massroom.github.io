@@ -334,12 +334,11 @@ function updateAuthStatus() {
 
 window.addEventListener("load", (event) => {
   console.log("page is fully loaded");
-  window.alert("Debug: Start");
   updateAuthStatus();
-  mainChannel.message(username + 'has joined the chatroom!');
 });
 
+mainChannel.message(username + 'has joined the chatroom!');
+
 window.addEventListener('beforeunload', function(e) {
-  window.alert("Debug: End");
   mainChannel.message(username + 'has left the chatroom!');
 });
