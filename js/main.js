@@ -95,7 +95,7 @@ mainChannel.on((message) => {
     case 'message':
       if (message.payload.startsWith('$Event:')) {
         const event = message.payload;
-        if (event.startsWith('$Event: Typing$') {
+        if (event.startsWith('$Event: Typing$')} {
           const userTyping = event.slice('$Event: Typing$'.length).trim();
           displayEvent(`${userTyping} is typing...`);
         } else if (event.startsWith('$Event: Typing Stop$') {
