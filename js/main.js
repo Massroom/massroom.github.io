@@ -332,15 +332,6 @@ mainChannel.history()
     console.error(error);
   });
 
-messages.forEach((message) => {
-  const messageHTML = `
-    <div>
-      <p>${message.payload}</p>
-    </div>
-  `;
-  messageList.insertAdjacentHTML('beforeend', messageHTML);
-});
-
 // Check if signed in via Xano
 function updateAuthStatus() {
   auth = localStorage.getItem("auth");
