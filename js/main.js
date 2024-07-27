@@ -142,8 +142,8 @@ function displayMessage(message) {
     messageList.insertAdjacentHTML('beforeend', messageHTML);
     // Scroll to the bottom
     messageList.scrollTop = messageList.scrollHeight;
-  };
 }
+
 async function getUserRole() {
   if (auth == 1) {
     var userRole;
