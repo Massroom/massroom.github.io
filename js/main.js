@@ -258,6 +258,43 @@ sendButton.addEventListener('click', () => {
     }
   }, 100);
 });
+
+const typingStatus = document.getElementById('typing-status');
+
+let isTyping = false;
+let typingTimeout = null;
+
+messageInput.onfocus = () => {
+  startTypingCheck();
+};
+
+messageInput.onkeydown = () => {
+  isTyping = true;
+  clearTimeout(typingTimeout);
+  updateTypingStatus();
+};
+
+messageInput.onkeyup = () => {
+  typingTimeout = setTimeout(() => {
+    isTyping = false;
+    updateTypingStatus();
+  }, 1000);
+};
+
+function startTypingCheck() {
+  setInterval(() => {
+    updateTypingStatus();
+  }, 1000);
+}
+
+function updateTypingStatus() {
+  if (isTyping) {
+    typingStatus.innerText = 'User is typing...';
+  } else {
+    typingStatus.innerText = '';
+  }
+}
+
 // Check if signed in via Xano
 function updateAuthStatus() {
   auth = localStorage.getItem("auth");
