@@ -139,12 +139,12 @@ function displayMessage(message) {
     const userTyping = message.slice('¿event: typing¿'.length).trim();
     if (userTyping !== username) {
       typingStatus.innerText = `${userTyping} is typing...`;
-    }
+    };
   } else if (message.includes('¿event: stopped typing¿')) {
     const userTyping = message.slice('¿event: stopped typing¿'.length).trim();
     if (userTyping !== username) {
       typingStatus.innerText = '';
-    }
+    };
   } else {
     console.log('Displaying message:', message);
     const messageHTML = `
