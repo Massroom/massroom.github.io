@@ -320,16 +320,6 @@ function updateTypingStatus() {
   }
 }
 
-mainChannel.history();
-
-mainChannel.on('history', function(action) {
-	console.log('history', action); // Your code for processing history goes here
-});
-
-To get the history for the main channel, you can use the `mainChannel.history()` method provided by Xano. This method returns a promise that resolves to an array of message objects.
-
-Here's an example of how to get the history and display the messages:
-```
 mainChannel.history()
   .then((messages) => {
     console.log(messages); // Check the console to see the message structure
