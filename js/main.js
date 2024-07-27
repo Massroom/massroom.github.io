@@ -88,8 +88,6 @@ function isEmpty(element) {
 if (isEmpty(messageListEmpty)) {
   messageListEmpty.insertAdjacentHTML('beforeend', '<p style="color: #af9cff;">Info: Start of chat. It may appear empty for you but not for others.</p>');
 }
-// on join channel
-mainChannel.message(username + 'has joined the chatroom!');
 
 mainChannel.on((message) => {
   switch (message.action) {
@@ -166,6 +164,8 @@ function displayEvent(event) {
     // Scroll to the bottom
     eventList.scrollTop = eventList.scrollHeight;
 }
+
+mainChannel.message(username + 'has joined the chatroom!');
 
 async function getUserRole() {
   if (auth == 1) {
