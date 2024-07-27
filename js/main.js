@@ -295,7 +295,7 @@ function startTypingCheck() {
 
 function updateTypingStatus() {
   if (isTyping) {
-    typingStatus.innerText = 'User is typing...';
+    //typingStatus.innerText = 'User is typing...';
     mainChannel.message(`¿event: typing¿${username}`);
   } else {
     typingStatus.innerText = '';
