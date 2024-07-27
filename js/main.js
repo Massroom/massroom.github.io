@@ -77,6 +77,7 @@ const mainChannel = xanoClient.channel("main", {
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
 const messageList = document.getElementById('messageList');
+const eventList = document.getElementById('eventList');
 const messageListEmpty = document.getElementById('messageListEmpty');
 const typingStatus = document.getElementById('typing-status');
 
@@ -92,7 +93,18 @@ if (isEmpty(messageListEmpty)) {
 mainChannel.on((message) => {
   switch (message.action) {
     case 'message':
-      displayMessage(message.payload);
+      if (message.payload.startsWith('$Event:')) {
+        const event = message.payload
+        if (event.startsWith('$Event: Typing$') {
+          const userTyping = event.slice('$Event: Typing$'.length).trim();
+          displayEvent(`${userTyping} is typing...`);
+        } else if (event.startsWith('$Event: Typing Stop$') {
+          const userTyping = event.slice('$Event: Typing Stop$'.length).trim();
+          displayEvent(`${userTyping} has stopped typing...`);
+        } 
+      } else {
+        displayMessage(message.payload);
+      }
       break;
     default:
       console.info(message);
@@ -142,6 +154,16 @@ function displayMessage(message) {
     messageList.insertAdjacentHTML('beforeend', messageHTML);
     // Scroll to the bottom
     messageList.scrollTop = messageList.scrollHeight;
+}
+
+function displayEvent(event) {
+    console.log('Displaying event:', event);
+    const eventHTML = `
+    <p>${event}</p>
+    `;
+    eventList.insertAdjacentHTML('beforeend', eventHTML);
+    // Scroll to the bottom
+    eventList.scrollTop = eventList.scrollHeight;
 }
 
 async function getUserRole() {
@@ -292,8 +314,10 @@ function startTypingCheck() {
 function updateTypingStatus() {
   if (isTyping) {
     typingStatus.innerText = 'You are typing...';
+    mainChannel.message('$Event: Typing$' + username);
   } else {
     typingStatus.innerText = '';
+    mainChannel.message('$Event: Typing Stop$' + username);
   }
 }
 
