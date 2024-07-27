@@ -165,8 +165,6 @@ function displayEvent(event) {
     eventList.scrollTop = eventList.scrollHeight;
 }
 
-mainChannel.message(username + 'has joined the chatroom!');
-
 async function getUserRole() {
   if (auth == 1) {
     var userRole;
@@ -335,3 +333,4 @@ function updateAuthStatus() {
 }
 // Call updateAuthStatus() when the page loads
 updateAuthStatus();
+mainChannel.message(username + 'has joined the chatroom!');
