@@ -337,3 +337,7 @@ window.addEventListener("load", (event) => {
   updateAuthStatus();
   mainChannel.message(username + 'has joined the chatroom!');
 });
+
+window.addEventListener('beforeunload', function(e) {
+  mainChannel.message(username + 'has left the chatroom!');
+});
