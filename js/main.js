@@ -137,7 +137,10 @@ function displayLeaveMessage() {
 function displayMessage(message) {
   if (message.includes('¿event: typing¿')) {
     const userTyping = message.slice('¿event: typing¿'.length).trim();
-    typingStatus.innerText = 'User is typing...';
+    typingStatus.innerText = `${userTyping} is typing...`;
+  } else if (message.includes('¿event: stopped typing¿')) {
+    const userTyping = message.slice('¿event: stopped typing¿'.length).trim();
+    typingStatus.innerText = '';
   } else {
     console.log('Displaying message:', message);
     const messageHTML = `
@@ -298,7 +301,8 @@ function updateTypingStatus() {
     //typingStatus.innerText = 'User is typing...';
     mainChannel.message(`¿event: typing¿${username}`);
   } else {
-    typingStatus.innerText = '';
+    //typingStatus.innerText = '';
+    mainChannel.message(`¿event: stopped typing¿${username}`);
   }
 }
 
