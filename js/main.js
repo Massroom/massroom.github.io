@@ -137,10 +137,14 @@ function displayLeaveMessage() {
 function displayMessage(message) {
   if (message.includes('¿event: typing¿')) {
     const userTyping = message.slice('¿event: typing¿'.length).trim();
-    typingStatus.innerText = `${userTyping} is typing...`;
+    if (userTyping !== username) {
+      typingStatus.innerText = `${userTyping} is typing...`;
+    }
   } else if (message.includes('¿event: stopped typing¿')) {
     const userTyping = message.slice('¿event: stopped typing¿'.length).trim();
-    typingStatus.innerText = '';
+    if (userTyping !== username) {
+      typingStatus.innerText = '';
+    }
   } else {
     console.log('Displaying message:', message);
     const messageHTML = `
