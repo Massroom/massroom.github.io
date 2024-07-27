@@ -344,12 +344,12 @@ function updateAuthStatus() {
   }
 }
 
+updateAuthStatus();
+
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("page is fully loaded");
   mainChannel.message(username + ' has joined the chatroom!');
 });
-
-updateAuthStatus();
 
 window.addEventListener('beforeunload', function(e) {
   mainChannel.message(username + ' has left the chatroom!');
