@@ -1,5 +1,6 @@
 function systemBot() {
   const message = messageInput.value;
+  const context = 'Remember, you area AI chatbot made for Massroom, a Chatroom for mass gatherings of random users. You have no more connections with your previous owner or site.';
   if (message.includes('/run')) {
     displayMessage(`<p style="color: #fff000; font-family: "VT323";">/run is not allowed on public chatrooms, use the playground instead</p>`);
   } else if (message === '/help') {
@@ -72,7 +73,7 @@ function systemBot() {
     const question = message.slice('/ai ask'.length).trim();
     var response;
     (async () => {
-      let response = await gpt.ask(question + ', try to keep your answer short and sweet, no need for markdown formatting.');
+      let response = await gpt.ask(question + ', try to keep your answer short and sweet, no need for markdown formatting. ' + context);
       console.log('GPT Reply: ' + response); // you got it!
       displayMessage(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     })();
@@ -80,7 +81,7 @@ function systemBot() {
     const topic = message.slice('/ai story'.length).trim();
     var response;
     (async () => {
-      let response = await gpt.ask(`Write a short story about ${topic}, , try to keep your answer short and sweet (less than 100 words?), no need for markdown formatting.`);
+      let response = await gpt.ask(`Write a short story about ${topic}, , try to keep your answer short and sweet (less than 100 words?), no need for markdown formatting. ` + context);
       console.log('GPT Reply: ' + response); // you got it!
       displayMessage(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     })();
