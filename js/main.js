@@ -344,7 +344,7 @@ function updateAuthStatus() {
   }
 }
 
-window.addEventListener("load", (event) => {
+document.addEventListener("DOMContentLoaded", (event) => {
   console.log("page is fully loaded");
   mainChannel.message(username + ' has joined the chatroom!');
 });
