@@ -331,6 +331,9 @@ function updateAuthStatus() {
     document.getElementById("auth1").style.display = "none";
   }
 }
-// Call updateAuthStatus() when the page loads
-updateAuthStatus();
-mainChannel.message(username + 'has joined the chatroom!');
+
+window.addEventListener("load", (event) => {
+  console.log("page is fully loaded");
+  updateAuthStatus();
+  mainChannel.message(username + 'has joined the chatroom!');
+});
