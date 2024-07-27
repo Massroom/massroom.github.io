@@ -73,10 +73,13 @@ if (auth == 1) {
 const mainChannel = xanoClient.channel("main", {
   presence: true,
 });
+
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
 const messageList = document.getElementById('messageList');
 const messageListEmpty = document.getElementById('messageListEmpty');
+const typingStatus = document.getElementById('typing-status');
+
 
 function isEmpty(element) {
   return element.innerHTML.trim() === ''
@@ -132,13 +135,18 @@ function displayLeaveMessage() {
 }
 
 function displayMessage(message) {
-  console.log('Displaying message:', message);
-  const messageHTML = `
+  if (message.includes('¿event: typing¿')) {
+    const userTyping = message.slice('¿event: typing¿'.length).trim();
+    typingStatus.innerText = 'User is typing...';
+  } else {
+    console.log('Displaying message:', message);
+    const messageHTML = `
     <div>${message}</div>
-  `;
-  messageList.insertAdjacentHTML('beforeend', messageHTML);
-  // Scroll to the bottom
-  messageList.scrollTop = messageList.scrollHeight;
+    `;
+    messageList.insertAdjacentHTML('beforeend', messageHTML);
+    // Scroll to the bottom
+    messageList.scrollTop = messageList.scrollHeight;
+  };
 }
 async function getUserRole() {
   if (auth == 1) {
@@ -259,8 +267,6 @@ sendButton.addEventListener('click', () => {
   }, 100);
 });
 
-const typingStatus = document.getElementById('typing-status');
-
 let isTyping = false;
 let typingTimeout = null;
 
@@ -290,6 +296,7 @@ function startTypingCheck() {
 function updateTypingStatus() {
   if (isTyping) {
     typingStatus.innerText = 'User is typing...';
+    mainChannel.message(`¿event: typing¿${username}`);
   } else {
     typingStatus.innerText = '';
   }
