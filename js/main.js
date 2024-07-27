@@ -93,7 +93,7 @@ if (isEmpty(messageListEmpty)) {
 mainChannel.on((message) => {
   switch (message.action) {
     case 'message':
-      if (message.payload.startsWith('$Event:')) {
+      /*if (message.payload.startsWith('$Event:')) {
         const event = message.payload;
         if (event.startsWith('$Event: Typing$')) {
           const userTyping = event.slice('$Event: Typing$'.length).trim();
@@ -102,9 +102,9 @@ mainChannel.on((message) => {
           const userTyping = event.slice('$Event: Typing Stop$'.length).trim();
           displayEvent(`${userTyping} has stopped typing...`);
         };
-      } else {
+      } else {*/
         displayMessage(message.payload);
-      }
+      //}
       break;
     default:
       console.info(message);
@@ -314,10 +314,10 @@ function startTypingCheck() {
 function updateTypingStatus() {
   if (isTyping) {
     typingStatus.innerText = 'You are typing...';
-    mainChannel.message('$Event: Typing$' + username);
+    //mainChannel.message('$Event: Typing$' + username);
   } else {
     typingStatus.innerText = '';
-    mainChannel.message('$Event: Typing Stop$' + username);
+    //mainChannel.message('$Event: Typing Stop$' + username);
   }
 }
 
