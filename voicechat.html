@@ -32,6 +32,23 @@ layout: default
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-family: "VT323";
   }
+  
+#container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    width: 100%;
+    height: 100%;
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 </style>
 
 <p>Your ID: <span id="peer-id">...</span></p>
@@ -39,6 +56,8 @@ layout: default
 <button id="call-button">Call</button>
 <audio id="localAudio" autoplay></audio>
 <audio id="remoteAudio" autoplay></audio>
+
+<canvas id="canvas"></canvas>
 
 <div class="user-list" id="user-list"></div>
 
