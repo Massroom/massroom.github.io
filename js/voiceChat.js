@@ -1,30 +1,38 @@
-const peer = new Peer('massroom-user');
+// Get the audio element
+const remoteAudio = document.getElementById('remote-audio');
 
-peer.on('connection', (conn) => {
-  console.log('Connected to peer!');
-  // Handle voice chat data here
-});
+// Create a new Peer instance with your PeerJS cloud hosting credentials
+const peer = new Peer();
 
-var conn = peer.connect('massroom');
+// Call a peer, providing our mediaStream
+  var call = peer.call('massroom',
+	mediaStream);
 
-conn.on('data', (data) => {
-  console.log('Received voice chat data:', data);
-  // Play the received audio data here
-});
+peer.on('call', function(call) {
+	// Answer the call, providing our mediaStream
+	call.answer(mediaStream);
+  });
 
-const audioData = // Get audio data from user's microphone
-conn.send(audioData);
+peer.on('call', function(call) {
+	// Answer the call, providing our mediaStream
+	call.answer(mediaStream);
+  });
 
+// Request access to the user's audio stream
 navigator.mediaDevices.getUserMedia({ audio: true })
-  .then((stream) => {
-    const audioContext = new AudioContext();
-    const source = audioContext.createMediaStreamSource(stream);
-    const processor = audioContext.createScriptProcessor(1024, 1, 1);
-    source.connect(processor);
-    processor.connect(audioContext.destination);
-    processor.onaudioprocess = (event) => {
-      const audioData = event.inputBuffer.getChannelData(0);
-      // Send audioData to peer using conn.send(audioData)
-    };
+  .then(stream => {
+    // When the call button is clicked, create a new peer connection
+    document.getElementById('call-button').addEventListener('click', () => {
+      const conn = peer.connect('remote-peer-id');
+      conn.on('stream', remoteStream => {
+        // Set the remote audio stream
+        remoteAudio.srcObject = remoteStream;
+      });
+      conn.on('close', () => {
+        // Handle the connection closing
+      });
+    });
   })
-  .catch((error) => console.error('Error getting user media:', error));
+  .catch(error => {
+    // Handle the error
+  });
