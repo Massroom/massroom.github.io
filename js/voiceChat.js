@@ -1,38 +1,47 @@
-// Get the audio element
-const remoteAudio = document.getElementById('remote-audio');
+const localAudio = document.getElementById('localAudio');
+const remoteAudio = document.getElementById('remoteAudio');
+const callButton = document.getElementById('call-button');
+const remoteIdInput = document.getElementById('remote-id');
+const peerIdDisplay = document.getElementById('peer-id');
 
-// Create a new Peer instance with your PeerJS cloud hosting credentials
-const peer = new Peer();
+// Create a PeerJS instance
+const peer = new Peer({
+    host: '0.peerjs.com',
+    port: 443,
+    path: '/'
+});
 
-// Call a peer, providing our mediaStream
-  var call = peer.call('massroom',
-	mediaStream);
+// Display your peer ID
+peer.on('open', id => {
+    peerIdDisplay.textContent = id;
+});
 
-peer.on('call', function(call) {
-	// Answer the call, providing our mediaStream
-	call.answer(mediaStream);
-  });
-
-peer.on('call', function(call) {
-	// Answer the call, providing our mediaStream
-	call.answer(mediaStream);
-  });
-
-// Request access to the user's audio stream
+// Get local audio stream
 navigator.mediaDevices.getUserMedia({ audio: true })
-  .then(stream => {
-    // When the call button is clicked, create a new peer connection
-    document.getElementById('call-button').addEventListener('click', () => {
-      const conn = peer.connect('remote-peer-id');
-      conn.on('stream', remoteStream => {
-        // Set the remote audio stream
-        remoteAudio.srcObject = remoteStream;
-      });
-      conn.on('close', () => {
-        // Handle the connection closing
-      });
+    .then(stream => {
+        localAudio.srcObject = stream;
+
+        // Listen for incoming calls
+        peer.on('call', call => {
+            call.answer(stream); // Answer the call with our audio stream
+
+            call.on('stream', remoteStream => {
+                remoteAudio.srcObject = remoteStream;
+            });
+        });
+
+        // Call the remote peer
+        callButton.addEventListener('click', () => {
+            const remoteId = remoteIdInput.value;
+            if (remoteId) {
+                const call = peer.call(remoteId, stream);
+
+                call.on('stream', remoteStream => {
+                    remoteAudio.srcObject = remoteStream;
+                });
+            }
+        });
+    })
+    .catch(err => {
+        console.error('Failed to get local stream', err);
     });
-  })
-  .catch(error => {
-    // Handle the error
-  });
