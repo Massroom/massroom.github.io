@@ -11,11 +11,44 @@ layout: default
   </a>
 </div>
 
-<!-- Add an audio element to display the remote audio stream -->
-<audio id="remote-audio" autoplay></audio>
+<style>
+      #outgoing {
+        width: 600px;
+        word-wrap: break-word;
+        white-space: normal;
+      }
+    </style>
+    <form>
+      <textarea id="incoming"></textarea>
+      <button type="submit">submit</button>
+    </form>
+    <pre id="outgoing"></pre>
+    <script src="simplepeer.min.js"></script>
+    <script>
+      const p = new SimplePeer({
+        initiator: location.hash === '#1',
+        trickle: false
+      })
 
-<!-- Add a button to initiate the call -->
-<button id="call-button">Call</button>
+      p.on('error', err => console.log('error', err))
 
+      p.on('signal', data => {
+        console.log('SIGNAL', JSON.stringify(data))
+        document.querySelector('#outgoing').textContent = JSON.stringify(data)
+      })
 
-<script src="/js/voiceChat.js"></script>
+      document.querySelector('form').addEventListener('submit', ev => {
+        ev.preventDefault()
+        p.signal(JSON.parse(document.querySelector('#incoming').value))
+      })
+
+      p.on('connect', () => {
+        console.log('CONNECT')
+        p.send('whatever' + Math.random())
+      })
+
+      p.on('data', data => {
+        console.log('data: ' + data)
+      })
+    </script>
+  </body>
