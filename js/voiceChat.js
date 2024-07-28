@@ -80,35 +80,5 @@ function updateUserList() {
     });
 }
 
-
-
-// Start by making sure the `assemblyai` package is installed.
-// If not, you can install it by running the following command:
-// npm install assemblyai
-
-import AssemblyAI from 'assemblyai';
-
-const client = new AssemblyAI({
-  apiKey: '83c9fd0fabe646e2b706f1b28b26066f',
-});
-
-const FILE_URL =
-  'https://storage.googleapis.com/aai-web-samples/5_common_sports_injuries.mp3';
-
-// You can also transcribe a local file by passing in a file path
-// const FILE_URL = './path/to/file.mp3';
-
-// Request parameters 
-const data = {
-  audio_url: FILE_URL
-}
-
-const run = async () => {
-  const transcript = await client.transcripts.transcribe(data);
-  console.log(transcript.text);
-};
-
-run();
-
 // Initialize PeerJS
 initializePeer();
