@@ -5,6 +5,8 @@ peer.on('connection', (conn) => {
   // Handle voice chat data here
 });
 
+var conn = peer.connect('massroom');
+
 conn.on('data', (data) => {
   console.log('Received voice chat data:', data);
   // Play the received audio data here
