@@ -86,7 +86,7 @@ function updateUserList() {
 // If not, you can install it by running the following command:
 // npm install assemblyai
 
-import { AssemblyAI } from 'assemblyai';
+import AssemblyAI from 'assemblyai';
 
 const client = new AssemblyAI({
   apiKey: '83c9fd0fabe646e2b706f1b28b26066f',
