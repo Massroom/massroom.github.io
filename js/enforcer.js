@@ -30,7 +30,7 @@ function checkForSpam() {
 
   lastMessageTime = currentTime;
 
-  if (messageCount > 5) { // Adjust this threshold as needed
+  if (messageCount > 30) { // Adjust this threshold as needed
     console.log('Enforcer Spam detected!');
     displayMessage(`<p style="color: #ff0000;">Warning: @${username} please stop spamming.</p>`);
   }
