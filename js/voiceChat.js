@@ -80,5 +80,22 @@ function updateUserList() {
     });
 }
 
+const client = new AssemblyAI({
+  apiKey: "83c9fd0fabe646e2b706f1b28b26066f"
+})
+
+const audioUrl = remoteAudio
+
+const config = {
+  audio_url: audioUrl
+}
+
+const run = async () => {
+  const transcript = await client.transcripts.transcribe(config)
+  console.log(transcript.text)
+}
+
+run()
+
 // Initialize PeerJS
 initializePeer();
