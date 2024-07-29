@@ -1,6 +1,6 @@
 function getUser(user) {
   fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/getuser', {
-    method: 'GET',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
