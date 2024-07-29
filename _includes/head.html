@@ -18,6 +18,21 @@
     crossorigin="anonymous"
     ></script>
 
+    <script>
+        // import Sentry from your framework SDK (e.g. @sentry/react) instead of @sentry/browser
+        import * as Sentry from "@sentry/browser";
+        
+        Sentry.init({
+            dsn: "https://ee6936990adeb49036501b8f00a8961f@o4507480204050432.ingest.de.sentry.io/4507490661367888",
+            integrations: [
+                Sentry.feedbackIntegration({
+                    // Additional SDK configuration goes in here, for example:
+                    colorScheme: "dark",
+                }),
+            ],
+        });
+    </script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
     <!-- jQuery Modal -->
