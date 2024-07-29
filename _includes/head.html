@@ -11,24 +11,12 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@xano/js-sdk@latest/dist/xano.min.js"></script>
 
 
+    <!-- Recommended: Use this bundle for feedback, replay, error, and tracing -->
     <script
-        src="https://browser.sentry-cdn.com/8.20.0/bundle.tracing.min.js"
-        integrity="sha384-izNOxx9cwrvCyJjcPDvYn7rn8mjHLH5r1caW/6eXvt6ASA6co6dgMomL/90dTsWX"
-        crossorigin="anonymous"
+    src="https://browser.sentry-cdn.com/8.20.0/bundle.tracing.replay.feedback.min.js"
+    integrity="sha384-t3CmGEq1Y1SCO6SllU5UO+xpCEna1qq3c17Jsh1XIAED0gt0Y/tcwqoKNNm8Xfo+"
+    crossorigin="anonymous"
     ></script>
-    <script>
-      Sentry.init({
-        dsn: "https://71bfc1e882b6cbf71fcfe982d955c3c7@o4507480204050432.ingest.de.sentry.io/4507631998599248",
-        integrations: [
-          Sentry.feedbackIntegration({
-            // Additional SDK configuration goes in here, for example:
-            colorScheme: "dark",
-            isNameRequired: true,
-            isEmailRequired: true,
-          }),
-        ],
-      });
-    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
