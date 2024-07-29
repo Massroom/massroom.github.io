@@ -187,7 +187,7 @@ function isEmpty(element) {
   return element.innerHTML.trim() === ''
 }
 if (isEmpty(startMessage)) {
-  
+  idst();
 }
 
 // Call updateAuthStatus() when the page loads
