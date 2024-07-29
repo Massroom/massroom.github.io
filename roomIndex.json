@@ -8,27 +8,32 @@
   {
     "name": "1DST Updates Chat {Official}",
     "description": "Get updated on the latest 1D10T1C STUD10S news!"
+    "code": "1dst",
     "author": "1DST Dev Studios"
   },
   {
     "name": "Placeholder Room Entry",
     "description": "Description of Room.",
+    "code": "123456789",
     "author": "Author of Room"
   },
   {
     "name": "Placeholder Room Entry",
     "description": "Description of Room.",
+    "code": "123456789",
     "author": "Author of Room"
   },
   
   {
     "name": "Placeholder Room Entry",
     "description": "Description of Room.",
+    "code": "123456789",
     "author": "Author of Room"
   },
   {
     "name": "Placeholder Room Entry",
     "description": "Description of Room.",
+    "code": "123456789",
     "author": "Author of Room"
   }
 ]
