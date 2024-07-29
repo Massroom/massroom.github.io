@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Main Chatroom {Official}",
+    "description": "The very room you enter on the homepage!",
+    "code": "No code!",
+    "author": "Massroom Team"
+  },
+  {
+    "name": "1DST Updates Chat {Official}",
+    "description": "Get updated on the latest 1D10T1C STUD10S news!"
+    "author": "1DST Dev Studios"
+  },
+  {
+    "name": "Placeholder Room Entry",
+    "description": "Description of Room.",
+    "author": "Author of Room"
+  },
+  {
+    "name": "Placeholder Room Entry",
+    "description": "Description of Room.",
+    "author": "Author of Room"
+  },
+  
+  {
+    "name": "Placeholder Room Entry",
+    "description": "Description of Room.",
+    "author": "Author of Room"
+  },
+  {
+    "name": "Placeholder Room Entry",
+    "description": "Description of Room.",
+    "author": "Author of Room"
+  }
+]
