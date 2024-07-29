@@ -30,13 +30,14 @@ function getEntryHTML(entry) {
         <div style="background-color: #1a1a1a; width: 85%; border-radius: 5px; padding: 12px; margin-bottom: 10px;">
         <h2>${entry.name}</h2>
         <small><p>Author:${entry.author}</p></small>
+        <p>Room Code: <code>${entry.code}</code></p>
         <p>${entry.description}</p>
         </div>
     `;
 };
   
 const jsonUrls = [
-  'https://massroom.js.org/search.json'
+  'https://massroom.js.org/roomIndex.json'
   // Add more URLs as needed
 ];
 </script>
