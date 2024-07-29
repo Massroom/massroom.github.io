@@ -15,6 +15,7 @@ function getUser(user) {
     return response.json();
     })
     .then((data) => {
+      console.log(data.name + ', ' + data.massroom_role);
       document.getElementById('username-display').innerHTML = data.name;
       document.getElementById('role-display').innerHTML = data.massroom_role;
     });
