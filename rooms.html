@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div style="display: flex; align-items: center; gap: 10px; width: 30%; color: #00f52d;">
+  <svg width="40" height="40" style="fill: #00f52d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M22 2H2v14h2V4h16v12h-8v2h-2v2H8v-4H2v2h4v4h4v-2h2v-2h10V2z" />
+  </svg>
+  <a href="/" style="text-decoration: none;">
+   <h1 class="title">Massroom Openrooms</h1>
+  </a>
+</div>
+</a>
+
+<h3>Public Community Rooms:</h3>
+<p>These rooms are maintained by the community, and are open for anyone to join!</p>
+
+<!-- Search Bar -->
+<input type="search" id="search-input" placeholder="Search Rooms" style="width: 80% !important; height: 50px !important;">
+
+<!-- Important Part -->
+<div class="entries-container" style="display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr);"></div>
+
+<script>
+var startShowAll = true
+
+function getEntryHTML(entry) {
+    console.log(entry);
+    return `
+        <div style="background-color: #1a1a1a; width: 85%; border-radius: 5px; padding: 12px; margin-bottom: 10px;">
+        <h2>${entry.name}</h2>
+        <small><p>Author:${entry.author}</p></small>
+        <p>${entry.description}</p>
+        </div>
+    `;
+};
+  
+const jsonUrls = [
+  'https://massroom.js.org/search.json'
+  // Add more URLs as needed
+];
+</script>
+
+<script src="https://frontsearch.js.org/src/script.@1.1.js"></script>
