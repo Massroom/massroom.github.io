@@ -7,13 +7,13 @@ function getUser(user) {
     body: JSON.stringify({
       username: user,
     })
-  });
+  })
     .then((response) => {
       if (!response.ok) {
         throw new Error('Failed: ' + response.status);
       };
     return response.json();
-    });
+    })
     .then((data) => {
       document.getElementById('username-display').innerHTML = data.name;
       document.getElementById('timestamp').innerHTML = data.massroom_role;
