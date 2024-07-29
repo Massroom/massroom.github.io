@@ -11,11 +11,7 @@ let connections = {};
 
 // Create a PeerJS instance
 function initializePeer() {
-    peer = new Peer({
-        host: '0.peerjs.com',
-        port: 443,
-        path: '/'
-    });
+    peer = new Peer();
 
     // Display your peer ID
     peer.on('open', id => {
