@@ -12,6 +12,7 @@ function getUser(user) {
       if (!response.ok) {
         throw new Error('Failed: ' + response.status);
       };
+    console.log(response.name + ', ' + response.massroom_role);
     return response.json();
     })
     .then((data) => {
