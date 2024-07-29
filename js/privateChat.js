@@ -180,5 +180,15 @@ function updateAuthStatus() {
   auth = localStorage.getItem("auth");
 }
 
+const startMessage = document.getElementById('startmessage');
+
+
+function isEmpty(element) {
+  return element.innerHTML.trim() === ''
+}
+if (isEmpty(startMessage)) {
+  
+}
+
 // Call updateAuthStatus() when the page loads
 updateAuthStatus();
