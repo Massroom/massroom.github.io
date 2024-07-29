@@ -50,10 +50,11 @@ layout: default
 .user-list, .transcription {
             margin-top: 20px;
             width: 80%;
-            background: #fff;
-            padding: 10px;
-            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #4f4f4f; /* Dark gray background */
+  padding: 20px;
+  border: 1px solid #00c939;
+  border-radius: 10px;
         }
         .transcription p {
             margin: 0;
@@ -68,8 +69,12 @@ layout: default
 <audio id="localAudio" autoplay></audio>
 <audio id="remoteAudio" autoplay></audio>
 
-<div class="transcription" id="transcription"></div>
-<div class="user-list" id="user-list"></div>
+<div class="transcription" id="transcription">
+  <h3>VC Transcript:</h3>
+</div>
+<div class="user-list" id="user-list">
+  <h3>Users Called:</h3>
+</div>
 
 <div>
   <br>
