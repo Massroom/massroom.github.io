@@ -6,7 +6,7 @@ function getUser(user) {
     },
     body: JSON.stringify({
       username: user,
-    });
+    })
   });
     .then((response) => {
       if (!response.ok) {
