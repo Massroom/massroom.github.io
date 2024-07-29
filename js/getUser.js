@@ -16,6 +16,6 @@ function getUser(user) {
     })
     .then((data) => {
       document.getElementById('username-display').innerHTML = data.name;
-      document.getElementById('timestamp').innerHTML = data.massroom_role;
+      document.getElementById('role-display').innerHTML = data.massroom_role;
     });
 };
