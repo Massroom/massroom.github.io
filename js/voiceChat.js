@@ -89,9 +89,9 @@ function updateUserList() {
     });
 
     // Notify all connected peers to update their user lists
-    Object.values(connections).forEach(conn => {
+    /*Object.values(connections).forEach(conn => {
         conn.send({ type: 'update-user-list' });
-    });
+    });*/
 }
 
 // Initialize PeerJS
