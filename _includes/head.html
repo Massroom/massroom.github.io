@@ -11,6 +11,19 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@xano/js-sdk@latest/dist/xano.min.js"></script>
 
     <script src="https://js-de.sentry-cdn.com/71bfc1e882b6cbf71fcfe982d955c3c7.min.js" crossorigin="anonymous"></script>
+    <script>
+      Sentry.init({
+        dsn: "https://71bfc1e882b6cbf71fcfe982d955c3c7@o4507480204050432.ingest.de.sentry.io/4507631998599248",
+        integrations: [
+          Sentry.feedbackIntegration({
+            // Additional SDK configuration goes in here, for example:
+            colorScheme: "dark",
+            isNameRequired: true,
+            isEmailRequired: true,
+          }),
+        ],
+      });
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
