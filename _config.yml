@@ -1,1 +1,4 @@
 title: Massroom
+url: "https://massroom.js.org"
+plugins:
+  - jekyll-sitemap
