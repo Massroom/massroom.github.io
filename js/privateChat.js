@@ -104,6 +104,8 @@ const chatIdInput = document.getElementById('chat-id-input');
 // Get the join button
 const joinButton = document.getElementById('join-button');
 
+const startMessage = document.getElementById('startmessage');
+
 // Add an event listener to the join button
 joinButton.addEventListener('click', async () => {
   // Get the chat ID from the input field
@@ -121,6 +123,7 @@ joinButton.addEventListener('click', async () => {
   });
   displayChatId();
   console.log('Joined private chat:', chatId);
+  checkNewRoom();
 });
 
 mainChannel.on((message) => {
@@ -186,14 +189,14 @@ function idst() {
   }
 }
 
-const startMessage = document.getElementById('startmessage');
-
-
 function isEmpty(element) {
   return element.innerHTML.trim() === ''
 }
-if (isEmpty(startMessage)) {
-  idst();
+
+function checkNewRoom() {
+      if (isEmpty(startMessage)) {
+            idst();
+      }
 }
 
 // Call updateAuthStatus() when the page loads
