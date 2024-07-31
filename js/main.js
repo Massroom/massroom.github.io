@@ -96,7 +96,7 @@ mainChannel.on((message) => {
       break;
     case 'history':
       const obtainedMessages = message.payload.history
-      obtainedMessages.forEach((element) => displayMessage(element));
+      obtainedMessages.forEach((element) => displayMessage(element.payload));
       break;
     default:
       console.info(message);
