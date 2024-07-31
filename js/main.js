@@ -351,9 +351,10 @@ updateAuthStatus();
 
 setTimeout(() => {
   const history = mainChannel.history();
-const messages = history.payload.history;
+  const messages = history.payload;
+  const message = messages.history;
 
-messages.forEach((message) => {
+message.forEach((message) => {
   if (message.action === 'message') {
     displayMessage(message.payload);
   } else if (message.action === 'leave') {
