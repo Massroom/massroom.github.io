@@ -348,11 +348,14 @@ function updateAuthStatus() {
 }
 
 updateAuthStatus();
-mainChannel.history().then((messages) => {
-  messages.forEach((message) => {
-    displayMessage(message.payload);
+
+setTimeout(() => {
+  mainChannel.history().then((messages) => {
+    messages.forEach((message) => {
+      displayMessage(message.payload);
+    });
   });
-});
+}, 1000);
 
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("page is fully loaded");
