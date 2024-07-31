@@ -363,6 +363,8 @@ mainChannel.on('history', function(action) {
   }
 });
 
+mainChannel.history();
+
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("page is fully loaded"); 
 });
