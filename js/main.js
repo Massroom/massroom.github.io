@@ -282,7 +282,8 @@ sendButton.addEventListener('click', () => {
     `}; // failsafe in case all checks fail
     console.log(html);
     //const html = messageBuilder();
-    mainChannel.message(html);
+    const clean = DOMPurify.sanitize(html);
+    mainChannel.message(clean);
     messageInput.value = ''; // Clear input field
     messagesSent += 1;
     if (messagesSent > 10) {
