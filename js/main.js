@@ -350,18 +350,15 @@ function updateAuthStatus() {
 updateAuthStatus();
 
 setTimeout(() => {
-  const history = mainChannel.history();
-const messages = history.payload.history;
+mainChannel.history();
 
-messages.forEach((message) => {
-  if (message.action === 'message') {
-    console.log(message.payload); // Log the message payload to the console
-    displayMessage(message.payload);
-  } else if (message.action === 'leave') {
-    console.log(message.payload); // Log the leave message payload to the console
-    displayLeaveMessage(message.payload);
+mainChannel.on('history', function(action) {
+	console.log('history', action); // Your code for processing history goes here
+  if (action.action === 'message') {
+    displayMessage(action.payload);
   }
 });
+
   mainChannel.message(username + ' has joined the chatroom!');
 }, 1000);
 
