@@ -280,7 +280,7 @@ sendButton.addEventListener('click', () => {
       html = `
       <p>${username}: ${message}</p>
     `}; // failsafe in case all checks fail
-    console.log(html);
+    console.log('Unpurified: ' + html);
     //const html = messageBuilder();
     const clean = DOMPurify.sanitize(html);
     mainChannel.message(clean);
