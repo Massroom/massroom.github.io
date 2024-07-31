@@ -347,8 +347,12 @@ function updateAuthStatus() {
   }
 }
 
-mainChannel.history();
 
+mainChannel.history().then((messages) => {
+  messages.forEach((message) => {
+    displayMessage(message.payload);
+  });
+});
 
 
 updateAuthStatus();
