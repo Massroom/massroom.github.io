@@ -347,19 +347,21 @@ function updateAuthStatus() {
   }
 }
 
-
+updateAuthStatus();
 mainChannel.history().then((messages) => {
   messages.forEach((message) => {
     displayMessage(message.payload);
   });
 });
 
-
-updateAuthStatus();
-
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("page is fully loaded");
   mainChannel.message(username + ' has joined the chatroom!');
+  mainChannel.history().then((messages) => {
+    messages.forEach((message) => {
+      displayMessage(message.payload);
+    });
+  });
 });
 
 window.addEventListener('beforeunload', function(e) {
