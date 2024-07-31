@@ -350,21 +350,17 @@ function updateAuthStatus() {
 updateAuthStatus();
 
 setTimeout(() => {
-  mainChannel.history().then((messages) => {
+  const history = mainChannel.history();
+  history.then((messages) => {
     messages.forEach((message) => {
       displayMessage(message.payload);
     });
   });
+  mainChannel.message(username + ' has joined the chatroom!');
 }, 1000);
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  console.log("page is fully loaded");
-  mainChannel.message(username + ' has joined the chatroom!');
-  mainChannel.history().then((messages) => {
-    messages.forEach((message) => {
-      displayMessage(message.payload);
-    });
-  });
+  console.log("page is fully loaded"); 
 });
 
 window.addEventListener('beforeunload', function(e) {
