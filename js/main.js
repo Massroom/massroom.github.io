@@ -80,7 +80,7 @@ const messageList = document.getElementById('messageList');
 const eventList = document.getElementById('eventList');
 const messageListEmpty = document.getElementById('messageListEmpty');
 const typingStatus = document.getElementById('typing-status');
-
+mainChannel.history();
 
 function isEmpty(element) {
   return element.innerHTML.trim() === ''
@@ -360,8 +360,6 @@ mainChannel.on('history', function(action) {
     displayMessage(action.payload);
   }
 });
-
-mainChannel.history();
 
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("page is fully loaded"); 
