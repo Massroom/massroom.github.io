@@ -360,6 +360,7 @@ mainChannel.on('history', function(action) {
     displayMessage(action.payload);
   }
 });
+console.log('history receiver loaded and ready');
 
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("page is fully loaded"); 
