@@ -354,6 +354,8 @@ setTimeout(() => {
   mainChannel.message(username + ' has joined the chatroom!');
 }, 1000);
 
+mainChannel.history();
+
 mainChannel.on('history', function(action) {
   console.log('history', action); // Your code for processing history goes here
   if (action.action === 'message') {
