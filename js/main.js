@@ -351,11 +351,15 @@ updateAuthStatus();
 
 setTimeout(() => {
   const history = mainChannel.history();
-  history.then((messages) => {
-    messages.forEach((message) => {
-      displayMessage(message.payload);
-    });
-  });
+const messages = history.payload.history;
+
+messages.forEach((message) => {
+  if (message.action === 'message') {
+    displayMessage(message.payload);
+  } else if (message.action === 'leave') {
+    displayLeaveMessage(message.payload);
+  }
+});
   mainChannel.message(username + ' has joined the chatroom!');
 }, 1000);
 
