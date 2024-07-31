@@ -94,12 +94,20 @@ mainChannel.on((message) => {
     case 'message':
       displayMessage(message.payload);
       break;
+    case 'history':
+      displayMessage(message.payload.history);
+      break;
     default:
       console.info(message);
   }
 });
 
-mainChannel.message(username + ' has joined the chatroom!');
+mainChannel.on('history', function(action) {
+  console.log('history', action); // Your code for processing history goes here
+  if (action.action === 'message') {
+    displayMessage(action.payload);
+  }
+});
 
 var userCount = null;
 mainChannel.on((presence_full) => {
@@ -354,12 +362,7 @@ setTimeout(() => {
   mainChannel.message(username + ' has joined the chatroom!');
 }, 1000);
 
-mainChannel.on('history', function(action) {
-  console.log('history', action); // Your code for processing history goes here
-  if (action.action === 'message') {
-    displayMessage(action.payload);
-  }
-});
+
 console.log('history receiver loaded and ready');
 
 document.addEventListener("DOMContentLoaded", (event) => {
