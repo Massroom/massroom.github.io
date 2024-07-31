@@ -347,6 +347,10 @@ function updateAuthStatus() {
   }
 }
 
+mainChannel.history();
+
+
+
 updateAuthStatus();
 
 document.addEventListener("DOMContentLoaded", (event) => {
