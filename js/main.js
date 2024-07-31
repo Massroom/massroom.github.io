@@ -350,17 +350,16 @@ function updateAuthStatus() {
 updateAuthStatus();
 
 setTimeout(() => {
-mainChannel.history();
+  mainChannel.history();
+  mainChannel.message(username + ' has joined the chatroom!');
+}, 1000);
 
 mainChannel.on('history', function(action) {
-	console.log('history', action); // Your code for processing history goes here
+  console.log('history', action); // Your code for processing history goes here
   if (action.action === 'message') {
     displayMessage(action.payload);
   }
 });
-
-  mainChannel.message(username + ' has joined the chatroom!');
-}, 1000);
 
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("page is fully loaded"); 
