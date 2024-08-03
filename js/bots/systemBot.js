@@ -73,7 +73,7 @@ function systemBot() {
     const question = message.slice('/ai ask'.length).trim();
     var response;
     (async () => {
-      let response = await gpt.ask(question + ', try to keep your answer short and sweet, no need for markdown formatting. ' + context);
+      let response = await gpt.ask(question + ', no need for markdown formatting. ' + context);
       console.log('GPT Reply: ' + response); // you got it!
       mainChannel.message(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     })();
@@ -81,7 +81,7 @@ function systemBot() {
     const topic = message.slice('/ai story'.length).trim();
     var response;
     (async () => {
-      let response = await gpt.ask(`Write a short story about ${topic}, , try to keep your answer short and sweet (less than 100 words?), no need for markdown formatting. ` + context);
+      let response = await gpt.ask(`Write a story about ${topic}, no need for markdown formatting. ` + context);
       console.log('GPT Reply: ' + response); // you got it!
       mainChannel.message(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     })();
