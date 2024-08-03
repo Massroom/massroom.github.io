@@ -16,7 +16,7 @@ function generatePrivateChatId() {
   n7 = Math.floor((Math.random() * 9) + 1);
   n8 = Math.floor((Math.random() * 9) + 1);
   n9 = Math.floor((Math.random() * 9) + 1);
-  return `${n1}${n2}${n3}${n4}${n5}${n6}${n7}${n8}${n9}`
+  return `massroom-${n1}${n2}${n3}${n4}${n5}${n6}${n7}${n8}${n9}`
 }
 
 let peer;
