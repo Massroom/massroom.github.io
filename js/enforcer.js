@@ -1,7 +1,7 @@
 // for enforcer moderator
 sendButton.addEventListener('click', () => {
   console.log('enforcer ready');
-  const swearWords = ['fuck', 'kys', 'shit', 'cunt', 'nigger', 'suicide', 'kys', 'kill yourself','slit your throat'];
+  const swearWords = ['fuck', 'kys', 'shit', 'cunt', 'nigger', 'suicide', 'KYS', 'kill yourself','slit your throat', 'nigg', 'pea neas', 'pedophile', 'bitch'];
   const message = messageInput.value.toLowerCase(); // Convert to lowercase
 
   for (const word of swearWords) {
