@@ -2,13 +2,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="Mass gathering of random users, on a chatroom.">
     <meta name="google-site-verification" content="8vAjKmNi0m-nR6PioBN-WTaJljmh2mL6Jd3vuGb9uu4" />
-    <title>Temporial</title>
-    <link rel="manifest" href="/" />
-    <link rel="stylesheet" href="/">
+    <title>Massroom</title>
+    <link rel="manifest" href="https://massroom.js.org/manifest.json" />
+    <link rel="stylesheet" href="https://massroom.js.org/css/style.css">
 
-    <link rel="icon" type="image/png" href="/">
+    <link rel="icon" type="image/png" href="https://massroom.js.org/favicon.png">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@xano/js-sdk@latest/dist/xano.min.js"></script>
+
+
+    <!-- Recommended: Use this bundle for feedback, replay, error, and tracing -->
+    <script
+    src="https://browser.sentry-cdn.com/8.20.0/bundle.tracing.replay.feedback.min.js"
+    integrity="sha384-t3CmGEq1Y1SCO6SllU5UO+xpCEna1qq3c17Jsh1XIAED0gt0Y/tcwqoKNNm8Xfo+"
+    crossorigin="anonymous"
+    ></script>
+
+    <script>
+        Sentry.init({
+            dsn: "https://ee6936990adeb49036501b8f00a8961f@o4507480204050432.ingest.de.sentry.io/4507490661367888",
+            integrations: [
+                Sentry.feedbackIntegration({
+                    // Additional SDK configuration goes in here, for example:
+                    colorScheme: "dark",
+                }),
+            ],
+        });
+    </script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
@@ -21,6 +43,8 @@
 
     <!-- Balloon.css -->
     <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
+
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 </head>
