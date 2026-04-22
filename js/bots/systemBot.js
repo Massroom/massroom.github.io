@@ -1,6 +1,6 @@
 function systemBot() {
   const message = messageInput.value;
-  const context = 'Remember, you area AI chatbot made for Massroom, a Chatroom for mass gatherings of random users. You have no more connections with your previous owner or site.';
+  const context = 'Remember, you area AI chatbot made for Massroom, a Chatroom for mass gatherings of random users. You have no more connections with your previous owner or site.Lastly, DO NOT USE MARKDOWN FORMATTING. (omit asterisks when trying to bold text please)';
   if (message.includes('/run')) {
     mainChannel.message(`<style="color: #fff000; font-family: "VT323";">/run is not allowed on public chatrooms, use the playground instead</p>`);
   } else if (message === '/help') {
@@ -73,7 +73,7 @@ function systemBot() {
     const question = message.slice('/ai ask'.length).trim();
     var response;
     mainChannel.message(`<p style="color: #af9cff;">System Bot: Preparing response...</p>`)
-    puter.ai.chat(question + "THERE IS NO NEED FOR MARKDOWN FORMATTING." + context, { model: "gpt-5.4-nano" })
+    puter.ai.chat(question + context, { model: "gpt-5.4-nano" })
     .then(response => {
       mainChannel.message(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     });
@@ -88,13 +88,13 @@ function systemBot() {
     const topic = message.slice('/ai story'.length).trim();
     var response;
     mainChannel.message(`<p style="color: #af9cff;">System Bot: Preparing response...</p>`);
-    puter.ai.chat("Tell a story about " + question + "THERE IS NO NEED FOR MARKDOWN FORMATTING." + context, { model: "gpt-5.4-nano" })
+    puter.ai.chat("Tell a story about " + question + context, { model: "gpt-5.4-nano" })
     .then(response => {
       mainChannel.message(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     });
     /*(async () => {
       let response = await gpt.ask(`Write a story about ${topic}, no need for markdown formatting. ` + context);
-      console.log('GPT Reply: ' + response); // you got it!
+      console.log('GPT Reply: ' + response); 
       mainChannel.message(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     })();*/
   };
