@@ -72,20 +72,30 @@ function systemBot() {
   } else if (message.startsWith('/ai ask')) {
     const question = message.slice('/ai ask'.length).trim();
     var response;
-mainChannel.message(`<p style="color: #af9cff;">System Bot: Preparing response...</p>`);
-    (async () => {
+    mainChannel.message(`<p style="color: #af9cff;">System Bot: Preparing response...</p>`)
+    puter.ai.chat(question, { model: "gpt-5.4-nano" })
+    .then(response => {
+      mainChannel.message(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
+    });
+
+    /*(async () => {
       let response = await gpt.ask(question + ', no need for markdown formatting. ' + context);
       console.log('GPT Reply: ' + response);
       mainChannel.message(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
-    })();
+    })();*/
+
   } else if (message.startsWith('/ai story')) {
     const topic = message.slice('/ai story'.length).trim();
     var response;
-mainChannel.message(`<p style="color: #af9cff;">System Bot: Preparing response...</p>`);
-    (async () => {
+    mainChannel.message(`<p style="color: #af9cff;">System Bot: Preparing response...</p>`);
+    puter.ai.chat("Tell a story about " + question, { model: "gpt-5.4-nano" })
+    .then(response => {
+      mainChannel.message(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
+    });
+    /*(async () => {
       let response = await gpt.ask(`Write a story about ${topic}, no need for markdown formatting. ` + context);
       console.log('GPT Reply: ' + response); // you got it!
       mainChannel.message(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
-    })();
+    })();*/
   };
 };
