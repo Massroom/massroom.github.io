@@ -73,7 +73,7 @@ function systemBot() {
     const question = message.slice('/ai ask'.length).trim();
     var response;
     mainChannel.message(`<p style="color: #af9cff;">System Bot: Preparing response...</p>`)
-    puter.ai.chat(question, { model: "gpt-5.4-nano" })
+    puter.ai.chat(question + "THERE IS NO NEED FOR MARKDOWN FORMATTING." + context, { model: "gpt-5.4-nano" })
     .then(response => {
       mainChannel.message(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     });
@@ -88,7 +88,7 @@ function systemBot() {
     const topic = message.slice('/ai story'.length).trim();
     var response;
     mainChannel.message(`<p style="color: #af9cff;">System Bot: Preparing response...</p>`);
-    puter.ai.chat("Tell a story about " + question, { model: "gpt-5.4-nano" })
+    puter.ai.chat("Tell a story about " + question + "THERE IS NO NEED FOR MARKDOWN FORMATTING." + context, { model: "gpt-5.4-nano" })
     .then(response => {
       mainChannel.message(`<p style="color: #af9cff;">System Bot: ${response}</p>`);
     });
