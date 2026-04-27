@@ -9,4 +9,5 @@ sendButton.addEventListener('click', () => {
   funBot();
   idstBot();
   iFrameBot();
+  ageVerificationBot()
 });
