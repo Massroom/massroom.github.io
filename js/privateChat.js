@@ -183,9 +183,12 @@ function updateAuthStatus() {
   auth = localStorage.getItem("auth");
 }
 
-function idst() {
+function privateChat() {
   if (privateChatId === '1dst') {
-    startMessage.insertAdjacentHTML('beforeend', '<p style="color: #af9cff;">Info: Welcome to 1DST updates channel! Check in for any new 1DST updates here!</p>');
+    startMessage.insertAdjacentHTML('beforeend', '<p style="color: #af9cff;">Info: Welcome to 1DST updates channel! Tune in for any new 1DST updates here!</p>');
+  }
+  if(privateChatId === 'null') {
+    startMessage.insertAdjacentHTML('beforeend', '<p style="color: #af9cff;">Info: </p>');
   }
 }
 
@@ -195,7 +198,7 @@ function isEmpty(element) {
 
 function checkNewRoom() {
       if (isEmpty(startMessage)) {
-            idst();
+            privateChat();
       }
 }
 
